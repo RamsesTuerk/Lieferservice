@@ -30,3 +30,14 @@ function loadCSV() {                                                            
     xhttp.open("GET", csvFile, true);
     xhttp.send();
 }
+function showTyp(){
+    document.getElementById('index_btn_burger').addEventListener('click', function() {
+        const tableContainer = document.querySelector('.table_typ_select_container');
+        if (tableContainer.style.left !== '-100%') {
+            tableContainer.style.left = '50%';
+        } else {
+            console.error("Failed to load Table. Status code: " + this.status);
+            tableContainer.style.left = '-100%';
+        }
+    });
+}

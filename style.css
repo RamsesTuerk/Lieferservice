@@ -5,7 +5,7 @@ h1 {
     text-align: center;
 }
 html{
-    background-color: #1a1a31;
+    background-color: #171735;
 }
 
 p {
@@ -34,4 +34,24 @@ p {
 }
 #csvTable {
     color: white;
+}
+.picture{
+    height: 10vw;
+}
+.table_typ_select_container{
+    position: absolute;
+    left: -100%;
+    transition: left 0.5s;
+}
+#table_typ_select{
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 400px;
+}
+.table_food_select{
+    z-index: 1;
+    position: relative;
+}
+#index_img_vegan{
+    height: 5vw;
 }
