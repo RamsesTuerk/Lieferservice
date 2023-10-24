@@ -22,3 +22,16 @@ p {
     border: none;
     size: auto;
 }
+.ueberspringen {
+    text-align: center;
+}
+#ueberspringen_auswahl {
+    margin-top: 5vw;
+    padding: 1vw;
+    background-color: #1c17255e;
+    color: white;
+    border: none;
+}
+#csvTable {
+    color: white;
+}

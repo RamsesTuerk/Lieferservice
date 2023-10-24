@@ -3,6 +3,7 @@
     <head>
         <link rel="stylesheet" href="style.css"> <!--Verbindet die Webseite mit der CSS-Datei "Style.css"-->
         <title>Burger, Pizza, Sushi</title>
+        <script language="javascript" type="text/javascript" src="script.js"></script>
     </head>
     <body>
         <div>
@@ -14,25 +15,34 @@
                 <p class="index_paragraph" id="index_p2">Entscheide dich</p>
             </div>
             <div>
-                <table align="center" style="margin: 0px auto;">
-                    <tr class="table">
-                        <td>
-                            <button class="index_btn" id="index_btn_burger">
-                                <img src="Burger.png" alt="Bild von einem Burger">
-                            </button>
-                        </td>
-                        <td>
-                            <button class="index_btn" id="index_btn_pizza">
-                                <img src="Pizza.png" alt="Bild von einem Stück Pizza">
-                            </button>
-                        </td>
-                        <td>
-                            <button class="index_btn" id="index_btn_sushi">
-                                <img src="Sushi.png" alt="Bild von einer Rolle Sushi">
-                            </button>
-                        </td>
-                    </tr>
+                    <table align="center" style="margin: 0px auto;">
+                        <tr class="table">
+                            <td>
+                                <button class="index_btn" id="index_btn_burger" onclick="loadCSV()">
+                                    <img src="Burger.png" alt="Bild von einem Burger">
+                                </button>
+                            </td>
+                            <td>
+                                <button class="index_btn" id="index_btn_pizza">
+                                    <img src="Pizza.png" alt="Bild von einem Stück Pizza">
+                                </button>
+                            </td>
+                            <td>
+                                <button class="index_btn" id="index_btn_sushi">
+                                    <img src="Sushi.png" alt="Bild von einer Rolle Sushi">
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
+                <table id="csvTable">
+                    <ol>
+                    <!-- Hier werden die CSV-Daten eingefügt -->
+                    </ol>
                 </table>
+                <div class="ueberspringen">
+                    <button id="ueberspringen_auswahl">Überspringen</button>
+                </div>
+                
             </div>
         </div>
     </body>
