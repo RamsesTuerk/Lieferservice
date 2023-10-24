@@ -1,0 +1,24 @@
+h1 {
+    font-size: 5vw;
+    font-style: oblique;
+    color: white;
+    text-align: center;
+}
+html{
+    background-color: #161618;
+}
+
+p {
+    font-size: 3vw;
+    text-align: center;
+    color: white;
+}
+
+#index_p2 {
+    font-size: 2vw;
+}
+.index_btn {
+    background-color: transparent;
+    border: none;
+    size: auto;
+}

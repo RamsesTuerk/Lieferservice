@@ -1,0 +1,41 @@
+Restaurant Name,Mindestbestellwert,Lieferzeit (Minuten),Lieferkosten (EUR),Kategorie,Typ
+Burger King,15.0,33,3.5,Burger,Rind
+McDonald's,14.0,31,5.0,Burger,Vegan
+Wendy's,12.0,43,4.0,Burger,Vegan
+Five Guys,9.5,45,3.0,Burger,Vegan
+In-N-Out Burger,10.5,26,4.0,Burger,Gefluegel
+Shake Shack,11.0,41,4.5,Burger,Vegan
+Whataburger,13.0,28,4.0,Burger,Gefluegel
+Sonic Drive-In,12.0,24,4.0,Burger,Rind
+Carl's Jr.,13.0,32,2.5,Burger,Vegan
+Jack in the Box,14.5,36,2.5,Burger,Gefluegel
+White Castle,14.0,43,3.5,Burger,Vegan
+Culver's,12.5,31,4.0,Burger,Rind
+Checkers & Rally's,9.5,43,3.5,Burger,Vegan
+A&W Restaurants,14.5,35,3.5,Burger,Vegan
+Smashburger,13.0,31,3.0,Burger,Rind
+Hardee's,12.0,31,3.5,Burger,Rind
+Krystal,8.0,34,3.5,Burger,Vegan
+The Habit Burger Grill,8.5,44,3.0,Burger,Rind
+Elevation Burger,12.5,28,5.0,Burger,Gefluegel
+Fuddruckers,13.5,36,3.5,Burger,Rind
+Red Robin,10.5,33,4.0,Burger,Vegan
+Wayback Burgers,9.5,38,3.0,Burger,Gefluegel
+"MOOYAH Burgers Fries & Shakes",12.5,45,3.5,Burger,Rind
+Big Boy,14.5,34,4.5,Burger,Gefluegel
+Good Times Burgers & Frozen Custard,8.0,27,5.0,Burger,Vegan
+Burgerville,8.5,28,3.0,Burger,Gefluegel
+Back Yard Burgers,8.5,31,2.0,Burger,Gefluegel
+FATZ,13.5,29,3.5,Burger,Gefluegel
+Farmer Boys,12.5,25,4.0,Burger,Rind
+Braum's Ice Cream & Dairy Store,10.5,27,2.0,Burger,Rind
+Ted's Montana Grill,9.5,45,2.0,Burger,Rind
+Lick's Homeburgers,9.5,28,4.0,Burger,Gefluegel
+BGR - The Burger Joint,12.0,45,4.0,Burger,Rind
+Zinburger Wine & Burger Bar,14.5,33,2.5,Burger,Vegan
+Bobby's Burger Palace,8.5,38,4.5,Burger,Vegan
+Bareburger,11.0,29,2.0,Burger,Rind
+Bison Witches Bar & Deli,13.5,22,3.5,Burger,Rind
+Green Turtle,9.5,25,2.5,Burger,Rind
+Hickory's Famous Burgers,12.5,42,3.5,Burger,Gefluegel
+The Counter,10.0,25,2.5,Burger,Rind
