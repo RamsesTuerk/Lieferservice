@@ -13,8 +13,6 @@ function zumWarenkorb(nr) {
 
 
 function warenkorbAusgeben() {
-
-   
     var isInWarenkorbProdukte = (element) => element == warenkorb;
     var index = warenkorbProdukte.findIndex(isInWarenkorbProdukte);
 
@@ -34,12 +32,13 @@ function warenkorbAusgeben() {
             //ausgabe += '<input type="button" value="X" id="loeschen" onclick="loescheNr(' + j + ');" />';
             //ausgabe += '</li>';
    // }
-   
-    document.getElementById('waren').innerHTML = ausgabe;
+
+   // document.getElementById('waren').innerHTML = ausgabe;
 }
 
-function loescheNr(id) {
-    warenkorb.splice(id, 1);
-    warenkorbAusgeben();
-}
+
+//function loescheNr(id) {
+//    warenkorb.splice(id, 1);
+//    warenkorbAusgeben();
+//}
 
