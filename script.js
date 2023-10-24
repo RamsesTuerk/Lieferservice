@@ -1,6 +1,10 @@
-function loadCSV() {
-    var csvFile = "/Datenbanken/burger_restaurants.csv";
-    var table = document.getElementById("csvTable");
+function loadCSV() {                                                                /* Erstellt eine Funktion mit dem namen loadCSV*/
+
+    var csvFile = "/Datenbanken/burger_restaurants.csv";                            /* Erstellt eine Variable mit dem Namen csvFile. 
+                                                                                    Diese Variable speichert den Ablageort der zu verwendenden CSV */
+
+    var table = document.getElementById("csvTable");                                /* Erstellt eine Variable mit dem Namen table. 
+                                                                                    Diese Variable sucht in der HTML den bereich mit der ID="csvTable"*/
     var xhttp = new XMLHttpRequest();
 
     xhttp.onreadystatechange = function() {
