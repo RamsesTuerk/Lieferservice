@@ -34,6 +34,7 @@ function warenkorbAusgeben() {
             //ausgabe += '<input type="button" value="X" id="loeschen" onclick="loescheNr(' + j + ');" />';
             //ausgabe += '</li>';
    // }
+   
     document.getElementById('waren').innerHTML = ausgabe;
 }
 
