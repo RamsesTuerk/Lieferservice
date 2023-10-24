@@ -43,3 +43,14 @@ function showTyp(){
         }
     
 }
+function hideTyp(){
+    
+    const tableContainer = document.querySelector('.table_food_select');
+    if (tableContainer.style.left !== '-100%') {
+        tableContainer.style.left = '-100%';
+    } else {
+        console.error("Failed to load Table. Status code: " + this.status);
+        tableContainer.style.left = '-100%';
+    }
+
+}

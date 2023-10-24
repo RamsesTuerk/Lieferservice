@@ -49,9 +49,14 @@ p {
     max-width: 400px;
 }
 .table_food_select{
-    z-index: 1;
+    z-index: 2;
     position: relative;
+    transition: right 0.5s;
 }
 #index_img_vegan{
     height: 5vw;
+}
+#index_header1{
+    z-index: 1;
+    position: absolut;
 }
