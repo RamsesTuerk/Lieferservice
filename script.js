@@ -32,7 +32,7 @@ function loadCSV() {                                                            
 }
 
 
-function showTyp(){
+function showTyp(){                                                                //erstellt eine Funktion, die eine Tabelle ins Bild sliden lässt
     
         const tableContainer = document.querySelector('.table_typ_select_container');
         if (tableContainer.style.left !== '-100%') {
@@ -43,7 +43,7 @@ function showTyp(){
         }
     
 }
-function hideTyp(){
+function hideTyp(){                                                                 //erstellt eine Funktion, die eine Tabelle aus dem Bild sliden lässt
     
     const tableContainer = document.querySelector('.table_food_select');
     if (tableContainer.style.left !== '-100%') {
