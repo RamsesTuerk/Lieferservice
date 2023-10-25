@@ -42,10 +42,12 @@ function warenkorbAusgeben() {
 
 var warenkorbPreis = 0;
 
-// Schleife durch alle Produkte im Warenkorb
-for (var i = 0; i < warenkorb.produkte.length; i++) {
-  // Gesamtpreis berechnen, indem Menge und Preis multipliziert und zur Gesamtsumme hinzugefügt werden
-  warenkorbPreis += warenkorb.menge[i] * warenkorb.preis[i];
+function warenkorbSum(){
+  // Schleife durch alle Produkte im Warenkorb
+  for (var i = 0; i < warenkorb.produkte.length; i++) {
+    // Gesamtpreis berechnen, indem Menge und Preis multipliziert und zur Gesamtsumme hinzugefügt werden
+    warenkorbPreis += warenkorb.menge[i] * warenkorb.preis[i];
+  }
 }
 
 function loescheProdukt(index) {
