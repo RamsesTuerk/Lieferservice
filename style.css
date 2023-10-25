@@ -23,9 +23,6 @@ p {
     size: 20%;
 }
 .auswahl_btn {
-    text-align: center;
-}
-#ueberspringen_auswahl {
     margin-top: 5vw;
     padding: 1vw;
     background-color: #5016bb5e;
@@ -33,14 +30,7 @@ p {
     border: none;
     border-radius: 20px;
 }
-#back_auswahl {
-    margin-top: 5vw;
-    padding: 1vw;
-    background-color: #5016bb5e;
-    color: white;
-    border: none;
-    border-radius: 20px;
-}
+
 #csvTable {
     color: white;
 }
@@ -55,6 +45,7 @@ p {
     height: 100%;
     position: absolute;
     left: -100%;
+    padding: -20 0 -20 0;
 }
 #table_food_select_container{
     width: 100%;
@@ -67,7 +58,9 @@ p {
 #index_header1{
     position: absolut;
 }
-
+.btn_div{
+    text-align: center
+}
 
 
 
