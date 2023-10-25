@@ -1,10 +1,10 @@
 //Dieser Code wird dazu verwendet einen Warenkorb funktionstechnisch Darzustellen 
+var warenkorbPreis = 0;
 var warenkorb = {
   produkte: [],
   menge: [],
   preis: []
 };
-var warenkorbPreis = 0;
 
 function zumWarenkorb(nr, pr) {
   var produktName = document.getElementById('produkt' + nr).innerHTML;
@@ -24,19 +24,14 @@ function zumWarenkorb(nr, pr) {
   warenkorbAusgeben();
 }
 
-
-
-
 function warenkorbAusgeben() {
 
     warenkorbSum()
+
     console.log(warenkorb.produkte);
     console.log(warenkorb.menge);
     console.log(warenkorb.preis);
     console.log(warenkorbPreis);
-    
-   
-
 }
 
 function warenkorbSum(){
