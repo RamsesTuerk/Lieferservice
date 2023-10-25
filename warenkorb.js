@@ -27,8 +27,6 @@ function zumWarenkorb(nr, pr) {
 function warenkorbAusgeben() {
 
     warenkorbSum()
-
-
     var ausgabe = '';
 
     for (var i = 0; i < warenkorb.produkte.length; i++) {
@@ -39,7 +37,6 @@ function warenkorbAusgeben() {
     }
 
     document.getElementById('waren').innerHTML = ausgabe;
-
 
     console.log(warenkorb.produkte);
     console.log(warenkorb.menge);
@@ -58,7 +55,7 @@ function warenkorbSum(){
 function loescheProdukt(index){
   
   if(warenkorb.menge[index] > 1){
-    warenkorb.menge[index] = warenkorb.menge[index] - 1;
+    warenkorb.menge[index] -= 1;
   }else{
     warenkorb.produkte.splice(index, 1);
     warenkorb.menge.splice(index, 1);
