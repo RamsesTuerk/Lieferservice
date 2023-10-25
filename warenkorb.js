@@ -28,6 +28,19 @@ function warenkorbAusgeben() {
 
     warenkorbSum()
 
+
+    var ausgabe = '';
+
+    for (var i = 0; i < warenkorb.produkte.length; i++) {
+        ausgabe += '<li>';
+        ausgabe += warenkorb.menge[i] + "x " + warenkorb.produkte[i];
+        ausgabe += '<input type="button" value="X" onclick="loescheProdukt(' + i + ');" />';
+        ausgabe += '</li>';
+    }
+
+    document.getElementById('waren').innerHTML = ausgabe;
+
+
     console.log(warenkorb.produkte);
     console.log(warenkorb.menge);
     console.log(warenkorb.preis);
@@ -40,6 +53,18 @@ function warenkorbSum(){
   for (var i = 0; i < warenkorb.produkte.length; i++) {
        warenkorbPreis += warenkorb.menge[i] * warenkorb.preis[i];
   }
+}
+
+function loescheProdukt(index){
+  
+  if(warenkorb.menge[index] > 1){
+    warenkorb.menge[index] = warenkorb.menge[index] - 1;
+  }else{
+    warenkorb.produkte.splice(index, 1);
+    warenkorb.menge.splice(index, 1);
+    warenkorb.preis.splice(index, 1);
+  }
+    warenkorbAusgeben();
 }
 
 
