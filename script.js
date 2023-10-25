@@ -1,6 +1,6 @@
 function loadCSV() {                                                                /* Erstellt eine Funktion mit dem namen loadCSV*/
 
-    var csvFile = "/Datenbanken/burger_restaurants.csv";                            /* Erstellt eine Variable mit dem Namen csvFile. 
+    var csvFile = "/Datenbanken/pizza_restaurants.csv";                            /* Erstellt eine Variable mit dem Namen csvFile. 
                                                                                     Diese Variable speichert den Ablageort der zu verwendenden CSV */
 
     var table = document.getElementById("csvTable");                                /* Erstellt eine Variable mit dem Namen table. 
@@ -34,9 +34,16 @@ function loadCSV() {                                                            
 function slideOut() {
     var element = document.getElementById("table_food_select_container");
     element.classList.add("slide_out");
-  }
+}
 
-  function slideIn() {
+function slideIn() {
     var element = document.getElementById("table_typ_select_container");
     element.classList.add("slide_in");
-  }
+}
+function slideBack() {
+    var element = document.getElementById("table_typ_select_container");
+    element.classList.remove("slide_in");
+    
+    var element = document.getElementById("table_food_select_container");
+    element.classList.remove("slide_out");
+}
