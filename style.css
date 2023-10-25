@@ -39,6 +39,7 @@ p {
     background-color: #5016bb5e;
     color: white;
     border: none;
+    border-radius: 20px;
 }
 #csvTable {
     color: white;
