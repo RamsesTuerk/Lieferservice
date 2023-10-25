@@ -25,7 +25,7 @@
                                     </button>
                                 </td>
                                 <td>
-                                    <button class="index_btn" id="index_btn_pizza">
+                                    <button class="index_btn" id="index_btn_pizza" onclick="loadCSV()">
                                         <img class="picture" src="Pizza.png" alt="Bild von einem Stück Pizza">
                                     </button>
                                 </td>
@@ -41,8 +41,10 @@
                         <!-- Hier werden die CSV-Daten eingefügt -->
                         </ol>
                     </table>
-                    <div class="ueberspringen">
-                        <button id="ueberspringen_auswahl">Überspringen</button>
+                    <div class="auswahl_btn">
+                        <button id="ueberspringen_auswahl">
+                            Überspringen
+                        </button>
                     </div>
                 </div>
                 <div id="table_typ_select_container" class="table_select_container">
@@ -65,6 +67,11 @@
                             </td>
                         </tr>
                     </table>
+                    <div class="auswahl_btn">
+                        <button id="back_auswahl" onclick="slideBack()">
+                            Zurück
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
