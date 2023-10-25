@@ -62,7 +62,10 @@ p {
 .btn_div{
     text-align: center
 }
-
+#ueberspringen_auswahl{
+    position: relative;
+    left: 25%;
+}
 
 
 .slide_out{
