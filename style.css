@@ -28,14 +28,15 @@ p {
 #ueberspringen_auswahl {
     margin-top: 5vw;
     padding: 1vw;
-    background-color: #1c17255e;
+    background-color: #5016bb5e;
     color: white;
     border: none;
+    border-radius: 20px;
 }
 #back_auswahl {
     margin-top: 5vw;
     padding: 1vw;
-    background-color: #1c17255e;
+    background-color: #5016bb5e;
     color: white;
     border: none;
 }
@@ -65,7 +66,6 @@ p {
 #index_header1{
     position: absolut;
 }
-
 
 
 
