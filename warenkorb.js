@@ -31,10 +31,12 @@ function warenkorbAusgeben() {
 
     for (var i = 0; i < warenkorb.produkte.length; i++) {
         ausgabe += '<li>';
-        ausgabe += warenkorb.menge[i] + "x " + warenkorb.produkte[i];
+        ausgabe += warenkorb.menge[i] + "x " + warenkorb.produkte[i] + ": " + (warenkorb.preis[i] / 100) + "€ ";
         ausgabe += '<input type="button" value="X" onclick="loescheProdukt(' + i + ');" />';
-        ausgabe += '</li>';
+        ausgabe += '</li><br>';
     }
+
+    ausgabe += (warenkorbPreis / 100) + "€"
 
     document.getElementById('waren').innerHTML = ausgabe;
 
