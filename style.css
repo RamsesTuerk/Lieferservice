@@ -38,10 +38,10 @@ p {
 .picture{
     height: 10vw;
 }
-.table_typ_select_container{
+#table_typ_select_container{
     position: absolute;
     left: -100%;
-    transition: left 0.5s;
+    top: 42%;
     z-index: 3;
 }
 #table_typ_select{
@@ -49,10 +49,9 @@ p {
     width: 100%;
     max-width: 400px;
 }
-.table_food_select{
+table_food_select_container{
     z-index: 1;
-    position: relative;
-    transition: right 0.5s;
+    position: absolut;
 }
 #index_img_vegan{
     height: 5vw;
@@ -60,4 +59,15 @@ p {
 #index_header1{
     z-index: 1;
     position: absolut;
+}
+.picture_typ{
+    height: 300px;
+}
+.slide_out{
+    transition: all 0.5s ease-in-out;
+    transform: translateX(-100%);
+}
+.slide_in{
+    transition: all 0.5s ease-in-out;
+    transform: translateX(280%);
 }

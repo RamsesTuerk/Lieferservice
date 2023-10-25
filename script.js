@@ -31,26 +31,12 @@ function loadCSV() {                                                            
     xhttp.send();
 }
 
+function slideOut() {
+    var element = document.getElementById("table_food_select_container");
+    element.classList.add("slide_out");
+  }
 
-function showTyp(){                                                                //erstellt eine Funktion, die eine Tabelle ins Bild sliden lässt
-    
-        const tableContainer = document.querySelector('.table_typ_select_container');
-        if (tableContainer.style.left !== '-100%') {
-            tableContainer.style.left = '50%';
-        } else {
-            console.error("Failed to load Table. Status code: " + this.status);
-            tableContainer.style.left = '-100%';
-        }
-    
-}
-function hideTyp(){                                                                 //erstellt eine Funktion, die eine Tabelle aus dem Bild sliden lässt
-    
-    const tableContainer = document.querySelector('.table_food_select');
-    if (tableContainer.style.left !== '-100%') {
-        tableContainer.style.left = '-100%';
-    } else {
-        console.error("Failed to load Table. Status code: " + this.status);
-        tableContainer.style.left = '-100%';
-    }
-
-}
+  function slideIn() {
+    var element = document.getElementById("table_typ_select_container");
+    element.classList.add("slide_in");
+  }
