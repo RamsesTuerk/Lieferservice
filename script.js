@@ -90,7 +90,7 @@ function slideBackPrice() { //----------- Slide-Back von Price zu Typ ----------
     console.log(choice)
 
 }
-
+//----------- Öffnet die Seite "auswahl.html" im selben tab -----------
 function submitChoice() {
-    window.moveTo("_blank", "auswahl.html");
-  }
+    window.open("auswahl.html", "_self"); //----------- 1. Wert ist das ziel, 2. Wert ist der Ort-----------
+  }                                        //----------- um ein neuen Tab zu öffnen, wir nicht "_self" sondern "_blank" benutzt-----------
