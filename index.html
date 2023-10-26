@@ -4,7 +4,10 @@
         <link rel="stylesheet" href="style.css"> <!--Verbindet die Webseite mit der CSS-Datei "Style.css"-->
         <title>Burger, Pizza, Sushi</title>
         <script language="javascript" type="text/javascript" src="script.js"></script>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
+        <form action="auswahl.php" method="post">
+            <div id="javascriptVariable" name="javascriptVariable" value=""></div>
+        </form>
     </head>
     <body>
         <div>
@@ -51,6 +54,7 @@
                 <div id="table_typ_select_container" class="table_select_container">
                     <table align="center" class="table_typ_select">
                         <tr>
+                            <form action="auswahl.php" method="post"></form>
                             <td>
                                 <button class="index_btn" id="index_burger_btn_beef" onclick="slideOutTyp(), slideInPrice(), addChoice(0)">
                                     <img class="picture_typ" src="pictures/Rind.png" alt="Bild von einem Stück Rindfleisch">
@@ -72,6 +76,11 @@
                         <button class="auswahl_btn" id="back_auswahl" onclick="slideBack()">
                             Zurück
                         </button>
+                        <table id="csvTable">
+                            <ol>
+                            <!-- Hier werden die CSV-Daten eingefügt -->
+                            </ol>
+                        </table>
                     </div>
                 </div>
                 <div id="table_price_select_container" class="table_select_container">
@@ -83,12 +92,12 @@
                                 </button>
                             </td>
                             <td>
-                                <button class="index_btn price_btn" id="index_btn_regular" onclick="addChoice(1)">
+                                <button class="index_btn price_btn" id="index_btn_regular" onclick="addChoice(1), submitChoice()">
                                     <img class="picture_typ" src="pictures/normalpreisig.png" alt="Bild von zwei Dollarzeichen (Normalpreisig)">
                                 </button>
                             </td>
                             <td>
-                                <button class="index_btn price_btn" id="index_btn_expensive" onclick="addChoice(2)">
+                                <button class="index_btn price_btn" id="index_btn_expensive" onclick="addChoice(2), submitChoice()">
                                     <img class="picture_typ" id="index_img_teuer" src="pictures/teuer.png" alt="Bild von drei Dollarzeichen (Teuer)">
                                 </button>
                             </td>

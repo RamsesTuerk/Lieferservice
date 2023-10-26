@@ -31,14 +31,14 @@ function loadCSV() {                                                            
     xhttp.send();
 }
 //----------- Die Auswahl wird in einem Array("coice") gespeichert -----------
-var choice = [
+var choice = []
     
-]
+
 
 //----------- Diese Funktion übergibt die Werte der Auswahl in choice -----------
 function addChoice(value){
     choice.push(value);
-    console.log(choice)
+    outputTest()
 }
 
 //----------- Slide-Out functions -----------
@@ -90,7 +90,32 @@ function slideBackPrice() { //----------- Slide-Back von Price zu Typ ----------
     console.log(choice)
 
 }
+
+function postChoice(){
+    if(choice[0] == 0)
+        kategorie = "Burger"
+    else if(choice[0] == 1)
+        kategorie = ("Pizza")
+    else if(choice[0] == 2)
+        kategorie = ("Sushi")
+
+    if(choice[1] == 0)
+        typ = ("Rind")
+    else if(choice[1] == 1)
+        typ = ("Gefluegel")
+    else if(choice[1] == 2)
+        typ = ("Vegan")
+
+    if(choice[2] == 0)
+        preis = ("Billig")
+    else if(choice[2] == 1)
+        preis = ("Normalpreisig")
+    else if(choice[2] == 2)
+        preis = ("Teuer")
+}
 //----------- Öffnet die Seite "auswahl.html" im selben tab -----------
 function submitChoice() {
-    window.open("auswahl.html", "_self"); //----------- 1. Wert ist das ziel, 2. Wert ist der Ort-----------
-  }                                        //----------- um ein neuen Tab zu öffnen, wir nicht "_self" sondern "_blank" benutzt-----------
+    postChoice()
+    window.open("auswahl.php", "_self"); //----------- 1. Wert ist das ziel, 2. Wert ist der Ort------- um ein neuen Tab zu öffnen, wir nicht "_self" sondern "_blank" benutzt-----------
+    window.location.href = "auswahl.php?kategorie=" + kategorie + "&" + "typ=" + typ + "&" + "preis=" + preis;
+  }                                        

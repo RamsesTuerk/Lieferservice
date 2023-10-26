@@ -93,3 +93,7 @@ p {
 .index_table{
     position: relative;
 }
+.invisible{
+    color: transparent;
+    background-color: transparent;
+}
