@@ -1,6 +1,6 @@
 function loadCSV() {                                                                /* Erstellt eine Funktion mit dem namen loadCSV*/
 
-    var csvFile = "/Datenbanken/pizza_restaurants.csv";                            /* Erstellt eine Variable mit dem Namen csvFile. 
+    var csvFile = "/Datenbanken/restaurants_all.csv";                            /* Erstellt eine Variable mit dem Namen csvFile. 
                                                                                     Diese Variable speichert den Ablageort der zu verwendenden CSV */
 
     var table = document.getElementById("csvTable");                                /* Erstellt eine Variable mit dem Namen table. 
@@ -90,3 +90,7 @@ function slideBackPrice() { //----------- Slide-Back von Price zu Typ ----------
     console.log(choice)
 
 }
+
+function submitChoice() {
+    window.moveTo("_blank", "auswahl.html");
+  }
