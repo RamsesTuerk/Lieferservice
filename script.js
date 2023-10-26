@@ -30,20 +30,45 @@ function loadCSV() {                                                            
     xhttp.open("GET", csvFile, true);
     xhttp.send();
 }
-
-function slideOut() {
+//----------- Slide-Out functions -----------
+function slideOutFood() {
     var element = document.getElementById("table_food_select_container");
     element.classList.add("slide_out");
+    element.classList.remove("slide_in_food");
+}
+function slideOutTyp() {
+    var element = document.getElementById("table_typ_select_container");
+    element.classList.remove("slide_in");
+    element.classList.add("slide_out_typ");
 }
 
-function slideIn() {
+//----------- Slide-In functions -----------
+function slideInTyp() {
     var element = document.getElementById("table_typ_select_container");
     element.classList.add("slide_in");
 }
+function slideInPrice() {
+    var element = document.getElementById("table_price_select_container");
+    element.classList.add("slide_in");
+}
+
+
 function slideBack() {
     var element = document.getElementById("table_typ_select_container");
     element.classList.remove("slide_in");
-    
+    element.classList.add("slide_out");
+
     var element = document.getElementById("table_food_select_container");
     element.classList.remove("slide_out");
+    element.classList.add("slide_in_food");
+}
+function slideBackPrice() {
+    var element = document.getElementById("table_typ_select_container");
+    element.classList.remove("slide_out");
+    element.classList.add("slide_in");
+
+    var element = document.getElementById("table_price_select_container");
+    element.classList.remove("slide_in");
+    element.classList.add("slide_out");
+
 }
