@@ -33,7 +33,7 @@
             if ($result) {
                 // Daten verarbeiten, z.B. ausgeben
                 while ($row = $result->fetch_assoc()) {
-                    echo "<table>";
+                    echo "<table class='choice_table'>";
                     echo "<tr>";
                     echo "<td>"."Restaurant: " . $row["Restaurant Name"]."</td>". "<br>";
                     echo "</tr>";

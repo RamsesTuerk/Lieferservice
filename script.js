@@ -38,7 +38,6 @@ var choice = []
 //----------- Diese Funktion übergibt die Werte der Auswahl in choice -----------
 function addChoice(value){
     choice.push(value);
-    outputTest()
 }
 
 //----------- Slide-Out functions -----------
