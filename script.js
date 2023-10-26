@@ -30,6 +30,17 @@ function loadCSV() {                                                            
     xhttp.open("GET", csvFile, true);
     xhttp.send();
 }
+
+var choice = [
+    
+]
+
+
+function addChoice(value){
+    choice.push(value);
+    console.log(choice)
+}
+
 //----------- Slide-Out functions -----------
 function slideOutFood() {
     var element = document.getElementById("table_food_select_container");
@@ -52,7 +63,7 @@ function slideInPrice() {
     element.classList.add("slide_in");
 }
 
-
+//----------- Slide-Back functions -----------
 function slideBack() {
     var element = document.getElementById("table_typ_select_container");
     element.classList.remove("slide_in");
@@ -61,6 +72,10 @@ function slideBack() {
     var element = document.getElementById("table_food_select_container");
     element.classList.remove("slide_out");
     element.classList.add("slide_in_food");
+
+    choice.pop();
+    console.log(choice)
+
 }
 function slideBackPrice() {
     var element = document.getElementById("table_typ_select_container");
@@ -70,5 +85,8 @@ function slideBackPrice() {
     var element = document.getElementById("table_price_select_container");
     element.classList.remove("slide_in");
     element.classList.add("slide_out");
+
+    choice.pop();
+    console.log(choice)
 
 }

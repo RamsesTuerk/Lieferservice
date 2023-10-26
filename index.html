@@ -20,17 +20,17 @@
                         <table align="center" style="margin: 0px auto;" class="table_food_select">
                             <tr>
                                 <td>
-                                    <button class="index_btn" id="index_btn_burger" onclick="slideInTyp(), slideOutFood()">
+                                    <button class="index_btn" id="index_btn_burger" onclick="slideInTyp(), slideOutFood(), addChoice(0)">
                                         <img class="picture" src="pictures/Burger.png" alt="Bild von einem Burger">
                                     </button>
                                 </td>
                                 <td>
-                                    <button class="index_btn" id="index_btn_pizza" onclick="slideInTyp(), slideOutFood()">
+                                    <button class="index_btn" id="index_btn_pizza" onclick="slideInTyp(), slideOutFood(), addChoice(1)">
                                         <img class="picture" src="pictures/Pizza.png" alt="Bild von einem Stück Pizza">
                                     </button>
                                 </td>
                                 <td>
-                                    <button class="index_btn" id="index_btn_sushi" onclick="slideInTyp(), slideOutFood()">
+                                    <button class="index_btn" id="index_btn_sushi" onclick="slideInTyp(), slideOutFood(), addChoice(2)">
                                         <img class="picture" src="pictures/Sushi.png" alt="Bild von einer Rolle Sushi">
                                     </button>
                                 </td>
@@ -57,17 +57,17 @@
                     <table align="center" class="table_typ_select">
                         <tr>
                             <td>
-                                <button class="index_btn" id="index_burger_btn_beef" onclick="slideOutTyp(), slideInPrice()">
+                                <button class="index_btn" id="index_burger_btn_beef" onclick="slideOutTyp(), slideInPrice(), addChoice(0)">
                                     <img class="picture_typ" src="pictures/Rind.png" alt="Bild von einem Stück Rindfleisch">
                                 </button>
                             </td>
                             <td>
-                                <button class="index_btn" id="index_burger_btn_chicken" onclick="slideOutTyp(), slideInPrice()">
+                                <button class="index_btn" id="index_burger_btn_chicken" onclick="slideOutTyp(), slideInPrice(), addChoice(1)">
                                     <img class="picture_typ" src="pictures/Chicken.png" alt="Bild von einem Stück Hühnerfleisch">
                                 </button>
                             </td>
                             <td>
-                                <button class="index_btn" id="index_burger_btn_vegan" onclick="slideOutTyp(), slideInPrice()">
+                                <button class="index_btn" id="index_burger_btn_vegan" onclick="slideOutTyp(), slideInPrice(), addChoice(2)">
                                     <img class="picture_typ" id="index_img_vegan" src="pictures/Tofu.png" alt="Bild von einem Blatt. Dieses steht für die Kategorie Vegan">
                                 </button>
                             </td>
@@ -83,17 +83,17 @@
                     <table align="center" class="table_typ_select">
                         <tr>
                             <td>
-                                <button class="index_btn price_btn" id="index_btn_cheap" onclick="">
+                                <button class="index_btn price_btn" id="index_btn_cheap" onclick="addChoice(0)">
                                     <img class="picture_typ" src="pictures/guenstig.png" alt="Bild von einem Dollarzeichen (Günstig)">
                                 </button>
                             </td>
                             <td>
-                                <button class="index_btn price_btn" id="index_btn_regular">
+                                <button class="index_btn price_btn" id="index_btn_regular" onclick="addChoice(1)">
                                     <img class="picture_typ" src="pictures/normalpreisig.png" alt="Bild von zwei Dollarzeichen (Normalpreisig)">
                                 </button>
                             </td>
                             <td>
-                                <button class="index_btn price_btn" id="index_btn_expensive">
+                                <button class="index_btn price_btn" id="index_btn_expensive" onclick="addChoice(2)">
                                     <img class="picture_typ" id="index_img_teuer" src="pictures/teuer.png" alt="Bild von drei Dollarzeichen (Teuer)">
                                 </button>
                             </td>
