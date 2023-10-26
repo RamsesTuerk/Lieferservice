@@ -30,12 +30,12 @@ function loadCSV() {                                                            
     xhttp.open("GET", csvFile, true);
     xhttp.send();
 }
-
+//----------- Die Auswahl wird in einem Array("coice") gespeichert -----------
 var choice = [
     
 ]
 
-
+//----------- Diese Funktion übergibt die Werte der Auswahl in choice -----------
 function addChoice(value){
     choice.push(value);
     console.log(choice)
@@ -64,7 +64,7 @@ function slideInPrice() {
 }
 
 //----------- Slide-Back functions -----------
-function slideBack() {
+function slideBack() { //----------- Slide-Back von Typ zu Food -----------
     var element = document.getElementById("table_typ_select_container");
     element.classList.remove("slide_in");
     element.classList.add("slide_out");
@@ -73,11 +73,11 @@ function slideBack() {
     element.classList.remove("slide_out");
     element.classList.add("slide_in_food");
 
-    choice.pop();
+    choice.pop();       //----------- choice-array update -----------
     console.log(choice)
 
 }
-function slideBackPrice() {
+function slideBackPrice() { //----------- Slide-Back von Price zu Typ -----------
     var element = document.getElementById("table_typ_select_container");
     element.classList.remove("slide_out");
     element.classList.add("slide_in");
@@ -86,7 +86,7 @@ function slideBackPrice() {
     element.classList.remove("slide_in");
     element.classList.add("slide_out");
 
-    choice.pop();
+    choice.pop();          //----------- choice-array update -----------
     console.log(choice)
 
 }
