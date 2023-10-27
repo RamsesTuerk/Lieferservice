@@ -25,7 +25,7 @@
             $kategorie = $_GET["kategorie"];
             $typ = $_GET["typ"];
             $preis = $_GET["preis"];
-            $sql = "SELECT * FROM restaurantes_all WHERE Kategorie='$kategorie'AND Typ='$typ'AND Preis='$preis'";
+            $sql = "SELECT * FROM restaurants_all WHERE Kategorie='$kategorie'AND Typ='$typ'AND Preis='$preis'";
 
             // Die Abfrage ausführen und das Ergebnis speichern
             $result = $connection->query($sql);
@@ -36,12 +36,12 @@
                 while ($row = $result->fetch_assoc()) {
                     echo "<table class='choice_table'>";
                     echo "<tr>";
-                    echo "<td>"."Restaurant: " . $row["Restaurant Name"]."</td>". "<br>";
+                    echo "<td>"."Restaurant: " . $row["Restaurant_Name"]."</td>". "<br>";
                     echo "</tr>";
                     echo "<tr>";
-                    echo "<td>"."Mindestbestellwert: ". $row["Mindestbestellwert"]. "0 €"."</td>". "<br>";
-                    echo "<td>"."Lieferzeit: ca. ". $row["Lieferzeit (Minuten)"]. "min."."</td>";
-                    echo "<td>"."Lieferkosten: " . $row["Lieferkosten"]."0 €"."</td>";
+                    echo "<td>"."Mindestbestellwert: ". $row["Mindestbestellwert"]. " €"."</td>". "<br>";
+                    echo "<td>"."Lieferzeit: ca. ". $row["Lieferzeit"]. "min."."</td>";
+                    echo "<td>"."Lieferkosten: " . $row["Lieferkosten"]." €"."</td>";
                     echo "<td>"."Typ: " . $row["Typ"]."</td>";
                     echo "<td>"."Kategorie: " . $row["Kategorie"]."</td>";
                     echo "<td>"."Preis: " . $row["Preis"]."</td>";

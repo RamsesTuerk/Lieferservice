@@ -108,7 +108,7 @@ function postChoice(){
     if(choice[2] == 0)
         preis = ("Billig")
     else if(choice[2] == 1)
-        preis = ("Normalpreisig")
+        preis = ("Mittelpreisig")
     else if(choice[2] == 2)
         preis = ("Teuer")
 }
