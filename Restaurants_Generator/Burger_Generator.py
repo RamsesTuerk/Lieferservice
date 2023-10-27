@@ -9,7 +9,7 @@ restaurant_names = ["Burger King", "McDonald's", "Wendy's", "Five Guys", "In-N-O
                    "Ted's Montana Grill", "Lick's Homeburgers", "BGR - The Burger Joint", "Zinburger Wine & Burger Bar", "Bobby's Burger Palace", "Bareburger", "Bison Witches Bar & Deli", "Green Turtle", "Hickory's Famous Burgers", "The Counter"]
 
 # Generiere zufällige Mindestbestellwerte, Lieferzeiten und Lieferkosten für jedes Restaurant in 0,5-Schritten
-restaurant_data = [["Restaurant Name", "Mindestbestellwert", "Lieferzeit (Minuten)", "Lieferkosten (EUR)", "Kategorie", "Typ"]]
+restaurant_data = [["Restaurant Name", "Mindestbestellwert", "Lieferzeit (Minuten)", "Lieferkosten (EUR)", "Kategorie", "Typ", "Preis"]]
 for name in restaurant_names:
     min_bestellwert = round(random.uniform(8.0, 15.0) * 2) / 2
     lieferzeit = random.randint(20, 45)
@@ -17,11 +17,19 @@ for name in restaurant_names:
     typ = randrange(1, 4)
     if typ == 1:
         typ1 = "Rind"
-    if typ == 2:
+    elif typ == 2:
         typ1 = "Gefluegel"
-    if typ == 3:
+    elif typ == 3:
         typ1 = "Vegan"
-    restaurant_data.append([name, min_bestellwert, lieferzeit, lieferkosten, "Burger", typ1])
+    preis = randrange(1, 4)
+    if preis == 1:
+        preis = "Guenstig"
+    elif preis == 2:
+        preis = "Mittelpreisig"
+    elif preis == 3:
+        preis = "Teuer"
+
+    restaurant_data.append([name, min_bestellwert, lieferzeit, lieferkosten, "Burger", typ1, preis])
 
 # Speichere die Daten in einer CSV-Datei
 with open('burger_restaurants.csv', mode='w', newline='') as file:

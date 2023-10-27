@@ -24,7 +24,8 @@
             }
             $kategorie = $_GET["kategorie"];
             $typ = $_GET["typ"];
-            $sql = "SELECT * FROM restaurantes_all WHERE Kategorie='$kategorie'AND Typ='$typ'";
+            $preis = $_GET["preis"];
+            $sql = "SELECT * FROM restaurantes_all WHERE Kategorie='$kategorie'AND Typ='$typ'AND Preis='$preis'";
 
             // Die Abfrage ausführen und das Ergebnis speichern
             $result = $connection->query($sql);
@@ -43,6 +44,7 @@
                     echo "<td>"."Lieferkosten: " . $row["Lieferkosten"]."0 €"."</td>";
                     echo "<td>"."Typ: " . $row["Typ"]."</td>";
                     echo "<td>"."Kategorie: " . $row["Kategorie"]."</td>";
+                    echo "<td>"."Preis: " . $row["Preis"]."</td>";
                     echo "</tr>";
                     echo "</table>";
                 }

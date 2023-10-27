@@ -1,41 +1,41 @@
-Restaurant Name,Mindestbestellwert,Lieferzeit (Minuten),Lieferkosten (EUR),Kategorie,Typ
-Pizza Hut,15.5,32,2.5,Pizza,Rind
-Domino's Pizza,17.0,51,4.5,Pizza,Rind
-Papa John's,18.0,43,4.0,Pizza,Vegan
-Little Caesars,14.0,55,3.5,Pizza,Rind
-Marco's Pizza,19.0,45,5.0,Pizza,Vegan
-Hungry Howie's,16.0,51,3.0,Pizza,Gefluegel
-Jets Pizza,13.0,48,5.5,Pizza,Gefluegel
-Cicis Pizza,19.5,52,2.5,Pizza,Vegan
-Sbarro,12.0,41,4.0,Pizza,Rind
-Blaze Pizza,16.0,56,3.0,Pizza,Rind
-Mellow Mushroom,10.5,45,2.0,Pizza,Rind
-California Pizza Kitchen,19.5,42,5.5,Pizza,Gefluegel
-Round Table Pizza,17.0,46,2.5,Pizza,Gefluegel
-Uno Pizzeria & Grill,13.0,32,5.5,Pizza,Gefluegel
-Godfathers Pizza,18.0,37,5.5,Pizza,Vegan
-Papa Murphy's,10.0,49,5.0,Pizza,Gefluegel
-Donatos Pizza,18.5,55,4.5,Pizza,Rind
-Imo's Pizza,11.0,40,3.0,Pizza,Rind
-Grotto Pizza,12.0,55,5.0,Pizza,Gefluegel
-Mountain Mike's Pizza,15.0,40,3.0,Pizza,Vegan
-Ledo Pizza,18.0,53,4.5,Pizza,Rind
-MOD Pizza,14.0,54,2.5,Pizza,Rind
-Old Chicago Pizza & Taproom,11.5,37,3.5,Pizza,Rind
-Pizza Ranch,20.0,42,3.5,Pizza,Vegan
-Pieology Pizzeria,18.0,59,2.5,Pizza,Rind
-Your Pie,16.0,47,3.0,Pizza,Rind
-Bertucci's,14.5,56,3.5,Pizza,Vegan
-Rotolo's Pizzeria,14.5,40,5.0,Pizza,Gefluegel
-Pizza Inn,14.0,45,6.0,Pizza,Gefluegel
-Fox's Pizza Den,14.0,31,2.5,Pizza,Vegan
-Pie Five Pizza,13.5,53,4.5,Pizza,Rind
-Fazoli's,19.5,48,3.5,Pizza,Vegan
-CiCi's To Go,16.5,50,6.0,Pizza,Vegan
-Little Caesar's Express,10.5,36,3.5,Pizza,Rind
-Topper's Pizza,14.5,30,2.0,Pizza,Rind
-Pizza My Heart,10.5,60,4.5,Pizza,Vegan
-Mountain Mike's Pizza,16.5,31,5.5,Pizza,Gefluegel
-Figaro's Pizza,17.5,45,5.0,Pizza,Vegan
-Zpizza,14.0,44,5.0,Pizza,Vegan
-Russo's New York Pizzeria,18.0,49,3.5,Pizza,Gefluegel
+Restaurant Name,Mindestbestellwert,Lieferzeit (Minuten),Lieferkosten (EUR),Kategorie,Typ,Preis
+Pizza Hut,19.0,55,2.0,Pizza,Gefluegel,Teuer
+Domino's Pizza,14.5,34,4.0,Pizza,Vegan,Guenstig
+Papa John's,12.0,58,3.5,Pizza,Vegan,Teuer
+Little Caesars,17.5,52,5.5,Pizza,Rind,Teuer
+Marco's Pizza,12.0,47,4.0,Pizza,Rind,Teuer
+Hungry Howie's,13.0,41,5.5,Pizza,Vegan,Mittelpreisig
+Jets Pizza,14.0,47,4.0,Pizza,Rind,Teuer
+Cicis Pizza,17.0,36,3.5,Pizza,Vegan,Teuer
+Sbarro,18.0,56,4.0,Pizza,Rind,Teuer
+Blaze Pizza,14.0,41,3.5,Pizza,Rind,Teuer
+Mellow Mushroom,13.5,51,4.5,Pizza,Vegan,Teuer
+California Pizza Kitchen,15.5,43,4.0,Pizza,Rind,Guenstig
+Round Table Pizza,17.0,44,2.5,Pizza,Rind,Teuer
+Uno Pizzeria & Grill,11.0,35,5.0,Pizza,Rind,Teuer
+Godfathers Pizza,17.0,49,5.5,Pizza,Gefluegel,Mittelpreisig
+Papa Murphy's,15.5,37,5.5,Pizza,Rind,Guenstig
+Donatos Pizza,19.5,32,2.0,Pizza,Rind,Mittelpreisig
+Imo's Pizza,11.5,42,3.5,Pizza,Rind,Teuer
+Grotto Pizza,11.0,32,3.0,Pizza,Rind,Mittelpreisig
+Mountain Mike's Pizza,10.5,41,5.0,Pizza,Vegan,Guenstig
+Ledo Pizza,14.5,40,3.0,Pizza,Vegan,Teuer
+MOD Pizza,18.0,41,3.0,Pizza,Vegan,Guenstig
+Old Chicago Pizza & Taproom,10.5,58,5.0,Pizza,Vegan,Teuer
+Pizza Ranch,11.0,60,5.5,Pizza,Vegan,Mittelpreisig
+Pieology Pizzeria,12.0,32,4.5,Pizza,Vegan,Mittelpreisig
+Your Pie,13.5,56,4.0,Pizza,Gefluegel,Guenstig
+Bertucci's,16.0,38,3.0,Pizza,Vegan,Guenstig
+Rotolo's Pizzeria,11.5,54,3.0,Pizza,Rind,Mittelpreisig
+Pizza Inn,17.0,46,2.0,Pizza,Rind,Teuer
+Fox's Pizza Den,17.0,51,4.5,Pizza,Rind,Mittelpreisig
+Pie Five Pizza,14.5,43,3.0,Pizza,Gefluegel,Teuer
+Fazoli's,13.5,53,4.0,Pizza,Rind,Guenstig
+CiCi's To Go,16.0,35,2.5,Pizza,Vegan,Teuer
+Little Caesar's Express,12.0,57,5.5,Pizza,Rind,Mittelpreisig
+Topper's Pizza,11.0,57,5.0,Pizza,Gefluegel,Teuer
+Pizza My Heart,16.0,60,3.5,Pizza,Gefluegel,Mittelpreisig
+Mountain Mike's Pizza,16.0,36,3.0,Pizza,Gefluegel,Mittelpreisig
+Figaro's Pizza,19.0,59,6.0,Pizza,Gefluegel,Teuer
+Zpizza,11.0,56,3.5,Pizza,Rind,Mittelpreisig
+Russo's New York Pizzeria,18.0,53,6.0,Pizza,Vegan,Teuer
