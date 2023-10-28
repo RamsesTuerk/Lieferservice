@@ -25,7 +25,11 @@
             $kategorie = $_GET["kategorie"];
             $typ = $_GET["typ"];
             $preis = $_GET["preis"];
-            $sql = "SELECT * FROM restaurants_all WHERE Kategorie='$kategorie'AND Typ='$typ'AND Preis='$preis'";
+            $skip = $_GET["skip"];
+            if ($skip == "ja")
+                $sql = "SELECT * FROM restaurants_all";
+            else
+                $sql = "SELECT * FROM restaurants_all WHERE Kategorie='$kategorie'AND Typ='$typ'AND Preis='$preis'";
 
             // Die Abfrage ausführen und das Ergebnis speichern
             $result = $connection->query($sql);
