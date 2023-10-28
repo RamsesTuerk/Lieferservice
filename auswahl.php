@@ -3,17 +3,17 @@
     <head>
         <link rel="stylesheet" href="style.css"> <!--Verbindet die Webseite mit der CSS-Datei "Style.css"-->
         <title>Burger, Pizza, Sushi</title>
-        <script language="javascript" type="text/javascript" src="script.js"></script>
+        <script language="javascript" type="text/javascript" src="script.js"></script> <!--Verbindet die Webseite mit der JS-Datei-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body onload="loadCSV()">
         <div>
         </div>
         <?php
-            $servername = "localhost";  // Der Datenbankserver (normalerweise "localhost" auf demselben Server)
-            $username = "root";  // Ihr Datenbank-Benutzername
-            $password = "";  // Ihr Datenbank-Passwort
-            $database = "restaurants";  // Der Name Ihrer Datenbank
+            $servername = "localhost";  // Der Datenbankserver 
+            $username = "root";  //Datenbank-Benutzername
+            $password = "";  //Datenbank-Passwort
+            $database = "restaurants";  //Name der Datenbank
             
             // Verbindung zur Datenbank herstellen
             $connection = new mysqli($servername, $username, $password, $database);
@@ -32,7 +32,7 @@
 
             // Überprüfen, ob die Abfrage erfolgreich war
             if ($result) {
-                // Daten verarbeiten, z.B. ausgeben
+                // Daten der Db als Tabelle ausgeben und auf der Webseite anzeigen
                 while ($row = $result->fetch_assoc()) {
                     echo "<table class='choice_table'>";
                     echo "<tr>";
@@ -55,10 +55,6 @@
                 echo "Fehler bei der Abfrage: " . $connection->error;
             }
         ?>
-        <table id="csvTable1">
-            <ol>
-            <!-- Hier werden die CSV-Daten eingefügt -->
-            </ol>
         </table>
     </body>
 </html>
