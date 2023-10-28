@@ -147,3 +147,25 @@ function randomChoice(){
         window.open("auswahl.php", "_self"); //----------- 1. Wert ist das ziel, 2. Wert ist der Ort------- um ein neuen Tab zu öffnen, wir nicht "_self" sondern "_blank" benutzt-----------
         window.location.href = "auswahl.php?kategorie=" + kategorie + "&" + "typ=" + typ + "&" + "preis=" + preis;
 }
+function randomChoiceVegan(){
+    kategorie = Math.floor(Math.random() * 3);
+    typ = "Vegan"
+    preis = Math.floor(Math.random() * 3);
+
+    if(kategorie == 0)
+        kategorie = "Burger"
+    else if(kategorie == 1)
+        kategorie = ("Pizza")
+    else if(kategorie == 2)
+        kategorie = ("Sushi")
+
+    if(preis == 0)
+        preis = ("Billig")
+    else if(preis == 1)
+        preis = ("Mittelpreisig")
+    else if(preis == 2)
+        preis = ("Teuer")
+
+        window.open("auswahl.php", "_self"); //----------- 1. Wert ist das ziel, 2. Wert ist der Ort------- um ein neuen Tab zu öffnen, wir nicht "_self" sondern "_blank" benutzt-----------
+        window.location.href = "auswahl.php?kategorie=" + kategorie + "&" + "typ=" + typ + "&" + "preis=" + preis;
+}
