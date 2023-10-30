@@ -22,11 +22,9 @@
             if ($connection->connect_error) {
                 die("Verbindung zur Datenbank fehlgeschlagen: " . $connection->connect_error);
             }
-            $kategorie = $_GET["kategorie"];
-            $typ = $_GET["typ"];
-            $preis = $_GET["preis"];
 
-            $sql = "SELECT * FROM restaurants_all WHERE Kategorie='$kategorie'AND Typ='$typ'AND Preis='$preis'";
+            $sql = "SELECT * FROM restaurants_all";
+
             // Die Abfrage ausführen und das Ergebnis speichern
             $result = $connection->query($sql);
 

@@ -106,7 +106,7 @@ function postChoice(){
         typ = ("Vegan")
 
     if(choice[2] == 0)
-        preis = ("Billig")
+        preis = ("Guenstig")
     else if(choice[2] == 1)
         preis = ("Mittelpreisig")
     else if(choice[2] == 2)
@@ -138,7 +138,7 @@ function randomChoice(){
         typ = ("Vegan")
 
     if(preis == 0)
-        preis = ("Billig")
+        preis = ("Guenstig")
     else if(preis == 1)
         preis = ("Mittelpreisig")
     else if(preis == 2)
@@ -160,7 +160,7 @@ function randomChoiceVegan(){
         kategorie = ("Sushi")
 
     if(preis == 0)
-        preis = ("Billig")
+        preis = ("Guenstig")
     else if(preis == 1)
         preis = ("Mittelpreisig")
     else if(preis == 2)
@@ -170,8 +170,6 @@ function randomChoiceVegan(){
         window.location.href = "auswahl.php?kategorie=" + kategorie + "&" + "typ=" + typ + "&" + "preis=" + preis;
 }
 function skipChoice(){
-    
-    skip = "ja"
-    window.open("auswahl.php", "_self"); //----------- 1. Wert ist das ziel, 2. Wert ist der Ort------- um ein neuen Tab zu öffnen, wir nicht "_self" sondern "_blank" benutzt-----------
-    window.location.href = "auswahl.php?skip=" + skip;
+
+    window.open("auswahl_skip.php", "_self"); //----------- 1. Wert ist das ziel, 2. Wert ist der Ort------- um ein neuen Tab zu öffnen, wir nicht "_self" sondern "_blank" benutzt-----------
 }
