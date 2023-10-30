@@ -1,0 +1,30 @@
+h2 {color: red;}
+.container {  display: grid;
+  grid-template-columns: 0.8fr 1.2fr 1fr;
+  grid-template-rows: 0.6fr 2fr 0.4fr;
+  gap: 10px 10px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "Header Header Header"
+    "warenkorb_buttonall warenkorb_buttonall warenkorb_ausgang"
+    "Footer Footer Footer";
+}
+.warenkorb_buttonall {
+  background: red;
+}
+.warenkorb_buttonall { grid-area: warenkorb_buttonall; background: blue; }
+
+.Header { grid-area: Header; }
+
+.warenkorb_ausgang { grid-area: warenkorb_ausgang; }
+
+.Footer { grid-area: Footer; }
+
+.Header{ 
+  background: red;
+ 
+}
+.Footer {
+  background: green;
+}
+.warenkorb_ausgang{ background: yellow;}
