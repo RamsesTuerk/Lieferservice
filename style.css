@@ -100,7 +100,7 @@ p {
 .choice_table{
     color: white;
 }
-.warenkorb_buttonall {
+.warenkorb_button_all {
     display: grid;
     justify-content: center;
     color:white;

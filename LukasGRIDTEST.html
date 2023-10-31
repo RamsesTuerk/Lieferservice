@@ -1,33 +1,33 @@
 <Html>
   <link rel="stylesheet" href="LukasCSSTest.css">
 <Head>
-    <h2>CSS GRID</h2>
-    
+    <title>Your order</title>
+        <script type="text/javascript" src="warenkorb.js"></script>
+
 </Head>
 
 <body>
   <div class="container">
-    <div class="warenkorb_buttonall"></div>
-    <div class="Header"></div>
-    <div class="warenkorb_ausgang"></div>
+    <div class="Content">
+            <div id="produkt1">Sushi1</div>
+            <input id ="button1" type="button" value="9.00€" onclick="zumWarenkorb(1, 900)"/><br>
+            <div id="produkt2">Sushi2</div>
+            <input id ="button2" type="button" value="18.00€" onclick="zumWarenkorb(2, 1800)"/><br>
+            <div id="produkt3">Sushi3</div>
+            <input id ="button3" type="button" value="12.00€" onclick="zumWarenkorb(3, 1200)"/><br>
+            <h2>Warenkorb</h2>
+            <ul id="waren"></ul></div>
+    <div class="Header">
+      <a href="index.html" class="home">Home</a>
+      <h1>RaLuMa Lieferservice.</h1>
+    </div>
+    
+    <div class="Side">
+    </div>
     <div class="Footer"></div>
   </div>
- 
-  <div id="warenkorb_ausgang"> 
-    <h2>Warenkorb</h2>
-    <ul id="waren"></ul> </div>
-<body> <div class="warenkorb_buttonall">
-    <div id="produkt1">Sushi1</div>
-    <input class="warenkorb_button" id ="button1" type="button" value="9.00€" onclick="zumWarenkorb(1, 900)"/><br>
-    <div id="produkt2">Sushi2</div>
-    <input class="warenkorb_button" id ="button2" type="button" value="18.00€" onclick="zumWarenkorb(2, 1800)"/><br>
-    <div id="produkt3">Sushi3</div>
-    <input class="warenkorb_button" id ="button3" type="button" value="12.00€" onclick="zumWarenkorb(3, 1200)"/><br>
-     <title>Your order</title>
-        <script type="text/javascript" src="warenkorb.js"></script>
-</div>
-    
 </body>
+  
 
 
 
