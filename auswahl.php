@@ -7,8 +7,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body onload="loadCSV()">
-        <div>
-        </div>
         <?php
             $servername = "localhost";  // Der Datenbankserver 
             $username = "root";  //Datenbank-Benutzername
@@ -55,6 +53,5 @@
                 echo "Fehler bei der Abfrage: " . $connection->error;
             }
         ?>
-        </table>
     </body>
 </html>
