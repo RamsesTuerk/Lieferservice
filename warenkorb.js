@@ -7,6 +7,7 @@ var warenkorb = {
 };
 
 function zumWarenkorb(nr, pr) {
+  warenkorbAusgeben(); // 0€ Warenkorb wert auch ausgeben wenn noch keine Wahre hinzugefügt ist 
   var produktName = document.getElementById('produkt' + nr).innerHTML;
   var preis = pr;
 
@@ -38,9 +39,10 @@ function warenkorbAusgeben() {
   ausgabe += (warenkorbPreis / 100) + "€";
 
   document.getElementById('waren').innerHTML = ausgabe;
+
+  warenkorbPreis = 0;
 }
 
-var warenkorbPreis = 0;
 
 function warenkorbSum(){
   // Schleife durch alle Produkte im Warenkorb
