@@ -29,15 +29,15 @@ function warenkorbAusgeben() {
   var ausgabe = '<h1>Warenkorb</h1>';
 
   for (var i = 0; i < warenkorb.produkte.length; i++) {
-    ausgabe += '<article class="day-forecast">';
+    ausgabe += '<article class="warenkorbArtikel">';
     ausgabe += '<table><tr><td class="warenkorbTabelleZellen">' + warenkorb.menge[i] + 'x </td><td class="warenkorbTabelleItem">' + warenkorb.produkte[i] + ': </td><td class="warenkorbTabellePrice"> ' + (warenkorb.preis[i] / 100) + '€ </td><td class="warenkorbTabelleZellen">';
-    ausgabe += '<input class="warenkorbButton" type="button" value="X" onclick="loescheProdukt(' + i + ');" /></td></tr></table>';
+    ausgabe += '<input class="warenkorbButtonLoeschen" type="button" value="X" onclick="loescheProdukt(' + i + ');" /></td></tr></table>';
     ausgabe += '</article>';
   }
 
 
 
-  ausgabe += (warenkorbPreis / 100) + "€";
+  ausgabe += '<a href="bestellübersicht.html"><input class="warenkorbButtonBestellen" type="button" value="für ' + (warenkorbPreis / 100) + '€ bestellen"></a>';
 
   document.getElementById('waren').innerHTML = ausgabe;
 
@@ -63,3 +63,4 @@ function loescheProdukt(index) {
   }
   warenkorbAusgeben();
 }
+

@@ -7,7 +7,17 @@
 
 <body onload="warenkorbAusgeben()">
   <div class="container">
+
+    <div class="Header">
+      <a href="index.html" class="home">Home</a>
+      <h1>RaLuMa Lieferservice.</h1>
+    </div>
+
     <div class="Content">
+
+      <article id="menue" class="menueList"></article>
+
+      
             <div id="produkt1">Sushi1</div>
             <input id ="button1" type="button" value="9.00€" onclick="zumWarenkorb(1, 900)"/><br>
             <div id="produkt2">Sushi2</div>
@@ -15,25 +25,18 @@
             <div id="produkt3">Sushi3</div>
             <input id ="button3" type="button" value="12.00€" onclick="zumWarenkorb(3, 1200)"/><br>
             <h2>Warenkorb</h2>
-       </div>
-    <div class="Header">
-      <a href="index.html" class="home">Home</a>
-      <h1>RaLuMa Lieferservice.</h1>
+      
     </div>
+  
     
     <div class="Side"> 
 
-      <article id="waren" class="forecast">
-      
-        
-      </article>
-      
+      <article id="waren" class="warenkorb"></article>  
       
     </div>
     
     <div class="Footer"></div>
   </div>
-
   
 </body>
 </html>

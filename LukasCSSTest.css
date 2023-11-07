@@ -61,22 +61,23 @@ h2 {color: black;}
 
 /*///////////////////////////////////////*/
 
-.forecast {
+.warenkorb {
   margin: 0;
   padding: 0.3rem;
   background-color: #eee;
   width: 390px;
 }
 
-.forecast > h1,
-.day-forecast {
+
+.warenkorb > h1,
+.warenkorbArtikel {
   margin: 0.5rem;
   padding: 0.3rem;
   font-size: 1.2rem;
   text-align: center;
 }
 
-.day-forecast {
+.warenkorbArtikel {
   background: white;
   display: flex;
   justify-content: center;
@@ -85,14 +86,8 @@ h2 {color: black;}
 
 }
 
-.day-forecast > h2,
-.day-forecast > p {
-  margin: 0.2rem;
-  font-size: 1rem;
-}
-
-.warenkorbButton { 
-  background-color: blue;
+.warenkorbButtonLoeschen { 
+  background-color: rgb(0, 94, 255);
 
 }
 
@@ -109,5 +104,11 @@ h2 {color: black;}
   width: 200px;
   text-align: right;
 }
+
+.warenkorbButtonBestellen{
+  background-color: rgb(0, 94, 255);
+}
+
+
 
 
