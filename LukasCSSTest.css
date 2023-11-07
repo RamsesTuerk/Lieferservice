@@ -86,10 +86,6 @@ h2 {color: black;}
 
 }
 
-.warenkorbButtonLoeschen { 
-  background-color: rgb(0, 94, 255);
-
-}
 
 .warenkorbTabelleZellen{
   width: 50px;
@@ -107,6 +103,12 @@ h2 {color: black;}
 
 .warenkorbButtonBestellen{
   background-color: rgb(0, 94, 255);
+ 
+}
+
+.warenkorbButtonLöschen{
+  background-color: transparent;
+  border-color: transparent;
 }
 
 

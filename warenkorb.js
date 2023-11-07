@@ -31,7 +31,7 @@ function warenkorbAusgeben() {
   for (var i = 0; i < warenkorb.produkte.length; i++) {
     ausgabe += '<article class="warenkorbArtikel">';
     ausgabe += '<table><tr><td class="warenkorbTabelleZellen">' + warenkorb.menge[i] + 'x </td><td class="warenkorbTabelleItem">' + warenkorb.produkte[i] + ': </td><td class="warenkorbTabellePrice"> ' + (warenkorb.preis[i] / 100) + '€ </td><td class="warenkorbTabelleZellen">';
-    ausgabe += '<input class="warenkorbButtonLoeschen" type="button" value="X" onclick="loescheProdukt(' + i + ');" /></td></tr></table>';
+    ausgabe += '<button class="warenkorbButtonLöschen" onclick="loescheProdukt(' + i + ');"><img src="pictures/delete.png" alt="delete"></button></td></tr></table>';
     ausgabe += '</article>';
   }
 
