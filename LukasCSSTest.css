@@ -21,6 +21,7 @@ h2 {color: black;}
 .Side { 
   grid-area: Side;
   background: green;
+  justify-self: center;
 } 
 
 
