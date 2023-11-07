@@ -10,13 +10,15 @@ h2 {color: red;}
     "Header Header Header"
     "Content Content Side"
     "Footer Footer Footer";
+  justify-items: stretch;
 }
 /* Erstellt/Posizioniert die Items (Kinder)*/
 .Content { grid-area: Content; background: red; }
 
 .Header { grid-area: Header;background: blue; }
 
-.Side { grid-area: Side;background: green; }
+.Side { grid-area: Side;background: green;
+}
 
 .Footer { grid-area: Footer; background: yellow;  }
 
@@ -31,7 +33,7 @@ h2 {color: red;}
   grid-auto-flow: row;
   grid-template-areas:
     "Header Header Header"
-    "Content Content ."
+    "Content Content Content"
     "Footer Footer Footer";
 }
 
