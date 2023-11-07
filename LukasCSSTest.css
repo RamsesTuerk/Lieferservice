@@ -18,8 +18,12 @@ h2 {color: black;}
 }
 .Header { grid-area: Header;background: blue; }
 
-.Side { grid-area: Side;background: green;
+.Side { 
+  grid-area: Side;
+  background: green;
 } 
+
+
 .Footer { grid-area: Footer; background: yellow;  }
 
 
@@ -53,3 +57,56 @@ h2 {color: black;}
 .home :hover {
   color:blue;
 }
+
+/*///////////////////////////////////////*/
+
+.forecast {
+  margin: 0;
+  padding: 0.3rem;
+  background-color: #eee;
+  width: 390px;
+}
+
+.forecast > h1,
+.day-forecast {
+  margin: 0.5rem;
+  padding: 0.3rem;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.day-forecast {
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 370px;
+
+}
+
+.day-forecast > h2,
+.day-forecast > p {
+  margin: 0.2rem;
+  font-size: 1rem;
+}
+
+.warenkorbButton { 
+  background-color: blue;
+
+}
+
+.warenkorbTabelleZellen{
+  width: 50px;
+  text-align: center;
+}
+
+.warenkorbTabelleItem{
+  width: 200px;
+}
+
+.warenkorbTabellePrice{
+  width: 200px;
+  text-align: right;
+}
+
+

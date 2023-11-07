@@ -7,7 +7,6 @@ var warenkorb = {
 };
 
 function zumWarenkorb(nr, pr) {
-  warenkorbAusgeben(); // 0€ Warenkorb wert auch ausgeben wenn noch keine Wahre hinzugefügt ist 
   var produktName = document.getElementById('produkt' + nr).innerHTML;
   var preis = pr;
 
@@ -27,14 +26,16 @@ function zumWarenkorb(nr, pr) {
 
 function warenkorbAusgeben() {
   warenkorbSum();  // Warenkorb-Gesamtpreis berechnen
-  var ausgabe = '';
+  var ausgabe = '<h1>Warenkorb</h1>';
 
   for (var i = 0; i < warenkorb.produkte.length; i++) {
-    ausgabe += '<li>';
-    ausgabe += warenkorb.menge[i] + "x " + warenkorb.produkte[i] + ": " + (warenkorb.preis[i] / 100) + "€ ";
-    ausgabe += '<input type="button" value="X" onclick="loescheProdukt(' + i + ');" />';
-    ausgabe += '</li><br>';
+    ausgabe += '<article class="day-forecast">';
+    ausgabe += '<table><tr><td class="warenkorbTabelleZellen">' + warenkorb.menge[i] + 'x </td><td class="warenkorbTabelleItem">' + warenkorb.produkte[i] + ': </td><td class="warenkorbTabellePrice"> ' + (warenkorb.preis[i] / 100) + '€ </td><td class="warenkorbTabelleZellen">';
+    ausgabe += '<input class="warenkorbButton" type="button" value="X" onclick="loescheProdukt(' + i + ');" /></td></tr></table>';
+    ausgabe += '</article>';
   }
+
+
 
   ausgabe += (warenkorbPreis / 100) + "€";
 
