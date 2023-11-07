@@ -1,8 +1,8 @@
-h2 {color: red;}
+h2 {color: black;}
 
 /* Erstellt das Layout für den Container (Eltern)*/
 .container {  display: grid;
-  grid-template-columns: 500px;
+  grid-template-columns: 50%;
   grid-template-rows: 150px 500px 150px;
   gap: 0px 0px;
   grid-auto-flow: row;
@@ -11,15 +11,15 @@ h2 {color: red;}
     "Content Content Side"
     "Footer Footer Footer";
   justify-items: stretch;
+  
 }
 /* Erstellt/Posizioniert die Items (Kinder)*/
-.Content { grid-area: Content; background: red; }
-
+.Content { grid-area: Content; background: red;
+}
 .Header { grid-area: Header;background: blue; }
 
 .Side { grid-area: Side;background: green;
-}
-
+} 
 .Footer { grid-area: Footer; background: yellow;  }
 
 
