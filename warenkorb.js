@@ -26,7 +26,7 @@ function zumWarenkorb(nr, pr) {
 
 function warenkorbAusgeben() {
   warenkorbSum();  // Warenkorb-Gesamtpreis berechnen
-  var ausgabe = '<h1>Warenkorb</h1>';
+  var ausgabe = '<h1>Warenkorb</h1> <article class="warenkorbArtikel"><table><tr><td class="warenkorbTabelleZellen">Menge:</td><td class="warenkorbTabelleItem">Produkt: </td><td class="warenkorbTabellePrice">Preis:</td><td class="warenkorbTabelleZellen"></td></tr></table></article>';
 
   for (var i = 0; i < warenkorb.produkte.length; i++) {
     ausgabe += '<article class="warenkorbArtikel">';

@@ -2,7 +2,7 @@ h2 {color: black;}
 
 /* Erstellt das Layout für den Container (Eltern)*/
 .container {  display: grid;
-  grid-template-columns: 50%;
+  grid-template-columns: 70%;
   grid-template-rows: 150px 500px 150px;
   gap: 0px 0px;
   grid-auto-flow: row;
@@ -14,18 +14,23 @@ h2 {color: black;}
   
 }
 /* Erstellt/Posizioniert die Items (Kinder)*/
-.Content { grid-area: Content; background: red;
+.Content { 
+  grid-area: Content; 
+  background: red;
 }
-.Header { grid-area: Header;background: blue; }
+.Header { 
+  grid-area: Header;
+  background: blue; }
 
 .Side { 
   grid-area: Side;
   background: green;
-  justify-self: center;
+  grid-template-columns: 30%;
 } 
 
 
-.Footer { grid-area: Footer; background: yellow;  }
+.Footer { grid-area: Footer;
+  background: yellow;  }
 
 
 
@@ -61,11 +66,29 @@ h2 {color: black;}
 
 /*///////////////////////////////////////*/
 
+
+.menueList {
+  margin: 0;
+  padding: 0.3rem;
+  background-color: #eee;
+  width: 100%;
+}
+
+.menueItem {
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem;
+  padding: 0.3rem;
+  width: 95%;
+
+}
+
 .warenkorb {
   margin: 0;
   padding: 0.3rem;
   background-color: #eee;
-  width: 390px;
 }
 
 
@@ -82,13 +105,13 @@ h2 {color: black;}
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 370px;
+  width: 95%;
 
 }
 
 
 .warenkorbTabelleZellen{
-  width: 50px;
+  width: 75px;
   text-align: center;
 }
 
@@ -97,7 +120,7 @@ h2 {color: black;}
 }
 
 .warenkorbTabellePrice{
-  width: 200px;
+  width: 75px;
   text-align: right;
 }
 
