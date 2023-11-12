@@ -2,12 +2,12 @@
 <html>
     <head>
         <link rel="stylesheet" href="style.css"> <!--Verbindet die Webseite mit der CSS-Datei "Style.css"-->
-        <title>Burger, Pizza, Sushi</title>
+        <title>Burger, Pizza, Sushi</title> <!--Legt den Titel der Seite fest-->
         <script language="javascript" type="text/javascript" src="script.js"></script> <!--Verbindet die Webseite mit der JS-Datei-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body onload="loadCSV()">
-        <?php
+        <?php //Beginn des PHP Codes
             $servername = "localhost";  // Der Datenbankserver 
             $username = "root";  //Datenbank-Benutzername
             $password = "";  //Datenbank-Passwort
@@ -20,9 +20,9 @@
             if ($connection->connect_error) {
                 die("Verbindung zur Datenbank fehlgeschlagen: " . $connection->connect_error);
             }
-            $kategorie = $_GET["kategorie"];
-            $typ = $_GET["typ"];
-            $preis = $_GET["preis"];
+            $kategorie = $_GET["kategorie"]; // Setzt die Variable $kategorie auf den durch die URL übergebenen Wert der Kategorie
+            $typ = $_GET["typ"]; // Setzt die Variable $typ auf den durch die URL übergebenen Wert des Typen
+            $preis = $_GET["preis"];// Setzt die Variable $preis auf den durch die URL übergebenen Wert des Preises
 
             $sql = "SELECT * FROM restaurants_all WHERE Kategorie='$kategorie'AND Typ='$typ'AND Preis='$preis'";
             // Die Abfrage ausführen und das Ergebnis speichern
@@ -52,6 +52,6 @@
             } else {
                 echo "Fehler bei der Abfrage: " . $connection->error;
             }
-        ?>
+        ?> <!--Ende des PHP Codes-->
     </body>
 </html>
