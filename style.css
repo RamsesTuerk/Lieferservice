@@ -97,9 +97,6 @@ p {
     color: transparent;
     background-color: transparent;
 }
-.choice_table{
-    color: white;
-}
 .warenkorb_button_all {
     display: grid;
     justify-content: center;
@@ -140,37 +137,40 @@ p {
 .home :hover {
     color: rgba(255, 0, 0, 0.269);
 }
-.container {  display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 2.5fr 1fr 1fr 1fr;
-    gap: 2% 2%;
+.container {  
+    display: grid;
+    grid-template-columns: 70%;
+    grid-template-rows: 150px 500px 150px;
+    gap: 0px 0px;
     grid-auto-flow: row;
     grid-template-areas:
-      "head head head head head"
-      "side_left center center center side_right"
-      "side_left center center center side_right"
-      "foot foot foot foot foot";
-  }
-  
-  .head { grid-area: head; }
-  
-  .side_left { grid-area: side_left; }
-  
-  .side_right { grid-area: side_right; }
-  
-  .center { grid-area: center; }
-  
-  .foot { grid-area: foot; }
-  
-  
-  .product_select{
-    text-align: left;
-  }
+      "Header Header Header"
+      "Content Content Side"
+      "Footer Footer Footer";
+    justify-items: stretch;
+    
+    }
+.content { 
+    grid-area: Content;
+    }
+.header { 
+    grid-area: Header;
+    }
+.footer { 
+    grid-area: Footer;
+    }
+.side { 
+    grid-area: Side;
+    grid-template-columns: 30%;
+    } 
 
-  .cart{
+.cart{
     background: rgba(249, 39, 194, 0.08);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5.8px);
     -webkit-backdrop-filter: blur(5.8px);
-  }
+    }
+.td{
+    background: white;
+}
