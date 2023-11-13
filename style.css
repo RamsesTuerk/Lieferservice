@@ -166,3 +166,18 @@ p {
     backdrop-filter: blur(5.8px);
     -webkit-backdrop-filter: blur(5.8px);
 }
+.form{
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+#street_nbr{
+    width: 15%;
+}
+#street{
+    width: 40%;
+}
+.input_adress{
+    width: 58%;
+    margin-bottom: 5%;
+}
