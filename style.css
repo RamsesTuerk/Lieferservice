@@ -137,33 +137,18 @@ p {
 .home :hover {
     color: rgba(255, 0, 0, 0.269);
 }
-.container {  
+.container{
+    max-width: 1200px;
+    width: 100%;
     display: grid;
-    grid-template-columns: 70%;
-    grid-template-rows: 150px 500px 150px;
-    gap: 0px 0px;
-    grid-auto-flow: row;
-    grid-template-areas:
-      "Header Header Header"
-      "Content Content Side"
-      "Footer Footer Footer";
-    justify-items: stretch;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     
-    }
-.content { 
-    grid-area: Content;
-    }
-.header { 
-    grid-area: Header;
-    }
-.footer { 
-    grid-area: Footer;
-    }
-.side { 
-    grid-area: Side;
-    grid-template-columns: 30%;
-    } 
-
+}
+.td{
+    background: white;
+    width: 15vw;
+    gap: 0px;
+}
 .cart{
     background: rgba(249, 39, 194, 0.08);
     border-radius: 16px;
@@ -171,6 +156,9 @@ p {
     backdrop-filter: blur(5.8px);
     -webkit-backdrop-filter: blur(5.8px);
     }
-.td{
-    background: white;
+.table_div{
+    justify-content: center;
+    align-content: center;
+    
 }
+

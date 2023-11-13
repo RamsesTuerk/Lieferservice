@@ -8,10 +8,10 @@
     </head>
     <body class="choice_body" onload="loadCSV()">
         <div class="">
-            <div class="header">
+            <div class="">
                 <h1>Die für dich passende Auswahl an Restaurants</h1>
             </div>
-            <div class="container">
+            <div class="table">
                 <?php //Beginn des PHP Codes
                     $servername = "localhost";  // Der Datenbankserver 
                     $username = "root";  //Datenbank-Benutzername
@@ -37,7 +37,7 @@
                     if ($result) {
                         // Daten der Db als Tabelle ausgeben und auf der Webseite anzeigen
                         while ($row = $result->fetch_assoc()) {
-                            echo "<div class=''>";
+                            echo "<div class='table_div'>";
                                 echo "<table class='choice_table'>";
                                 echo "<tr>";
                                 echo "<a href='google.com'>"."<td class='td restaurant_name'>"."Restaurant: " . $row["Restaurant_Name"]."</td>"."</a>";
@@ -64,10 +64,6 @@
                         echo "Fehler bei der Abfrage: " . $connection->error;
                     }
                 ?> <!--Ende des PHP Codes-->
-            </div>
-            <div class="side">
-            </div>
-            <div class="footer">
             </div>
         </div>
     </body>
