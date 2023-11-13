@@ -17,6 +17,7 @@ h2 {color: black;}
 /* Erstellt/Posizioniert die Items (Kinder)*/
 .Content { 
   grid-area: Content; 
+  justify-self: center;
 }
 .Header { 
   grid-area: Header;
