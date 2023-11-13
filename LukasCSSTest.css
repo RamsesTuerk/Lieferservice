@@ -2,42 +2,49 @@ h2 {color: black;}
 
 /* Erstellt das Layout für den Container (Eltern)*/
 .container {  display: grid;
-  grid-template-columns: 70%;
+  grid-template-columns: 70% min-content;
   grid-template-rows: 150px 500px 150px;
   gap: 0px 0px;
+  background-size: cover;
   grid-auto-flow: row;
   grid-template-areas:
-    "Header Header Header"
-    "Content Content Side"
+    "Header Header Headside"
+    "Content Side Side"
     "Footer Footer Footer";
   justify-items: stretch;
-  
+ 
 }
 /* Erstellt/Posizioniert die Items (Kinder)*/
 .Content { 
   grid-area: Content; 
-  background: red;
+  justify-self: center;
 }
 .Header { 
   grid-area: Header;
-  background: blue; }
+  display: grid;
+  justify-content: center;
+ }
 
 .Side { 
   grid-area: Side;
-  background: green;
   grid-template-columns: 30%;
+  
 } 
+.Headside{
+  grid-area: Headside;
+  align-self: center;
+  
+}
 
 
 .Footer { grid-area: Footer;
-  background: yellow;  }
-
+}
 
 
 
 /*CSS Grid Aufbau für die Hauptseiten*/
 .container_main {  display: grid;
-  grid-template-columns: 500px 604.6px 0.1px;
+  grid-template-columns: 70%;
   grid-template-rows: 150px 500px 150px;
   gap: 0px 0px;
   grid-auto-flow: row;
@@ -70,28 +77,30 @@ h2 {color: black;}
 .menueList {
   margin: 0;
   padding: 0.3rem;
-  background-color: #eee;
   width: 100%;
 }
 
 .menueItem {
-  background: white;
   display: flex;
+  background-color: white;
   justify-content: center;
   align-items: center;
   margin: 0.5rem;
   padding: 0.3rem;
   width: 95%;
 
-}
 
+}
+.button
+{
+}
+  
 .warenkorb {
+  background-color: aqua;
   margin: 0;
   padding: 0.3rem;
-  background-color: #eee;
+ 
 }
-
-
 .warenkorb > h1,
 .warenkorbArtikel {
   margin: 0.5rem;
@@ -106,7 +115,6 @@ h2 {color: black;}
   justify-content: center;
   align-items: center;
   width: 95%;
-
 }
 
 
@@ -116,6 +124,7 @@ h2 {color: black;}
 }
 
 .warenkorbTabelleItem{
+  word-wrap: break-word;
   width: 200px;
 }
 
@@ -126,7 +135,8 @@ h2 {color: black;}
 
 .warenkorbButtonBestellen{
   background-color: rgb(0, 94, 255);
- 
+  position: relative;
+  left: 265px;
 }
 
 .warenkorbButtonLöschen{
@@ -137,3 +147,12 @@ h2 {color: black;}
 
 
 
+@keyframes changeBackground {
+  0% { background-color: lightslategray; }
+  50% { background-color: lightskyblue; }
+  100% { background-color: lightslategray}
+}
+
+body {
+  animation: changeBackground 10s infinite;
+}
