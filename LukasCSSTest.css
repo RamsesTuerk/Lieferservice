@@ -81,6 +81,7 @@ h2 {color: black;}
 
 .menueItem {
   display: flex;
+  background-color: white;
   justify-content: center;
   align-items: center;
   margin: 0.5rem;
