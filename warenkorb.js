@@ -5,6 +5,13 @@ var warenkorb = {
   menge: [],     // Array für die Menge jedes Produkts im Warenkorb
   preis: []      // Array für den Preis jedes Produkts im Warenkorb
 };
+var cookieStr = '';
+var expireTime = new Date();
+expireTime = new Date(a.getTime() +1000*60*60*24);
+
+function init(){
+  warenkorbAusgeben();
+}
 
 function zumWarenkorb(nr, pr) {
   var produktName = document.getElementById('produkt' + nr).innerHTML;
@@ -21,6 +28,7 @@ function zumWarenkorb(nr, pr) {
     warenkorb.menge[index] += 1;
   }
 
+  cookieSave();
   warenkorbAusgeben();
 }
 
@@ -42,15 +50,7 @@ function warenkorbAusgeben() {
   document.getElementById('waren').innerHTML = ausgabe;
 
   warenkorbPreis = 0;
-}
-
-
-function warenkorbSum(){
-  // Schleife durch alle Produkte im Warenkorb
-  for (var i = 0; i < warenkorb.produkte.length; i++) {
-    // Gesamtpreis berechnen, indem Menge und Preis multipliziert und zur Gesamtsumme hinzugefügt werden
-    warenkorbPreis += warenkorb.menge[i] * warenkorb.preis[i];
-  }
+  checkCookie();
 }
 
 function loescheProdukt(index) {
@@ -63,4 +63,40 @@ function loescheProdukt(index) {
   }
   warenkorbAusgeben();
 }
+
+function checkCookie(){
+
+  if (document.cookie){
+
+
+  }else{
+
+    cookieSave();
+  }
+
+}
+
+function cookieSave(){
+
+
+  for(var i = 0; i < warenkorb.produkte.length; i++) {
+    cookieStr += warenkorb.produkte[i]+',';
+    cookieStr += warenkorb.menge[i]+',';
+    cookieStr += warenkorb.preis[i]+',';
+  }
+
+  cookieStr.slice(0, -1);
+  document.cookie = 'Warenkorb='+cookieStr+'; expires='+expireTime+';';
+  cookieStr = '';
+}
+
+function warenkorbSum(){
+  // Schleife durch alle Produkte im Warenkorb
+  for (var i = 0; i < warenkorb.produkte.length; i++) {
+    // Gesamtpreis berechnen, indem Menge und Preis multipliziert und zur Gesamtsumme hinzugefügt werden
+    warenkorbPreis += warenkorb.menge[i] * warenkorb.preis[i];
+  }
+}
+
+
 
