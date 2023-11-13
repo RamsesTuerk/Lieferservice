@@ -10,6 +10,7 @@ var expireTime = new Date();
 expireTime = new Date(a.getTime() +1000*60*60*24);
 
 function init(){
+  checkCookie();
   warenkorbAusgeben();
 }
 
@@ -50,7 +51,6 @@ function warenkorbAusgeben() {
   document.getElementById('waren').innerHTML = ausgabe;
 
   warenkorbPreis = 0;
-  checkCookie();
 }
 
 function loescheProdukt(index) {
@@ -68,6 +68,19 @@ function checkCookie(){
 
   if (document.cookie){
 
+    var test = decodeURIComponent(document.cookie);
+    var array = test.split("=");
+    var test2 = array[1];
+    var array2 = test2.split(",");
+
+    for (var i = 0; i <= array2.length; i +=3){
+
+      warenkorb.produkte.push(array2[i]);
+      warenkorb.menge.push(array2[i+1]);
+      warenkorb.preis.push(array2[i+2]);
+    }
+
+    warenkorbAusgeben();
 
   }else{
 
