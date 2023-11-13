@@ -30,14 +30,14 @@ function warenkorbAusgeben() {
 
   for (var i = 0; i < warenkorb.produkte.length; i++) {
     ausgabe += '<article class="warenkorbArtikel">';
-    ausgabe += '<table><tr><td class="warenkorbTabelleZellen">' + warenkorb.menge[i] + 'x </td><td class="warenkorbTabelleItem">' + warenkorb.produkte[i] + ': </td><td class="warenkorbTabellePrice"> ' + (warenkorb.preis[i] / 100) + '€ </td><td class="warenkorbTabelleZellen">';
+    ausgabe += '<table><tr><td class="warenkorbTabelleZellen">' + warenkorb.menge[i] + 'x </td><td class="warenkorbTabelleItem">' + warenkorb.produkte[i] + ': </td><td class="warenkorbTabellePrice"> ' + (warenkorb.preis[i] / 100) + '&#x20AC </td><td class="warenkorbTabelleZellen">';
     ausgabe += '<button class="warenkorbButtonLöschen" onclick="loescheProdukt(' + i + ');"><img src="pictures/delete.png" alt="delete"></button></td></tr></table>';
     ausgabe += '</article>';
   }
 
 
 
-  ausgabe += '<a href="bestellübersicht.html"><input class="warenkorbButtonBestellen" type="button" value="für ' + (warenkorbPreis / 100) + '€ bestellen"></a>';
+  ausgabe += '<a href="bestellübersicht.html"><input class="warenkorbButtonBestellen" type="button" value="f&#252;r ' + (warenkorbPreis / 100) + '&#x20AC bestellen"></a>';
 
   document.getElementById('waren').innerHTML = ausgabe;
 
