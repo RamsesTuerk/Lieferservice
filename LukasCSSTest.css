@@ -96,7 +96,7 @@ h2 {color: black;}
 }
   
 .warenkorb {
-  background-color: aqua;
+  background-color: #D0D6B3;
   margin: 0;
   padding: 0.3rem;
  
@@ -110,7 +110,7 @@ h2 {color: black;}
 }
 
 .warenkorbArtikel {
-  background: white;
+  background: #AAAE7F;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -134,9 +134,10 @@ h2 {color: black;}
 }
 
 .warenkorbButtonBestellen{
-  background-color: rgb(0, 94, 255);
+  background-color: #143109;
   position: relative;
   left: 265px;
+  color: #F7F7F7;
 }
 
 .warenkorbButtonLöschen{

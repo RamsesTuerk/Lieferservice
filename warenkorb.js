@@ -82,7 +82,7 @@ function checkCookie() {
     const decodedCookie = decodeURIComponent(document.cookie); // entfernen der Cookieinformationen 
     const array = decodedCookie.split("="); //trennen von Cookienamen und Inhalt
     const test2 = array[1].trim(); //Lehrzeichen entfernen
-    const array2 = test2.split(",").filter(item => item !== ""); //Einzelne Cookieinformationen Trennen und lehre Felder Löschen 
+    const array2 = test2.split(",").filter(item => item !== ""); //Einzelne Cookieinformationen Trennen und leere Felder Löschen 
 
     // Schreiben der gespeicherten Informationen in den Warenkorb
     for (let i = 0; i < array2.length; i += 3) {
