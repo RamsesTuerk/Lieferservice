@@ -51,6 +51,8 @@ function warenkorbAusgeben() {
   document.getElementById('waren').innerHTML = ausgabe;
 
   warenkorbPreis = 0;
+
+  cookieSave();
 }
 
 function loescheProdukt(index) {
@@ -64,6 +66,15 @@ function loescheProdukt(index) {
   warenkorbAusgeben();
 }
 
+function warenkorbSum(){
+  // Schleife durch alle Produkte im Warenkorb
+  for (var i = 0; i < warenkorb.produkte.length; i++) {
+    // Gesamtpreis berechnen, indem Menge und Preis multipliziert und zur Gesamtsumme hinzugefügt werden
+    warenkorbPreis += warenkorb.menge[i] * warenkorb.preis[i];
+  }
+}
+
+
 function checkCookie(){
 
   if (document.cookie){
@@ -73,14 +84,17 @@ function checkCookie(){
     var test2 = array[1];
     var array2 = test2.split(",");
 
-    for (var i = 0; i <= array2.length; i +=3){
+    array2.splice(array2.length, 1);
+
+    prompt(array2[0]+array2[1]+array2[2]);
+
+    for (var i = 0; i < array2.length; i = i + 3){
 
       warenkorb.produkte.push(array2[i]);
       warenkorb.menge.push(array2[i+1]);
       warenkorb.preis.push(array2[i+2]);
     }
 
-    warenkorbAusgeben();
 
   }else{
 
@@ -98,18 +112,11 @@ function cookieSave(){
     cookieStr += warenkorb.preis[i]+',';
   }
 
-  cookieStr.slice(0, -1);
   document.cookie = 'Warenkorb='+cookieStr+'; expires='+expireTime+';';
   cookieStr = '';
 }
 
-function warenkorbSum(){
-  // Schleife durch alle Produkte im Warenkorb
-  for (var i = 0; i < warenkorb.produkte.length; i++) {
-    // Gesamtpreis berechnen, indem Menge und Preis multipliziert und zur Gesamtsumme hinzugefügt werden
-    warenkorbPreis += warenkorb.menge[i] * warenkorb.preis[i];
-  }
-}
+
 
 
 
