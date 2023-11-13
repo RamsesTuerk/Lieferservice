@@ -1,17 +1,17 @@
 h1 {
     font-size: 5vw;
     font-style: oblique;
-    color: white;
+    color: #AAAE7F;
     text-align: center;
 }
 html{
-    background-color: #171735;
+    background-color: #EFEFEF;
 }
 
 p {
     font-size: 3vw;
     text-align: center;
-    color: white;
+    color: #AAAE7F;
 }
 
 #index_p2 {
@@ -25,7 +25,7 @@ p {
 .auswahl_btn {
     margin-top: 5vw;
     padding: 1vw;
-    background-color: #5016bb5e;
+    background-color: #143109;
     color: white;
     border: none;
     border-radius: 20px;
