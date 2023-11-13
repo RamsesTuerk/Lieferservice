@@ -153,18 +153,19 @@ p {
     -webkit-backdrop-filter: blur(5.8px);
     }
 .choice_table{
-    color: #c2c2c2;
+    color: #143109;
 }
 .td{
     width: auto;
     padding: 6px;
 }
 .choice_div{
-    background: rgba(249, 39, 194, 0.08);
+    background: #D0D6B3;
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5.8px);
     -webkit-backdrop-filter: blur(5.8px);
+
 }
 .form{
     color: white;
@@ -180,4 +181,20 @@ p {
 .input_adress{
     width: 58%;
     margin-bottom: 5%;
+}
+#choice_btn_back_home{
+    font-size: 300%;
+    transform: translateY(50%);   
+    
+}
+a {
+    text-decoration: none;
+    color: #143109;
+}
+.choice_div_back{
+    justify-self: center;
+    min-height: 150px;
+}
+.choice_btn{
+    border: none;
 }
