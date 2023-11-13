@@ -138,16 +138,12 @@ p {
     color: rgba(255, 0, 0, 0.269);
 }
 .container{
-    max-width: 1200px;
+    max-width: 1920px;
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 5fr));
+    grid-gap: 2vw;
     
-}
-.td{
-    background: white;
-    width: 15vw;
-    gap: 0px;
 }
 .cart{
     background: rgba(249, 39, 194, 0.08);
@@ -156,9 +152,17 @@ p {
     backdrop-filter: blur(5.8px);
     -webkit-backdrop-filter: blur(5.8px);
     }
-.table_div{
-    justify-content: center;
-    align-content: center;
-    
+.choice_table{
+    color: #c2c2c2;
 }
-
+.td{
+    width: auto;
+    padding: 6px;
+}
+.choice_div{
+    background: rgba(249, 39, 194, 0.08);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.8px);
+    -webkit-backdrop-filter: blur(5.8px);
+}
