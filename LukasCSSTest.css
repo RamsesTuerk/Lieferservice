@@ -91,15 +91,16 @@ h2 {color: black;}
 
 
 }
+.button
+{
+}
+  
 .warenkorb {
   background-color: aqua;
   margin: 0;
   padding: 0.3rem;
  
-  
 }
-
-
 .warenkorb > h1,
 .warenkorbArtikel {
   margin: 0.5rem;
