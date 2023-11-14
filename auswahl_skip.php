@@ -37,6 +37,7 @@
                             // Daten der Db als Tabelle ausgeben und auf der Webseite anzeigen
                             while ($row = $result->fetch_assoc()) {
                                     echo "<div class='choice_div'>";
+                                    ?> <button class="choice_btn" onclick="submit_choice()"><?php
                                         echo "<table class='choice_table'>";
                                         echo "<tr>";
                                         echo "<td class='td restaurant_name'>"."Restaurant: " ."<a href='LukasGRIDTEST.html?Restaurant=$row[Restaurant_Name]'>". $row["Restaurant_Name"]."</a>"."</td>";
@@ -54,6 +55,7 @@
                                         echo "<td class='td restaurant_price'>"."Preis: " . $row["Preis"]."</td>"."</br>";
                                         echo "</tr>";
                                         echo "</table>";
+                                    ?></button><?php
                                     echo "</div>";
                             }
                             echo "<div class='choice_div choice_div_back'>";
