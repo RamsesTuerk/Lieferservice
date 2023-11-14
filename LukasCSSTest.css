@@ -40,26 +40,6 @@ h2 {color: black;}
 .Footer { grid-area: Footer;
 }
 
-
-
-/*CSS Grid Aufbau für die Hauptseiten*/
-.container_main {  display: grid;
-  grid-template-columns: 70%;
-  grid-template-rows: 150px 500px 150px;
-  gap: 0px 0px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    "Header Header Header"
-    "Content Content Content"
-    "Footer Footer Footer";
-}
-
-.Content_main { grid-area: Content; }
-
-.Header_main { grid-area: Header; }
-
-.Footer_main { grid-area: Footer; }
-
 .home{
   color: black;
   display: flex;
