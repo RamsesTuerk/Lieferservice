@@ -165,6 +165,10 @@ p {
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5.8px);
     -webkit-backdrop-filter: blur(5.8px);
+    width: 350px;
+    height: auto;
+    text-align: center;
+    vertical-align: middle;
 
 }
 .form{
@@ -192,10 +196,16 @@ a {
     color: #143109;
 }
 .choice_div_back{
-    justify-self: center;
+    background: #D0D6B3;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.8px);
+    -webkit-backdrop-filter: blur(5.8px);
+    width: 350px;
     min-height: 150px;
+    
 }
 .choice_btn{
-    border: none;
+    border: 0px;
     background-color: transparent;
 }

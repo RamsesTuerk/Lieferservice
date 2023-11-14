@@ -38,33 +38,43 @@
                         if ($result) {
                             // Daten der Db als Tabelle ausgeben und auf der Webseite anzeigen
                             while ($row = $result->fetch_assoc()) {
-                                echo "<div class='choice_div'>";
-                                    echo "<table class='choice_table'>";
-                                    echo "<tr>";
-                                    echo "<td class='td restaurant_name'>"."Restaurant: " ."<a href='LukasGRIDTEST.html?Restaurant=$row[Restaurant_Name]'>". $row["Restaurant_Name"]."</a>"."</td>";
-                                    echo "</tr>";
-                                    echo "<tr>";
-                                    echo "<td class='td restaurant_min_order'>"."Mindestbestellwert: ". $row["Mindestbestellwert"]. " €"."</td>";
-                                    echo "<td class='td restaurant_time_order'>"."Lieferzeit: ca. ". $row["Lieferzeit"]. "min."."</td>";
-                                    echo "</tr>";
-                                    echo "<tr>";
-                                    echo "<td class='td restaurant_price_order'>"."Lieferkosten: " . $row["Lieferkosten"]." €"."</td>";
-                                    echo "<td class='td restaurant_typ_order'>"."Typ: " . $row["Typ"]."</td>";
-                                    echo "</tr>";
-                                    echo "<tr>";
-                                    echo "<td class='td restaurant_categorie_order'>"."Kategorie: " . $row["Kategorie"]."</td>";
-                                    echo "<td class='td restaurant_price'>"."Preis: " . $row["Preis"]."</td>"."</br>";
-                                    echo "</tr>";
-                                    echo "</table>";
-                                echo "</div>";
+                                $name_restaurant = "$row[Restaurant_Name]";
+                                $name_trimmed = str_replace(' ', '', $name_restaurant);
+                                    echo "<div class='choice_div'>";
+                                        echo "<a href='LukasGRIDTEST.html?Restaurant=$name_trimmed'> ";
+                                            echo" <button class='choice_btn' >";
+                                                echo "<table class='choice_table'>";
+                                                    echo "<tr>";
+                                                     echo "<td class='td restaurant_name'>"."Restaurant: ". $row["Restaurant_Name"]."</td>";
+                                                    echo "</tr>";
+                                                    echo "<tr>";
+                                                        echo "<td class='td restaurant_min_order'>"."Mindestbestellwert: ". $row["Mindestbestellwert"]. " €"."</td>";
+                                                        echo "<td class='td restaurant_time_order'>"."Lieferzeit: ca. ". $row["Lieferzeit"]. "min."."</td>";
+                                                    echo "</tr>";
+                                                    echo "<tr>";
+                                                        echo "<td class='td restaurant_price_order'>"."Lieferkosten: " . $row["Lieferkosten"]." €"."</td>";
+                                                        echo "<td class='td restaurant_typ_order'>"."Typ: " . $row["Typ"]."</td>";
+                                                    echo "</tr>";
+                                                    echo "<tr>";
+                                                        echo "<td class='td restaurant_categorie_order'>"."Kategorie: " . $row["Kategorie"]."</td>";
+                                                        echo "<td class='td restaurant_price'>"."Preis: " . $row["Preis"]."</td>"."</br>";
+                                                    echo "</tr>";
+                                                echo "</table>";
+                                            echo "</button>";
+                                        echo "</a>";
+                                    echo "</div>";
                             }
-                            echo "<div class='choice_div choice_div_back'>";
-                            echo "<table class='back_table'>";
-                            echo "<tr>";
-                            echo "<td class='td' id='choice_btn_back_home'>"."<a href=index.html>"."Back"."</a>"."</td>";
-                            echo "</tr>";
-                            echo "</table>";
-                            echo "</div>";
+                            echo "<a href='index.html'> ";
+                                echo "<div class='choice_div_back'";
+                                    echo "<button class='choice_btn'>";
+                                        echo "<table class='back_table'>";
+                                            echo "<tr>";
+                                            echo "<td class='td' id='choice_btn_back_home'>"."<a href=index.html>"."Back"."</a>"."</td>";
+                                            echo "</tr>";
+                                        echo "</table>";
+                                    echo "</button>";
+                                echo "</div>";
+                            echo "</a>";
                             // Verbindung schließen
                             $connection->close();
                         } else {
