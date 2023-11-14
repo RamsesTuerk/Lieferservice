@@ -16,8 +16,8 @@ h2 {color: black;}
 }
 /*DarkMode*/
 .dark-mode {
-  background-color: darkblue;
-  color: grey;
+  background-color: #143109 ;
+  color: black;
 }
 /* Erstellt/Posizioniert die Items (Kinder)*/
 .Content { 
