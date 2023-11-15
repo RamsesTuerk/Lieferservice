@@ -12,8 +12,8 @@ expireTime = expireTime.getTime() +1000*60*60*24;
 //checke Cookies und ausgabe des Warenkorbs
 function init(){
   speisekarteAusgeben();
-  cookieSave();
   checkCookie();
+  cookieSave();
   warenkorbAusgeben();
 }
 
@@ -97,8 +97,9 @@ if(document.cookie){
     const decodedCookie = decodeURIComponent(document.cookie); // entfernen der Cookieinformationen 
     const cuttedString = decodedCookie.split('Warenkorb=').pop().split(';')[0]; //Inhalt unseres Cookies vom Namen und von Weiteren Cookies Trennen
     const cuttedStringWithoutSpaces = cuttedString.trim(); //Lehrzeichen entfernen
-    const array2 = cuttedStringWithoutSpaces.split(",").filter(item => item !== ""); //Einzelne Cookieinformationen Trennen und leere Felder Löschen 
+    const array2 = cuttedStringWithoutSpaces.split("+").filter(item => item !== ""); //Einzelne Cookieinformationen Trennen und leere Felder Löschen 
 
+    console.log("test" + array2[0])
     // Schreiben der gespeicherten Informationen in den Warenkorb
     for (let i = 0; i < array2.length; i += 3) {
       warenkorb.produkte.push(array2[i]);
@@ -112,9 +113,9 @@ if(document.cookie){
 //Cookie mit den Warenkorbinformationen speichern
 function cookieSave(){
   for(var i = 0; i < warenkorb.produkte.length; i++) {
-    cookieStr += warenkorb.produkte[i]+',';
-    cookieStr += warenkorb.menge[i]+',';
-    cookieStr += warenkorb.preis[i]+',';
+    cookieStr += warenkorb.produkte[i]+'+';
+    cookieStr += warenkorb.menge[i]+'+';
+    cookieStr += warenkorb.preis[i]+'+';
   }
   //Cookie Speichern
   document.cookie = 'Warenkorb='+cookieStr+'; expires='+expireTime+';';
