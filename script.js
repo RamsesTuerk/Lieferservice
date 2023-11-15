@@ -296,11 +296,3 @@ function cookieSave(){
   cookieStr = ''; //Leeren des CookieStings
 }
 
-
-//DARKMODE//
-function darkmode() {
-  var element = document.body;
-  element.classList.toggle("dark-mode");}
-
-
-
