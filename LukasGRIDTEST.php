@@ -58,10 +58,6 @@ $conn->close();
     </div>
     <div class="Content">
 
-
-
-      
-      
       <article id="menue" class="menueList">
        
       </article>

@@ -29,7 +29,6 @@ for(var i = 1; i < phpData.length; i++){
 
 };
 
-
 //Hinzufügen von Produkten in den Warenkorb
 function zumWarenkorb(nr, pr) {
   var produktName = document.getElementById('produkt' + nr).innerHTML;
@@ -62,7 +61,7 @@ function warenkorbAusgeben() {
     ausgabe += '</article>';
   }
 
-  ausgabe += '<a href="bestellung.html"><input class="warenkorbButtonBestellen" type="button" value="f&#252;r ' + warenkorbPreis + '&#x20AC bestellen"></a>';
+  ausgabe += '<a href="bestellung.html"><input class="warenkorbButtonBestellen" type="button" value="f&#252;r ' + warenkorbPreis.toFixed(2) + '&#x20AC bestellen"></a>';
 
   document.getElementById('waren').innerHTML = ausgabe;
 
@@ -88,6 +87,7 @@ function warenkorbSum(){
     // Gesamtpreis berechnen, indem Menge und Preis multipliziert und zur Gesamtsumme hinzugefügt werden
     warenkorbPreis += warenkorb.menge[i] * warenkorb.preis[i];
   }
+  	
 }
 
 // Der check ob ein Cookie existiert und das Extrahieren seiner daten 
@@ -109,7 +109,6 @@ if(document.cookie){
 }
 }
 
-
 //Cookie mit den Warenkorbinformationen speichern
 function cookieSave(){
   for(var i = 0; i < warenkorb.produkte.length; i++) {
@@ -121,7 +120,6 @@ function cookieSave(){
   document.cookie = 'Warenkorb='+cookieStr+'; expires='+expireTime+';';
   cookieStr = ''; //Leeren des CookieStings
 }
-
 
 //DARKMODE//
 function darkmode() {
