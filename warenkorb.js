@@ -47,7 +47,7 @@ function warenkorbAusgeben() {
     ausgabe += '</article>';
   }
 
-  ausgabe += '<a href="bestellübersicht.html"><input class="warenkorbButtonBestellen" type="button" value="f&#252;r ' + (warenkorbPreis / 100) + '&#x20AC bestellen"></a>';
+  ausgabe += '<a href="bestellung.html"><input class="warenkorbButtonBestellen" type="button" value="f&#252;r ' + (warenkorbPreis / 100) + '&#x20AC bestellen"></a>';
 
   document.getElementById('waren').innerHTML = ausgabe;
 
