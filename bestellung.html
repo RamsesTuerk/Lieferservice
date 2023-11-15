@@ -3,10 +3,10 @@
     <head>
         <link rel="stylesheet" href="style.css"> <!--Verbindet die Webseite mit der CSS-Datei "Style.css"-->
         <title>Burger, Pizza, Sushi</title> <!--Legt den Titel der Seite fest-->
-        <script language="javascript" type="text/javascript" src="warenkorb.js"></script> <!--Verbindet die Webseite mit der JS-Datei-->
+        <script language="javascript" type="text/javascript" src="script.js"></script> <!--Verbindet die Webseite mit der JS-Datei-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
     </head>
-    <body onload="init()">
+    <body onload="warenkorbAnzeigenOnload()">
         <div>
             <h1 class="index_header" id="index_header1">Fast fertig...</h1>
         </div>
@@ -26,9 +26,11 @@
                 <label for="adresse">Straße und Hausnummer:</label> <br>
                 <input class="input_adress" type="text" placeholder="Musterstraße" id="street">
                 <input class="input_adress" type="text" placeholder="10A" id="street_nbr"><br> <br>
+                <article id="waren" class="warenkorb"></article>
                 <button type="submit">Bestellen</button>
                 <button type="reset">Zurücksetzen</button>
             </form>
+             
         </div>
     <a href="LukasGRIDTEST.html">Back</a>
     </body>
