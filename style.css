@@ -172,19 +172,19 @@ p {
 
 }
 .form{
-    color: white;
     display: flex;
     justify-content: center;
 }
-#street_nbr{
-    width: 15%;
-}
-#street{
-    width: 40%;
-}
+
 .input_adress{
-    width: 58%;
-    margin-bottom: 5%;
+    width: 50%;
+    background-color: #AAAE7F;
+    color: #143109;
+    font-size: large;
+    font-style: oblique;
+    border: none;
+    border-radius: 16px;
+
 }
 #choice_btn_back_home{
     font-size: 300%;
@@ -210,9 +210,20 @@ a {
     background-color: transparent;
 }
 .order{
-    color: #D0D6B3;
-    background-color: #143109;
+    color: #143109;
+    background-color: #D0D6B3;
     text-align: center;
     border-radius: 16px;
     padding: 15px;
+    width: 40%;
+}
+.order_btn{
+    margin-top: 1vw;
+    padding: 1vw;
+    background-color: #AAAE7F;
+    color: #143109;
+    font-size: large;
+    font-style: oblique;
+    border: none;
+    border-radius: 20px;
 }
