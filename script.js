@@ -190,8 +190,8 @@ expireTime = new Date(a.getTime() +1000*60*60*24);
 
 //checke Cookies und ausgabe des Warenkorbs
 function warenkorbAnzeigenOnload(){
-  checkCookie();
-  warenkorbAnzeigen();
+  check_cookie();
+  warenkorb_anzeigen();
 }
 
 //Hinzufügen von Produkten in den Warenkorb
@@ -211,11 +211,11 @@ function zumWarenkorb(nr, pr) {
   }
 
   cookieSave();
-  warenkorbAnzeigen();
+  warenkorb_anzeigen();
 }
 
 //Ausgeben des Warenkorbs in form von <artikels> 
-function warenkorbAnzeigen() {
+function warenkorb_anzeigen() {
   warenkorbSum();  // Warenkorb-Gesamtpreis berechnen
   var ausgabe = '<article class="warenkorbArtikel">' + "Bestellung:" + '</article>';
 
@@ -247,7 +247,7 @@ function loescheProdukt(index) {
     warenkorb.menge.splice(index, 1);
     warenkorb.preis.splice(index, 1);
   }
-  warenkorbAnzeigen();
+  warenkorb_anzeigen();
 }
 
 //Zusammenrechnen der Warenkorbsumme
@@ -260,7 +260,7 @@ function warenkorbSum(){
 }
 
 // Der check ob ein Cookie existiert und das Extrahieren seiner daten 
-function checkCookie() {
+function check_cookie() {
   var cookieList = (document.cookie) ? document.cookie.split(';') : [];
   var cookieValues = {};
 
