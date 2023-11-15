@@ -6,7 +6,8 @@ var warenkorb = {
   preis: []      // Array für den Preis jedes Produkts im Warenkorb
 };
 var cookieStr = ''; // Initialisierung vom Cookie String
-var expireTime = new Date(a.getTime() +1000*60*60*24); // Erstellung einer endzeit des Cookies (24h)
+var expireTime = new Date(); // Erstellung einer endzeit des Cookies (24h)
+expireTime = new Date(a.getTime() +1000*60*60*24);
 
 //checke Cookies und ausgabe des Warenkorbs
 function init(){
@@ -107,6 +108,7 @@ function cookieSave(){
   document.cookie = 'Warenkorb='+cookieStr+'; expires='+expireTime+';';
   cookieStr = ''; //Leeren des CookieStings
 }
+
 
 //DARKMODE//
 function darkmode() {
