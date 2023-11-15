@@ -7,13 +7,22 @@ var warenkorb = {
 };
 var cookieStr = ''; // Initialisierung vom Cookie String
 var expireTime = new Date(); // Erstellung einer endzeit des Cookies (24h)
-expireTime = new Date(a.getTime() +1000*60*60*24);
+expireTime = expireTime.getTime() +1000*60*60*24;
 
 //checke Cookies und ausgabe des Warenkorbs
 function init(){
+  speisekarteAusgeben();
+  cookieSave();
   checkCookie();
   warenkorbAusgeben();
 }
+
+function speisekarteAusgeben(){
+
+  console.log(phpData);
+  
+};
+
 
 //Hinzufügen von Produkten in den Warenkorb
 function zumWarenkorb(nr, pr) {
@@ -51,8 +60,6 @@ function warenkorbAusgeben() {
 
   document.getElementById('waren').innerHTML = ausgabe;
 
-  cookieSave();
-
   warenkorbPreis = 0;
 }
 
@@ -79,14 +86,8 @@ function warenkorbSum(){
 
 // Der check ob ein Cookie existiert und das Extrahieren seiner daten 
 function checkCookie() {
-  var cookieList = (document.cookie) ? document.cookie.split(';') : [];
-  var cookieValues = {};
-
-
-
 
 if(document.cookie){
-
     const decodedCookie = decodeURIComponent(document.cookie); // entfernen der Cookieinformationen 
     const cuttedString = decodedCookie.split('Warenkorb=').pop().split(';')[0]; //Inhalt unseres Cookies vom Namen und von Weiteren Cookies Trennen
     const cuttedStringWithoutSpaces = cuttedString.trim(); //Lehrzeichen entfernen

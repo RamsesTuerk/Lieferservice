@@ -41,7 +41,7 @@
                                 $name_restaurant = "$row[Restaurant_Name]";
                                 $name_trimmed = str_replace(' ', '', $name_restaurant);
                                     echo "<div class='choice_div'>";
-                                        echo "<a href='LukasGRIDTEST.html?Restaurant=$name_trimmed'> ";
+                                        echo "<a href='LukasGRIDTEST.php?Restaurant=$name_trimmed'> ";
                                             echo" <button class='choice_btn' >";
                                                 echo "<table class='choice_table'>";
                                                     echo "<tr>";
