@@ -221,13 +221,13 @@ function warenkorb_anzeigen() {
 
   for (var i = 0; i < warenkorb.produkte.length; i++) {
     ausgabe += '<article class="warenkorbArtikel">';
-    ausgabe += '<table><tr><td class="warenkorbTabelleZellen">' + warenkorb.menge[i] + 'x </td><td class="warenkorbTabelleItem">' + warenkorb.produkte[i] + ': </td><td class="warenkorbTabellePrice"> ' + (warenkorb.preis[i]) + '&#x20AC </td><td class="warenkorbTabelleZellen">';
+    ausgabe += '<table><tr><td class="warenkorbTabelleZellen">' + warenkorb.menge[i] + 'x </td><td class="warenkorbTabelleItem">' + warenkorb.produkte[i] + ': </td><td class="warenkorbTabellePrice"> ' + warenkorb.preis[i] + '&#x20AC </td><td class="warenkorbTabelleZellen">';
     ausgabe += '<button class="warenkorbButtonLöschen" onclick="loescheProdukt(' + i + ');"><img src="pictures/delete.png" alt="delete"></button></td></tr></table>';
     ausgabe += '<br>';
     ausgabe += '</article>';
   }
 
-  ausgabe += "Summe: " + warenkorbPreis + "€";
+  ausgabe += "Summe: " + warenkorbPreis.toFixed(2) + "€"; 
   ausgabe += '<br>';
   ausgabe += '<br>';
 
@@ -261,26 +261,21 @@ function warenkorbSum(){
 
 // Der check ob ein Cookie existiert und das Extrahieren seiner daten 
 function check_cookie() {
-  var cookieList = (document.cookie) ? document.cookie.split(';') : [];
-  var cookieValues = {};
 
+    if(document.cookie){
 
+        const decodedCookie = decodeURIComponent(document.cookie); // entfernen der Cookieinformationen 
+        const cuttedString = decodedCookie.split('Warenkorb=').pop().split(';')[0]; //Inhalt unseres Cookies vom Namen und von Weiteren Cookies Trennen
+        const cuttedStringWithoutSpaces = cuttedString.trim(); //Lehrzeichen entfernen
+        const array2 = cuttedStringWithoutSpaces.split("+").filter(item => item !== ""); //Einzelne Cookieinformationen Trennen und leere Felder Löschen 
 
-
-if(document.cookie){
-
-    const decodedCookie = decodeURIComponent(document.cookie); // entfernen der Cookieinformationen 
-    const cuttedString = decodedCookie.split('Warenkorb=').pop().split(';')[0]; //Inhalt unseres Cookies vom Namen und von Weiteren Cookies Trennen
-    const cuttedStringWithoutSpaces = cuttedString.trim(); //Lehrzeichen entfernen
-    const array2 = cuttedStringWithoutSpaces.split("+").filter(item => item !== ""); //Einzelne Cookieinformationen Trennen und leere Felder Löschen 
-
-    // Schreiben der gespeicherten Informationen in den Warenkorb
-    for (let i = 0; i < array2.length; i += 3) {
-      warenkorb.produkte.push(array2[i]);
-      warenkorb.menge.push(Number(array2[i + 1]));
-      warenkorb.preis.push(Number(array2[i + 2]));
+        // Schreiben der gespeicherten Informationen in den Warenkorb
+        for (let i = 0; i < array2.length; i += 3) {
+        warenkorb.produkte.push(array2[i]);
+        warenkorb.menge.push(Number(array2[i + 1]));
+        warenkorb.preis.push(Number(array2[i + 2]));
+        }   
     }
-}
 }
 
 

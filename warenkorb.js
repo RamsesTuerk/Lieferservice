@@ -93,20 +93,20 @@ function warenkorbSum(){
 // Der check ob ein Cookie existiert und das Extrahieren seiner daten 
 function checkCookie() {
 
-if(document.cookie){
-    const decodedCookie = decodeURIComponent(document.cookie); // entfernen der Cookieinformationen 
-    const cuttedString = decodedCookie.split('Warenkorb=').pop().split(';')[0]; //Inhalt unseres Cookies vom Namen und von Weiteren Cookies Trennen
-    const cuttedStringWithoutSpaces = cuttedString.trim(); //Lehrzeichen entfernen
-    const array2 = cuttedStringWithoutSpaces.split("+").filter(item => item !== ""); //Einzelne Cookieinformationen Trennen und leere Felder Löschen 
+  if(document.cookie){
+      const decodedCookie = decodeURIComponent(document.cookie); // entfernen der Cookieinformationen 
+      const cuttedString = decodedCookie.split('Warenkorb=').pop().split(';')[0]; //Inhalt unseres Cookies vom Namen und von Weiteren Cookies Trennen
+      const cuttedStringWithoutSpaces = cuttedString.trim(); //Lehrzeichen entfernen
+      const array2 = cuttedStringWithoutSpaces.split("+").filter(item => item !== ""); //Einzelne Cookieinformationen Trennen und leere Felder Löschen 
 
-    console.log("test" + array2[0])
-    // Schreiben der gespeicherten Informationen in den Warenkorb
-    for (let i = 0; i < array2.length; i += 3) {
-      warenkorb.produkte.push(array2[i]);
-      warenkorb.menge.push(Number(array2[i + 1]));
-      warenkorb.preis.push(Number(array2[i + 2]));
-    }
-}
+      console.log("test" + array2[0])
+      // Schreiben der gespeicherten Informationen in den Warenkorb
+      for (let i = 0; i < array2.length; i += 3) {
+        warenkorb.produkte.push(array2[i]);
+        warenkorb.menge.push(Number(array2[i + 1]));
+        warenkorb.preis.push(Number(array2[i + 2]));
+      }
+  }
 }
 
 //Cookie mit den Warenkorbinformationen speichern
