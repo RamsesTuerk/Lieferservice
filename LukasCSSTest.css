@@ -68,7 +68,7 @@ h2 {color: black;}
 
 .menueItem {
   display: flex;
-  background-color: white;
+  background-color:#D0D6B3;
   justify-content: center;
   align-items: center;
   margin: 0.5rem;
@@ -124,6 +124,28 @@ h2 {color: black;}
 .warenkorbButtonLöschen{
   background-color: transparent;
   border-color: transparent;
+}
+
+/*Gerichte*/
+
+body {
+  font-family: Arial, sans-serif;
+ }
+ 
+ .pizza-box {
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px;
+  display: inline-block;
+  text-align: center;
+}
+
+.pizza-box p {
+  margin: 0;
+}
+
+.produktBeschreibung{
+  width: 90%;
 }
 
 

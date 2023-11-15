@@ -18,9 +18,15 @@ function init(){
 }
 
 function speisekarteAusgeben(){
+  var speisekarte = '';
+  console.log(phpData[1]["COL 2"])
 
-  console.log(phpData);
-  
+
+for(var i = 1; i < phpData.length; i++){
+  speisekarte += '<article class="menueItem"><table class="Test"><tr><td><h1 id="produkt' + i +'">'+ phpData[i]["COL 2"] + '</h1></td></tr><tr><td class="produktBeschreibung">'+ phpData[i]["COL 3"] + '</td><td><input class="warenkorbButtonBestellen" id ="button' + i +'" type="button" value="'+ phpData[i]["COL 4"] +'&#x20AC" onclick="zumWarenkorb('+ i + ' , '+ phpData[i]["COL 4"] + ')"/></td></tr></table></article>'
+}
+  document.getElementById('menue').innerHTML = speisekarte
+
 };
 
 
@@ -51,12 +57,12 @@ function warenkorbAusgeben() {
 
   for (var i = 0; i < warenkorb.produkte.length; i++) {
     ausgabe += '<article class="warenkorbArtikel">';
-    ausgabe += '<table><tr><td class="warenkorbTabelleZellen">' + warenkorb.menge[i] + 'x </td><td class="warenkorbTabelleItem">' + warenkorb.produkte[i] + ': </td><td class="warenkorbTabellePrice"> ' + (warenkorb.preis[i] / 100) + '&#x20AC </td><td class="warenkorbTabelleZellen">';
+    ausgabe += '<table><tr><td class="warenkorbTabelleZellen">' + warenkorb.menge[i] + 'x </td><td class="warenkorbTabelleItem">' + warenkorb.produkte[i] + ': </td><td class="warenkorbTabellePrice"> ' + warenkorb.preis[i] + '&#x20AC </td><td class="warenkorbTabelleZellen">';
     ausgabe += '<button class="warenkorbButtonLöschen" onclick="loescheProdukt(' + i + ');"><img src="pictures/delete.png" alt="delete"></button></td></tr></table>';
     ausgabe += '</article>';
   }
 
-  ausgabe += '<a href="bestellung.html"><input class="warenkorbButtonBestellen" type="button" value="f&#252;r ' + (warenkorbPreis / 100) + '&#x20AC bestellen"></a>';
+  ausgabe += '<a href="bestellung.html"><input class="warenkorbButtonBestellen" type="button" value="f&#252;r ' + warenkorbPreis + '&#x20AC bestellen"></a>';
 
   document.getElementById('waren').innerHTML = ausgabe;
 

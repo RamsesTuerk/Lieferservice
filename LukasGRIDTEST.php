@@ -57,24 +57,14 @@ $conn->close();
       <button onclick="darkmode()">Darkmode</button>
     </div>
     <div class="Content">
+
+
+
+      
       
       <article id="menue" class="menueList">
-        <article class="menueItem">
-          <div id="produkt1">Sushi12345677777777 77777777 7777777 77777 7777</div>
-            <input class="button" id ="button1" type="button" value="9.00&#x20AC" onclick="zumWarenkorb(1, 900)"/><br>
-        </article>
-        <article class="menueItem">
-          <div id="produkt2">Sushi2</div>
-            <input id ="button2" type="button" value="18.00&#x20AC" onclick="zumWarenkorb(2, 1800)"/><br>
-        </article>
-        <article class="menueItem">
-          <div id="produkt3">Sushi3</div>
-            <input id ="button3" type="button" value="12.00&#x20AC" onclick="zumWarenkorb(3, 1200)"/><br>
-        </article>
-
+       
       </article>
-
-    <div id="demo">Test</div>
 
     </div>
   
