@@ -237,3 +237,6 @@ a {
 .header_order{
     margin: 0;
 }
+.hidden{
+    display:none;
+}

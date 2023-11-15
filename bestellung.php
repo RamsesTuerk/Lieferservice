@@ -11,7 +11,7 @@
             <h1 class="header_order">Fast fertig...</h1>
 
         <div class="form">
-            <form class="order" action="">
+            <form class="order" action="abgesendet.php" method="post">
                 <label class="order_input_topic" for="name">Vorname:</label><br>
                 <input required class="input_adress" name="first_name" type="text" placeholder=" Max" id="first_name"><br>
                 <br>

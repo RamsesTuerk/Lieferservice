@@ -190,11 +190,17 @@ function warenkorb_anzeigen() {
   for (var i = 0; i < warenkorb.produkte.length; i++) {
     ausgabe += '<article class="warenkorbArtikel">';
     ausgabe += '<table><tr><td class="warenkorbTabelleZellen">' + warenkorb.menge[i] + 'x </td><td class="warenkorbTabelleItem">' + warenkorb.produkte[i] + ': </td><td class="warenkorbTabellePrice"> ' + warenkorb.preis[i] + '&#x20AC </td><td class="warenkorbTabelleZellen">';
+    ausgabe += '<div class="hidden">'
+    ausgabe += '<input name="prodMenge' + i + '" value="' + warenkorb.menge[i] + '">'
+    ausgabe += '<input name="prodName' + i + '" value="' + warenkorb.produkte[i] + '">'
+    ausgabe += '<input name="prodPrice' + i + '" value="' + warenkorb.preis[i] + '">'
+    ausgabe += '</div>'
     ausgabe += '<button class="warenkorbButtonLöschen" onclick="loescheProdukt(' + i + ');"><img src="pictures/delete.png" alt="delete"></button></td></tr></table>';
     ausgabe += '<br>';
     ausgabe += '</article>';
   }
-
+  ausgabe += '<input class="hidden" name="products' + '" value="' + i + '">'
+  ausgabe += '<input class="hidden" name="price' + '" value="' + warenkorbPreis.toFixed(2) + '">'
   ausgabe += "Summe: " + warenkorbPreis.toFixed(2) + "€"; 
   ausgabe += '<br>';
   ausgabe += '<br>';
