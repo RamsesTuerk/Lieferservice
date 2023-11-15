@@ -4,6 +4,12 @@ h1 {
     color: #AAAE7F;
     text-align: center;
 }
+h2 {
+    font-size: 3vw;
+    font-style: oblique;
+    color: #AAAE7F;
+    text-align: center;
+}
 html{
     background-color: #EFEFEF;
 }
@@ -174,6 +180,7 @@ p {
 .form{
     display: flex;
     justify-content: center;
+    scale: 0.9;
 }
 
 .input_adress{
@@ -226,4 +233,7 @@ a {
     font-style: oblique;
     border: none;
     border-radius: 20px;
+}
+.header_order{
+    margin: 0;
 }
