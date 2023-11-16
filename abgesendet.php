@@ -60,6 +60,12 @@ echo '<div class="order_done_div">';
         echo 'Bestellung:';
         echo '<br>';
         echo '<br>';
+        $sql = "INSERT INTO `safe_orders_$restaurant_name` (`ID`, `Name`, `Nachname`, `Mail`, `Telefonnummer`, `Stadt`, `Postleitzahl`, `Straße`, `HausNr`,`PreisGesamt`) VALUES 
+        ('','$name','$lastName','$mail','$phoneNumber','$city','$plz','$street','$streetNbr','$price')";
+
+
+        $result = $connection->query($sql);
+
         $sql = "INSERT INTO `orders_$restaurant_name` (`ID`, `Name`, `Nachname`, `Mail`, `Telefonnummer`, `Stadt`, `Postleitzahl`, `Straße`, `HausNr`,`PreisGesamt`) VALUES 
         ('','$name','$lastName','$mail','$phoneNumber','$city','$plz','$street','$streetNbr','$price')";
 

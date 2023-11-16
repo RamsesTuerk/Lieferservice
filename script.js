@@ -158,8 +158,8 @@ expireTime = new Date(a.getTime() +1000*60*60*24);
 
 //checke Cookies und ausgabe des Warenkorbs
 function warenkorbAnzeigenOnload(){
-  check_cookie();
-  warenkorb_anzeigen();
+    checkCookie();
+    warenkorbAusgeben();
 }
 
 //Hinzufügen von Produkten in den Warenkorb
@@ -182,33 +182,130 @@ function zumWarenkorb(nr, pr) {
   warenkorb_anzeigen();
 }
 
+// Dieser Code wird dazu verwendet, einen Warenkorb funktional darzustellen.
+var warenkorbPreis = 0;
+var warenkorb = {
+  produkte: [],  // Array für die Namen der Produkte im Warenkorb
+  menge: [],     // Array für die Menge jedes Produkts im Warenkorb
+  preis: []      // Array für den Preis jedes Produkts im Warenkorb
+};
+var cookieStr = ''; // Initialisierung vom Cookie String
+var expireTime = new Date(); // Erstellung einer endzeit des Cookies (24h)
+expireTime = expireTime.getTime() +1000*60*60*24;
+
+//checke Cookies und ausgabe des Warenkorbs
+function init(){
+  speisekarteAusgeben();
+  checkCookie();
+  cookieSave();
+  warenkorbAusgeben();
+}
+
+function speisekarteAusgeben(){
+  var speisekarte = '';
+  console.log(phpData[1]["COL 2"])
+
+
+for(var i = 1; i < phpData.length; i++){
+  speisekarte += '<button class="SpeiseKarteButton"  onclick="zumWarenkorb('+ i + ' , '+ phpData[i]["COL 4"] + ')">'
+    speisekarte += '<div class="speisekarte_article">'
+      speisekarte += '<article class="menueItem">'
+        speisekarte += '<table class="Test">'
+          speisekarte += '<tr>'
+            speisekarte += '<th>'
+              speisekarte += '<h5 class="food_item_name" id="produkt' + i +'">'+ phpData[i]["COL 2"] + '</h5>'
+              speisekarte += '<h6 class="food_item_price" >'+ phpData[i]["COL 4"] + ' €</h6>'
+            speisekarte += '</th>'
+          speisekarte += '</tr>'
+          speisekarte += '<tr class="tr_class">'
+            speisekarte += '<td class="inhalt">'+ phpData[i]["COL 3"] + '</td>'
+          speisekarte += '</tr>'
+        speisekarte += '</table>'
+      speisekarte += '</article>'
+    speisekarte += '</div>'
+  speisekarte += '</button>'  
+    
+}
+  document.getElementById('menue').innerHTML = speisekarte
+
+};
+
+//Hinzufügen von Produkten in den Warenkorb
+function zumWarenkorb(nr, pr) {
+  var produktName = document.getElementById('produkt' + nr).innerHTML;
+  var preis = pr;
+
+  // Sucht nach dem Produkt im Warenkorb
+  var index = warenkorb.produkte.indexOf(produktName);
+
+  if (index === -1) {
+    warenkorb.produkte.push(produktName);
+    warenkorb.menge.push(1);
+    warenkorb.preis.push(preis);
+  } else {
+    warenkorb.menge[index] += 1;
+  }
+
+  cookieSave();
+  warenkorbAusgeben();
+}
+
 //Ausgeben des Warenkorbs in form von <artikels> 
-function warenkorb_anzeigen() {
+function warenkorbAusgeben() {
   warenkorbSum();  // Warenkorb-Gesamtpreis berechnen
-  var ausgabe = '<article class="warenkorbArtikel">' + "Bestellung:" + '</article>';
+  var ausgabe = '<h1>Warenkorb</h1> <article class="warenkorbArtikel"><table><tr><td class="warenkorbTabelleZellen">Menge:</td><td class="warenkorbTabelleItem">Produkt: </td><td class="warenkorbTabellePrice">Preis:</td><td class="warenkorbTabelleZellen"></td></tr></table></article>';
 
   for (var i = 0; i < warenkorb.produkte.length; i++) {
     ausgabe += '<article class="warenkorbArtikel">';
     ausgabe += '<table><tr><td class="warenkorbTabelleZellen">' + warenkorb.menge[i] + 'x </td><td class="warenkorbTabelleItem">' + warenkorb.produkte[i] + ': </td><td class="warenkorbTabellePrice"> ' + warenkorb.preis[i] + '&#x20AC </td><td class="warenkorbTabelleZellen">';
-    ausgabe += '<div class="hidden">'
-    ausgabe += '<input name="prodMenge' + i + '" value="' + warenkorb.menge[i] + '">'
-    ausgabe += '<input name="prodName' + i + '" value="' + warenkorb.produkte[i] + '">'
-    ausgabe += '<input name="prodPrice' + i + '" value="' + warenkorb.preis[i] + '">'
-    ausgabe += '</div>';
     ausgabe += '<button class="warenkorbButtonLöschen" onclick="loescheProdukt(' + i + ');"><img src="pictures/delete.png" alt="delete"></button></td></tr></table>';
-    ausgabe += '<br>';
     ausgabe += '</article>';
   }
-  ausgabe += '<input class="hidden" name="products' + '" value="' + i + '">'
-  ausgabe += '<input class="hidden" name="price' + '" value="' + warenkorbPreis.toFixed(2) + '">'
-  ausgabe += '<input class="hidden" name="restaurant" value="' + restaurantName + '">'
-  ausgabe += "Summe: " + warenkorbPreis.toFixed(2) + "€"; 
-  ausgabe += '<br>';
-  ausgabe += '<br>';
+  ausgabe += '<article class="warenkorbArtikel">';
+  ausgabe += '<table>'
+  ausgabe += '<tr>'
+  ausgabe += '<td class="warenkorbTabelleZellen">' + "" + 'x </td>'
+  ausgabe += '<td class="warenkorbTabelleItem">' + "Lieferkosten" + ': </td>'
+  ausgabe += '<td class="warenkorbTabellePrice"> ' + lieferkosten + '&#x20AC </td>'
+  ausgabe += '<td class="warenkorbTabelleZellen"></td>';
+  ausgabe += '</table>'
+  ausgabe += '</article>';
 
-  document.getElementById('waren').innerHTML = ausgabe;
+  ausgabe += '<article class="warenkorbArtikel">';
+  ausgabe += '<table>'
+  ausgabe += '<tr>'
+  ausgabe += '<td class="warenkorbTabelleZellen">' + "" + '</td>'
+  ausgabe += '<td class="warenkorbTabelleItem">' + "Gesamtkosten" + ': </td>'
+  ausgabe += '<td class="warenkorbTabellePrice"> ' + warenkorbPreis.toFixed(2) + '&#x20AC </td>'
+  ausgabe += '<td class="warenkorbTabelleZellen"></td>';
+  ausgabe += '</table>'
+  ausgabe += '</article>';
 
-  cookieSave();
+
+  for (var i = 0; i < warenkorb.produkte.length; i++) {
+  ausgabe += '<input class="hidden" name="prodMenge' + i + '" value="' + warenkorb.menge[i] + '">';
+  ausgabe += '<input class="hidden" name="prodName' + i + '" value="' + warenkorb.produkte[i] + '">';
+  ausgabe += '<input class="hidden" name="prodPrice' + i + '" value="' + warenkorb.preis[i] + '">';
+  };
+  
+  ausgabe += '<input class="hidden" name="products' + '" value="' + i + '">';
+  ausgabe += '<input class="hidden" name="price' + '" value="' + warenkorbPreis.toFixed(2) +'">';
+  ausgabe += '<input class="hidden" name="restaurant" value="' + restaurantName + '">';
+  
+
+  ausgabe += '<div class="BtnBestellen">'
+  ausgabe += '<a id="orderBtnPrice" href="bestellung.html"><input class="warenkorbButtonBestellen" type="button" value="bestellen"></a>';
+  ausgabe += '</div>'
+
+  if (document.getElementById('waren') != null){
+    document.getElementById('waren').innerHTML = ausgabe;
+  }else{
+    document.getElementById('warenZusammenfassung').innerHTML = ausgabe;
+    element = document.getElementById("orderBtnPrice");
+    element.classList.add("hidden");
+  }
+  ;
+
 
   warenkorbPreis = 0;
 }
@@ -222,7 +319,8 @@ function loescheProdukt(index) {
     warenkorb.menge.splice(index, 1);
     warenkorb.preis.splice(index, 1);
   }
-  warenkorb_anzeigen();
+  warenkorbAusgeben();
+  cookieSave();
 }
 
 //Zusammenrechnen der Warenkorbsumme
@@ -232,43 +330,39 @@ function warenkorbSum(){
     // Gesamtpreis berechnen, indem Menge und Preis multipliziert und zur Gesamtsumme hinzugefügt werden
     warenkorbPreis += warenkorb.menge[i] * warenkorb.preis[i];
   }
+  warenkorbPreis += Number(lieferkosten);
 }
 
 // Der check ob ein Cookie existiert und das Extrahieren seiner daten 
-function check_cookie() {
+function checkCookie() {
 
-    if(document.cookie){
-        const decodedCookie = decodeURIComponent(document.cookie); // entfernen der Cookieinformationen 
-        const cuttedString = decodedCookie.split('Warenkorb=').pop().split(';')[0]; //Inhalt unseres Cookies vom Namen Restaurant und von Weiteren Cookies Trennen
-        const cuttedStringWithoutSpaces = cuttedString.trim(); //Lehrzeichen entfernen
-        const array2 = cuttedStringWithoutSpaces.split("+").filter(item => item !== ""); //Einzelne Cookieinformationen Trennen und leere Felder Löschen
-        restaurantName = array2[0];
+  if(document.cookie){
+      const decodedCookie = decodeURIComponent(document.cookie); // entfernen der Cookieinformationen 
+      const cuttedString = decodedCookie.split('Warenkorb=').pop().split(';')[0]; //Inhalt unseres Cookies vom Namen Restaurant und von Weiteren Cookies Trennen
+      const cuttedStringWithoutSpaces = cuttedString.trim(); //Lehrzeichen entfernen
+      const array2 = cuttedStringWithoutSpaces.split("+").filter(item => item !== ""); //Einzelne Cookieinformationen Trennen und leere Felder Löschen
+      restaurantName = array2[0];
+      lieferkosten = array2[1];
 
-
-        console.log("test" + array2[0])
-        // Schreiben der gespeicherten Informationen in den Warenkorb
-        for (let i = 1; i < array2.length; i += 3) {
-          warenkorb.produkte.push(array2[i]);
-          warenkorb.menge.push(Number(array2[i + 1]));
-          warenkorb.preis.push(Number(array2[i + 2]));
-          
-        }
-    }
+      console.log(lieferkosten)
+      console.log("test" + array2[1])
+      // Schreiben der gespeicherten Informationen in den Warenkorb
+      for (let i = 2; i < array2.length; i += 3) {
+        warenkorb.produkte.push(array2[i]);
+        warenkorb.menge.push(Number(array2[i + 1]));
+        warenkorb.preis.push(Number(array2[i + 2]));
+      }
+  }
 }
-
 
 //Cookie mit den Warenkorbinformationen speichern
 function cookieSave(){
-    for(var i = 0; i < warenkorb.produkte.length; i++) {
-      cookieStr += warenkorb.produkte[i]+'+';
-      cookieStr += warenkorb.menge[i]+'+';
-      cookieStr += warenkorb.preis[i]+'+';
-    }
-    //Cookie Speichern
-    document.cookie = 'Warenkorb='+ restaurantPost +'+'+cookieStr+'; expires='+expireTime+';';
-    cookieStr = ''; //Leeren des CookieStings
+  for(var i = 0; i < warenkorb.produkte.length; i++) {
+    cookieStr += warenkorb.produkte[i]+'+';
+    cookieStr += warenkorb.menge[i]+'+';
+    cookieStr += warenkorb.preis[i]+'+';
   }
-function close(){
-    setTimeout('', 2000);
-    close
+  //Cookie Speichern
+  document.cookie = 'Warenkorb='+ restaurantPost+ '+' + lieferkosten +'+'+cookieStr+'; expires='+expireTime+';';
+  cookieStr = ''; //Leeren des CookieStings
 }

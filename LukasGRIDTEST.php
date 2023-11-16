@@ -44,7 +44,7 @@ $conn->close();
 <html>
 <head lang="DE">
     <title>Your order</title>
-    <script type="text/javascript" src="warenkorb.js"></script>
+    <script type="text/javascript" src="script.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -67,7 +67,7 @@ $conn->close();
     </div>
     <div class="Side"> 
 
-      <article id="waren" class="warenkorb"></article>  
+      <article id="waren" class="warenkorb WarenkorbAusgabe"></article>  
       
     </div>
     
