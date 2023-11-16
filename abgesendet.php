@@ -1,4 +1,11 @@
 <?php
+$servername = "localhost";  // Der Datenbankserver 
+$username = "root";  //Datenbank-Benutzername
+$password = "";  //Datenbank-Passwort
+$database = "bestellungen";  //Name der Datenbank
+
+$connection = new mysqli($servername, $username, $password, $database);
+
 $name = $_POST["first_name"];
 $lastName = $_POST["last_name"];
 $mail = $_POST["email"];
@@ -39,7 +46,16 @@ echo '<br>';
 echo 'Bestellung:';
 echo '<br>';
 echo '<br>';
+$sql = "INSERT INTO `orders`(`ID`, `Name`, `Nachname`, `Mail`, `Telefonnummer`, `Stadt`, `Postleitzahl`, `Straße`, `HausNr`,`PreisGesamt`) VALUES 
+('','$name','$lastName','$mail','$phoneNumber','$city','$plz','$street','$streetNbr','$price')";
 
+
+$result = $connection->query($sql);
+
+$sql = "SELECT `ID` FROM `orders`";
+foreach ($connection->query($sql) as $row) {
+$ID = "$row[ID]";
+}
 while ($i <= $products - 1) {
     $prodMenge[$i] = $_POST["prodMenge".$i];
     $prodName[$i] = $_POST["prodName".$i];
@@ -51,31 +67,17 @@ while ($i <= $products - 1) {
     echo ' Preis ';
     echo $prodPrice[$i];
     echo ' € <br>';
-    $i++;
 
+    $sql = " INSERT INTO `order_products`(`ID`, `Gericht`, `Menge`, `Preis`) VALUES ('$ID','$prodName[$i]','$prodMenge[$i]','$prodPrice[$i]')";
+
+    $result = $connection->query($sql);
+
+    $i++;
 
 }
 echo '<br>';
 echo '<br>';
 echo 'Gesamtpreis: ';
 echo $price.' €';
-
-$servername = "localhost";  // Der Datenbankserver 
-$username = "root";  //Datenbank-Benutzername
-$password = "";  //Datenbank-Passwort
-$database = "bestellungen";  //Name der Datenbank
-
-// Verbindung zur Datenbank herstellen
-$connection = new mysqli($servername, $username, $password, $database);
-$sql = "
-    CREATE TABLE `adressen.$i` (
-    `id` INT( 10 ) NOT NULL AUTO_INCREMENT PRIMARY KEY ,
-    `nachname` VARCHAR( 150 ) NOT NULL ,
-    `vorname` VARCHAR( 150 ) NULL ,
-    `akuerzel` VARCHAR( 2 ) NOT NULL ,
-    `strasse` VARCHAR( 150 ) NULL ,
-    `plz` INT( 5 ) NOT NULL ,
-    `telefon` VARCHAR( 20 ) NULL
-    )";
-$result = $connection->query($sql);
+$connection->close();
 ?>
