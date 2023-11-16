@@ -64,8 +64,6 @@ $conn->close();
       </article>
 
     </div>
-  
-    
     <div class="Side"> 
 
       <article id="waren" class="warenkorb"></article>  
