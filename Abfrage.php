@@ -5,6 +5,9 @@
         <title>Burger, Pizza, Sushi</title> <!--Legt den Titel der Seite fest-->
         <script language="javascript" type="text/javascript" src="script.js"></script> <!--Verbindet die Webseite mit der JS-Datei-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
+        <script type="text/javascript">
+            setTimeout("document.location.reload();",5000);
+        </script>
     </head>
     <body>
     <?php
