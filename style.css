@@ -284,4 +284,13 @@ h3{
 }
 .back_btn{
     text-align: center;
+    margin: 2px;
+}
+.ordered_table{
+    border: #143109;
+    border-radius: 2px;
+    background-color: #D0D6B3;
+}
+.ordered_food{
+    background-color: #AAAE7F;
 }

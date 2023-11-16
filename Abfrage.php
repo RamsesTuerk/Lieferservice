@@ -28,7 +28,13 @@
         // Daten der Db als Tabelle ausgeben und auf der Webseite anzeigen
         while ($row = $result->fetch_assoc()) {
             $ID = $row["ID"];
-            echo "<table class='choice_table'>";
+            echo "<table class='ordered_table'>";
+                echo "<tr>";
+                echo "<td class=''>"."<h3>Bestellnummer: ". $ID."</h3>"."</td>";
+                echo "</tr>";
+                echo "<tr>";
+                echo "<td class=''>"." "."</td>";
+                echo "</tr>";
                 echo "<tr>";
                 echo "<td class=''>"."Name: ". $row["Name"]."</td>";
                 echo "</tr>";
@@ -48,14 +54,26 @@
                 echo "<td class=''>"."HausNr: " . $row["HausNr"]."</td>";
                 echo "<td class=''>"."PreisGesamt: " . $row["PreisGesamt"]." €"."</td>"."</br>";
                 echo "</tr>";
+                echo "<tr>";
+                echo "<td class=''>"." "."</td>";
+                echo "</tr>";
+                echo "<tr>";
+                echo "<td class=''>"." "."</td>";
+                echo "</tr>";
+                echo "<div class='ordered_food'>";
                 $sqlA = "SELECT `Gericht`, `Menge` FROM order_products WHERE ID='$ID'";
                 $resultA = $connection->query($sqlA);
                 while ($row = $resultA->fetch_assoc()) {
                     echo "<tr>";
-                    echo "<td class=''>"."Gericht: " . $row["Gericht"]."</td>";
-                    echo "<td class=''>"."Menge: " . $row["Menge"]."</td>"."</br>";
+                    echo "<td class='ordered_food'>"."Gericht: " . $row["Gericht"]."</td>";
+                    echo "<td class='ordered_food'>"."Menge: " . $row["Menge"]."</td>"."</br>";
                     echo "</tr>";
                 }
+                echo "</div>";
+                echo '<form target="_blank" action="delete_complete.php" method="post">';
+                    echo 'Delete Order:<input type="submit" name="order" value="'.$ID.'">';
+                    echo '<input class="hidden" type="password" name="pw" value="Start.123">';
+                echo '</form>';
                 echo "</table>";
         }
 }else{
