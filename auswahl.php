@@ -39,9 +39,10 @@
                             // Daten der Db als Tabelle ausgeben und auf der Webseite anzeigen
                             while ($row = $result->fetch_assoc()) {
                                 $name_restaurant = "$row[Restaurant_Name]";
+                                $lieferkosten = "$row[Lieferkosten]";
                                 $name_trimmed = str_replace(' ', '', $name_restaurant);
                                     echo "<div class='choice_div'>";
-                                        echo "<a href='LukasGRIDTEST.php?Restaurant=$name_trimmed'> ";
+                                        echo "<a href='LukasGRIDTEST.php?Restaurant=$name_trimmed&lieferkosten=$lieferkosten'> ";
                                             echo" <button class='choice_btn' >";
                                                 echo "<table class='choice_table'>";
                                                     echo "<tr>";

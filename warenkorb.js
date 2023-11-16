@@ -23,7 +23,24 @@ function speisekarteAusgeben(){
 
 
 for(var i = 1; i < phpData.length; i++){
-  speisekarte += '<article class="menueItem"><table class="Test"><tr><th><h1 id="produkt' + i +'">'+ phpData[i]["COL 2"] + '</h1></th></tr><tr><td class="produktBeschreibung">'+ phpData[i]["COL 3"] + '</td><td><input class="warenkorbButtonBestellen" id ="button' + i +'" type="button" value="'+ phpData[i]["COL 4"] +'&#x20AC" onclick="zumWarenkorb('+ i + ' , '+ phpData[i]["COL 4"] + ')"/></td></tr></table></article>'
+  speisekarte += '<button class="SpeiseKarteButton"  onclick="zumWarenkorb('+ i + ' , '+ phpData[i]["COL 4"] + ')">'
+    speisekarte += '<div class="speisekarte_article">'
+      speisekarte += '<article class="menueItem">'
+        speisekarte += '<table class="Test">'
+          speisekarte += '<tr>'
+            speisekarte += '<th>'
+              speisekarte += '<h5 class="food_item_name" id="produkt' + i +'">'+ phpData[i]["COL 2"] + '</h5>'
+              speisekarte += '<h6 class="food_item_price" >'+ phpData[i]["COL 4"] + ' €</h6>'
+            speisekarte += '</th>'
+          speisekarte += '</tr>'
+          speisekarte += '<tr class="tr_class">'
+            speisekarte += '<td class="inhalt">'+ phpData[i]["COL 3"] + '</td>'
+          speisekarte += '</tr>'
+        speisekarte += '</table>'
+      speisekarte += '</article>'
+    speisekarte += '</div>'
+  speisekarte += '</button>'  
+    
 }
   document.getElementById('menue').innerHTML = speisekarte
 
@@ -60,9 +77,13 @@ function warenkorbAusgeben() {
     ausgabe += '<button class="warenkorbButtonLöschen" onclick="loescheProdukt(' + i + ');"><img src="pictures/delete.png" alt="delete"></button></td></tr></table>';
     ausgabe += '</article>';
   }
-
+  ausgabe += '<article class="warenkorbArtikel">';
+  ausgabe += '<table><tr><td class="warenkorbTabelleZellen">' + "" + 'x </td><td class="warenkorbTabelleItem">' + "Lieferkosten" + ': </td><td class="warenkorbTabellePrice"> ' + lieferkosten + '&#x20AC </td><td class="warenkorbTabelleZellen">';
+  ausgabe += '</article>';
+  ausgabe += '<br>'
+  ausgabe += '<div class="BtnBestellen">'
   ausgabe += '<a href="bestellung.html"><input class="warenkorbButtonBestellen" type="button" value="f&#252;r ' + warenkorbPreis.toFixed(2) + '&#x20AC bestellen"></a>';
-
+  ausgabe += '</div>'
   document.getElementById('waren').innerHTML = ausgabe;
 
   warenkorbPreis = 0;
@@ -85,7 +106,7 @@ function warenkorbSum(){
   // Schleife durch alle Produkte im Warenkorb
   for (var i = 0; i < warenkorb.produkte.length; i++) {
     // Gesamtpreis berechnen, indem Menge und Preis multipliziert und zur Gesamtsumme hinzugefügt werden
-    warenkorbPreis += warenkorb.menge[i] * warenkorb.preis[i];
+    warenkorbPreis += warenkorb.menge[i] * warenkorb.preis[i] + Number(lieferkosten);
   }
   	
 }
@@ -121,11 +142,3 @@ function cookieSave(){
   document.cookie = 'Warenkorb='+ restaurantPost +'+'+cookieStr+'; expires='+expireTime+';';
   cookieStr = ''; //Leeren des CookieStings
 }
-
-//DARKMODE//
-function darkmode() {
-  var element = document.body;
-  element.classList.toggle("dark-mode");}
-
-
-

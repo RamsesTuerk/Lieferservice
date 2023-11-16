@@ -5,6 +5,7 @@ $password = "";  //Datenbank-Passwort
 $dbname = "restaurants";  //Name der Datenbank
 $restaurant = $_GET["Restaurant"];
 $restaurantLow = strtolower($restaurant);
+$lieferkosten = $_GET["lieferkosten"];
 
 // Verbindung herstellen
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -30,6 +31,7 @@ if ($result->num_rows > 0) {
 }
 
 echo '<script>';
+echo 'var lieferkosten ="' . $lieferkosten.'";';
 echo 'var restaurantPost = "' . $restaurant. '";'; 
 echo 'var phpData = ' . json_encode($data) . ';';
 echo '</script>';
@@ -43,11 +45,11 @@ $conn->close();
 <head lang="DE">
     <title>Your order</title>
     <script type="text/javascript" src="warenkorb.js"></script>
-    <link rel="stylesheet" href="LukasCSSTest.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body onload="init()">
-  <div class="container">
+  <div class="speisekarte">
 
     <div class="Header">
 
@@ -55,7 +57,6 @@ $conn->close();
     </div>
     <div class="Headside">
       <a href="index.html" class="home">Home</a>
-      <button onclick="darkmode()">Darkmode</button>
     </div>
     <div class="Content">
 

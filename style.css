@@ -111,20 +111,7 @@ p {
 .warenkorb_button{
     padding: 15px 32px;
 }
-#produkt1{
-    color: white;
-    padding: 15px 32px;
-    font-size: 25px;
-}
-#produkt2{
-    color: white;
-    padding: 15px 32px;
-    font-size: 25px;
-}
-#produkt3{ color: white;
-    padding: 15px 32px;
-    font-size: 25px;
-}
+
 #warenkorb_ausgang{
     color: green;
     display: flex;
@@ -303,4 +290,164 @@ iframe{
     width: 20%;
     background-color: greenyellow;
     font-size: larger;
+}
+.speisekarte {  display: grid;
+    grid-template-columns: 70% min-content;
+    grid-template-rows: 150px 500px 150px;
+    gap: 0px 0px;
+    background-size: cover;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "Header Header Headside"
+      "Content Side Side"
+      "Footer Footer Footer";
+    justify-items: stretch;
+   
+  }
+  /*DarkMode*/
+  .dark-mode {
+    background-color: #183d3d ;
+    color: #93b1a6;
+  }
+  /* Erstellt/Posizioniert die Items (Kinder)*/
+  .Content { 
+    grid-area: Content; 
+    justify-self: center;
+  }
+  .Header { 
+    grid-area: Header;
+    display: grid;
+    justify-content: center;
+   }
+  
+  .Side { 
+    grid-area: Side;
+    grid-template-columns: 30%;
+    
+  } 
+  .Headside{
+    grid-area: Headside;
+    align-self: center;
+    justify-self: end;
+    
+  }
+  
+  
+  .Footer { grid-area: Footer;
+  }
+  
+  .home{
+    color: black;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 20px;
+  }
+  .home :hover {
+    color:blue;
+  }
+  
+  /*///////////////////////////////////////*/
+  
+  
+  .menueList {
+    margin: 0;
+    padding: 0.3rem;
+    width: 100%;
+  }
+  
+  .menueItem {
+    background-color:#D0D6B3;
+    margin: 0.5rem;
+    padding: 0.3rem;
+    width: 95%;
+  }
+    
+  .warenkorb {
+    background-color: #D0D6B3;
+    margin: 0;
+    padding: 0.3rem;
+   
+  }
+  .warenkorb > h1,
+  .warenkorbArtikel {
+    margin: 0.5rem;
+    padding: 0.3rem;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  
+  .warenkorbArtikel {
+    background: #AAAE7F;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+  }
+  
+  
+  .warenkorbTabelleZellen{
+    width: 75px;
+    text-align: center;
+  }
+  
+  .warenkorbTabelleItem{
+    word-wrap: break-word;
+    width: 200px;
+  }
+  
+  .warenkorbTabellePrice{
+    width: 75px;
+    text-align: right;
+  }
+  
+  .warenkorbButtonBestellen{
+    background-color: #143109;
+    color: #F7F7F7;
+  }
+  
+  .warenkorbButtonLöschen{
+    background-color: transparent;
+    border-color: transparent;
+  }
+  
+  /*Gerichte*/
+  
+  body {
+    font-family: Arial, sans-serif;
+   } 
+  .produktBeschreibung{
+    width: 90%;
+  }
+h5{
+  text-align: center;
+  color: #143109;
+  font-size: 1.5vw;
+  margin-top: 5px;
+  margin-bottom : 5px;
+}
+.speisekarteButton{
+  border: 0px;
+  background-color: transparent;
+  width: 100%;
+}
+.speisekarte_article{
+  display: flex;
+  justify-content: center;
+}
+.Test{
+  display: flex;
+  justify-content: center;
+}
+h6{
+  text-align: center;
+  color: #143109;
+  font-size: 1vw;
+  margin-top: 5px;
+  margin-bottom : 5px;
+}
+.BtnBestellen{
+  display:flex;
+  justify-content: right;
+  margin-right: 0.6rem
 }
