@@ -253,45 +253,60 @@ function zumWarenkorb(nr, pr) {
 //Ausgeben des Warenkorbs in form von <artikels> 
 function warenkorbAusgeben() {
   warenkorbSum();  // Warenkorb-Gesamtpreis berechnen
-  var ausgabe = '<h1>Warenkorb</h1> <article class="warenkorbArtikel"><table><tr><td class="warenkorbTabelleZellen">Menge:</td><td class="warenkorbTabelleItem">Produkt: </td><td class="warenkorbTabellePrice">Preis:</td><td class="warenkorbTabelleZellen"></td></tr></table></article>';
-
-  for (var i = 0; i < warenkorb.produkte.length; i++) {
-    ausgabe += '<article class="warenkorbArtikel">';
-    ausgabe += '<table><tr><td class="warenkorbTabelleZellen">' + warenkorb.menge[i] + 'x </td><td class="warenkorbTabelleItem">' + warenkorb.produkte[i] + ': </td><td class="warenkorbTabellePrice"> ' + warenkorb.preis[i] + '&#x20AC </td><td class="warenkorbTabelleZellen">';
-    ausgabe += '<button class="warenkorbButtonLöschen" onclick="loescheProdukt(' + i + ');"><img src="pictures/delete.png" alt="delete"></button></td></tr></table>';
-    ausgabe += '</article>';
-  }
-  ausgabe += '<article class="warenkorbArtikel">';
-  ausgabe += '<table>'
-  ausgabe += '<tr>'
-  ausgabe += '<td class="warenkorbTabelleZellen">' + "" + 'x </td>'
-  ausgabe += '<td class="warenkorbTabelleItem">' + "Lieferkosten" + ': </td>'
-  ausgabe += '<td class="warenkorbTabellePrice"> ' + lieferkosten + '&#x20AC </td>'
-  ausgabe += '<td class="warenkorbTabelleZellen"></td>';
-  ausgabe += '</table>'
-  ausgabe += '</article>';
-
-  ausgabe += '<article class="warenkorbArtikel">';
-  ausgabe += '<table>'
-  ausgabe += '<tr>'
-  ausgabe += '<td class="warenkorbTabelleZellen">' + "" + '</td>'
-  ausgabe += '<td class="warenkorbTabelleItem">' + "Gesamtkosten" + ': </td>'
-  ausgabe += '<td class="warenkorbTabellePrice"> ' + warenkorbPreis.toFixed(2) + '&#x20AC </td>'
-  ausgabe += '<td class="warenkorbTabelleZellen"></td>';
-  ausgabe += '</table>'
-  ausgabe += '</article>';
+  var ausgabe = '<h1>Warenkorb</h1><article class="warenkorbArtikel"><table><tr><td class="warenkorbTabelleZellen">Menge:</td><td class="warenkorbTabelleItem">Produkt: </td><td class="warenkorbTabellePrice">Preis:</td><td class="warenkorbTabelleZellen"></td></tr></table></article>';
 
 
-  for (var i = 0; i < warenkorb.produkte.length; i++) {
-  ausgabe += '<input class="hidden" name="prodMenge' + i + '" value="' + warenkorb.menge[i] + '">';
-  ausgabe += '<input class="hidden" name="prodName' + i + '" value="' + warenkorb.produkte[i] + '">';
-  ausgabe += '<input class="hidden" name="prodPrice' + i + '" value="' + warenkorb.preis[i] + '">';
-  };
-  
-  ausgabe += '<input class="hidden" name="products' + '" value="' + i + '">';
-  ausgabe += '<input class="hidden" name="price' + '" value="' + warenkorbPreis.toFixed(2) +'">';
-  ausgabe += '<input class="hidden" name="restaurant" value="' + restaurantName + '">';
-  
+
+  // Erstellt einen Article, welcher eine Tabelle enthält. Diese zeigt die ausgewählten Menge,Produkte und Preise geordnet an_____________________________________________
+  for (var i = 0; i < warenkorb.produkte.length; i++) {                                                                                                                 //|
+    ausgabe += '<article class="warenkorbArtikel">';                                                                                                                    //|
+        ausgabe += '<table>';                                                                                                                                           //|
+            ausgabe += '<tr>';                                                                                                                                          //|
+                ausgabe += '<td class="warenkorbTabelleZellen">' + warenkorb.menge[i] + 'x </td>';                                                                      //|
+                ausgabe += '<td class="warenkorbTabelleItem">' + warenkorb.produkte[i] + ': </td>';                                                                     //|
+                ausgabe += '<td class="warenkorbTabellePrice"> ' + warenkorb.preis[i] + '&#x20AC </td>';                                                                //|
+                ausgabe += '<td class="warenkorbTabelleZellen">';                                                                                                       //|
+                ausgabe += '<tr>';                                                                                                                                      //|
+                    ausgabe += '<button class="warenkorbButtonLöschen" onclick="loescheProdukt(' + i + ');"><img src="pictures/delete.png" alt="delete"></button>';     //|
+                ausgabe += '</td>';                                                                                                                                     //|
+            ausgabe += '</tr>';                                                                                                                                         //|
+        ausgabe += '</table>';                                                                                                                                          //|
+    ausgabe += '</article>';                                                                                                                                            //|
+  }                                                                                                                                                                     //|
+  ausgabe += '<article class="warenkorbArtikel">';                                                                                                                      //|
+  ausgabe += '<table>'                                                                                                                                                  //|
+  ausgabe += '<tr>'                                                                                                                                                     //|
+  ausgabe += '<td class="warenkorbTabelleZellen">' + "" + 'x </td>'                                                                                                     //|
+  ausgabe += '<td class="warenkorbTabelleItem">' + "Lieferkosten" + ': </td>'                                                                                           //|
+  ausgabe += '<td class="warenkorbTabellePrice"> ' + lieferkosten + '&#x20AC </td>'                                                                                     //|
+  ausgabe += '<td class="warenkorbTabelleZellen"></td>';                                                                                                                //|
+  ausgabe += '</table>'                                                                                                                                                 //|
+  ausgabe += '</article>';                                                                                                                                              //|
+                                                                                                                                                                        //|
+  ausgabe += '<article class="warenkorbArtikel">';                                                                                                                      //|
+  ausgabe += '<table>'                                                                                                                                                  //|
+  ausgabe += '<tr>'                                                                                                                                                     //|
+  ausgabe += '<td class="warenkorbTabelleZellen">' + "" + '</td>'                                                                                                       //|
+  ausgabe += '<td class="warenkorbTabelleItem">' + "Gesamtkosten" + ': </td>'                                                                                           //|
+  ausgabe += '<td class="warenkorbTabellePrice"> ' + warenkorbPreis.toFixed(2) + '&#x20AC </td>'                                                                        //|
+  ausgabe += '<td class="warenkorbTabelleZellen"></td>';                                                                                                                //|
+  ausgabe += '</table>'                                                                                                                                                 //|
+  ausgabe += '</article>';                                                                                                                                              //|
+//_________________________________________________________________________________________________________________________________________________________________________
+
+
+
+
+// Speichert die Werte der einzelnen Produkte in verteckten Inputs (nicht sichtbar), damit diese an die nächste Webseite übergeben werden können___________________________
+  for (var i = 0; i < warenkorb.produkte.length; i++) {                                                                                                                 //|
+  ausgabe += '<input class="hidden" name="prodMenge' + i + '" value="' + warenkorb.menge[i] + '">';                                                                     //|
+  ausgabe += '<input class="hidden" name="prodName' + i + '" value="' + warenkorb.produkte[i] + '">';                                                                   //|
+  ausgabe += '<input class="hidden" name="prodPrice' + i + '" value="' + warenkorb.preis[i] + '">';                                                                     //|
+  };                                                                                                                                                                    //|
+  ausgabe += '<input class="hidden" name="products' + '" value="' + i + '">';                                                                                           //|
+  ausgabe += '<input class="hidden" name="price' + '" value="' + warenkorbPreis.toFixed(2) +'">';                                                                       //|
+  ausgabe += '<input class="hidden" name="restaurant" value="' + restaurantName + '">';                                                                                 //|
+//_________________________________________________________________________________________________________________________________________________________________________
 
   ausgabe += '<div class="BtnBestellen">'
   ausgabe += '<a id="orderBtnPrice" href="bestellung.html"><input class="warenkorbButtonBestellen" type="button" value="bestellen"></a>';
