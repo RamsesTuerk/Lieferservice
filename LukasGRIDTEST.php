@@ -30,6 +30,7 @@ if ($result->num_rows > 0) {
 }
 
 echo '<script>';
+echo 'var restaurantPost = "' . $restaurant. '";'; 
 echo 'var phpData = ' . json_encode($data) . ';';
 echo '</script>';
 

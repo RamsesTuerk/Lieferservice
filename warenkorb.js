@@ -95,13 +95,14 @@ function checkCookie() {
 
   if(document.cookie){
       const decodedCookie = decodeURIComponent(document.cookie); // entfernen der Cookieinformationen 
-      const cuttedString = decodedCookie.split('Warenkorb=').pop().split(';')[0]; //Inhalt unseres Cookies vom Namen und von Weiteren Cookies Trennen
+      const cuttedString = decodedCookie.split('Warenkorb=').pop().split(';')[0]; //Inhalt unseres Cookies vom Namen Restaurant und von Weiteren Cookies Trennen
       const cuttedStringWithoutSpaces = cuttedString.trim(); //Lehrzeichen entfernen
-      const array2 = cuttedStringWithoutSpaces.split("+").filter(item => item !== ""); //Einzelne Cookieinformationen Trennen und leere Felder Löschen 
+      const array2 = cuttedStringWithoutSpaces.split("+").filter(item => item !== ""); //Einzelne Cookieinformationen Trennen und leere Felder Löschen
+      const restaurantName = array2[0];
 
       console.log("test" + array2[0])
       // Schreiben der gespeicherten Informationen in den Warenkorb
-      for (let i = 0; i < array2.length; i += 3) {
+      for (let i = 1; i < array2.length; i += 3) {
         warenkorb.produkte.push(array2[i]);
         warenkorb.menge.push(Number(array2[i + 1]));
         warenkorb.preis.push(Number(array2[i + 2]));
@@ -111,13 +112,13 @@ function checkCookie() {
 
 //Cookie mit den Warenkorbinformationen speichern
 function cookieSave(){
-  for(var i = 0; i < warenkorb.produkte.length; i++) {
+  for(var i = 1; i < warenkorb.produkte.length; i++) {
     cookieStr += warenkorb.produkte[i]+'+';
     cookieStr += warenkorb.menge[i]+'+';
     cookieStr += warenkorb.preis[i]+'+';
   }
   //Cookie Speichern
-  document.cookie = 'Warenkorb='+cookieStr+'; expires='+expireTime+';';
+  document.cookie = 'Warenkorb='+ restaurantPost +'+'+cookieStr+'; expires='+expireTime+';';
   cookieStr = ''; //Leeren des CookieStings
 }
 
