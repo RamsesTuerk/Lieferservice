@@ -78,9 +78,15 @@ function warenkorbAusgeben() {
     ausgabe += '</article>';
   }
   ausgabe += '<article class="warenkorbArtikel">';
-  ausgabe += '<table><tr><td class="warenkorbTabelleZellen">' + "" + 'x </td><td class="warenkorbTabelleItem">' + "Lieferkosten" + ': </td><td class="warenkorbTabellePrice"> ' + lieferkosten + '&#x20AC </td><td class="warenkorbTabelleZellen">';
+  ausgabe += '<table>'
+  ausgabe += '<tr>'
+  ausgabe += '<td class="warenkorbTabelleZellen">' + "" + 'x </td>'
+  ausgabe += '<td class="warenkorbTabelleItem">' + "Lieferkosten" + ': </td>'
+  ausgabe += '<td class="warenkorbTabellePrice"> ' + lieferkosten + '&#x20AC </td>'
+  ausgabe += '<td class="warenkorbTabelleZellen"></td>';
+  ausgabe += '</table>'
   ausgabe += '</article>';
-  ausgabe += '<br>'
+
   ausgabe += '<div class="BtnBestellen">'
   ausgabe += '<a href="bestellung.html"><input class="warenkorbButtonBestellen" type="button" value="f&#252;r ' + warenkorbPreis.toFixed(2) + '&#x20AC bestellen"></a>';
   ausgabe += '</div>'
