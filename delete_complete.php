@@ -8,6 +8,7 @@
     </head>
     <body onload="close()">
         <?php
+        $restaurant_name = strtolower($_POST['restaurant_name']);
         $servername = "localhost";  // Der Datenbankserver 
         $username = "root";  //Datenbank-Benutzername
         $password = "";  //Datenbank-Passwort
@@ -15,14 +16,14 @@
         
         $connection = new mysqli($servername, $username, $password, $database);
     
-        $sql = "SELECT * FROM orders";
+        $sql = "SELECT * FROM orders_$restaurant_name";
         
     
         $result = $connection->query($sql);
 
 
         $order = $_POST['order'];
-        $sql = "DELETE FROM orders WHERE id=$order";
+        $sql = "DELETE FROM orders_$restaurant_name WHERE id=$order";
 
         if ($connection->query($sql) === TRUE) {
             echo "<div class='congrats'>";

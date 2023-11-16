@@ -11,14 +11,14 @@
     </head>
     <body>
     <?php
+    $restaurant_name = strtolower($_POST['restaurnat_name']);
     $servername = "localhost";  // Der Datenbankserver 
     $username = "root";  //Datenbank-Benutzername
     $password = "";  //Datenbank-Passwort
     $database = "bestellungen";  //Name der Datenbank
     
     $connection = new mysqli($servername, $username, $password, $database);
-
-    $sql = "SELECT * FROM orders";
+    $sql = "SELECT * FROM orders_$restaurant_name";
     
 
     $result = $connection->query($sql);
@@ -61,7 +61,7 @@
                 echo "<td class=''>"." "."</td>";
                 echo "</tr>";
                 echo "<div class='ordered_food'>";
-                $sqlA = "SELECT `Gericht`, `Menge` FROM order_products WHERE ID='$ID'";
+                $sqlA = "SELECT `Gericht`, `Menge` FROM order_products_$restaurant_name WHERE ID='$ID'";
                 $resultA = $connection->query($sqlA);
                 while ($row = $resultA->fetch_assoc()) {
                     echo "<tr>";
@@ -73,6 +73,7 @@
                 echo '<form target="display-frame" action="delete_complete.php" method="post">';
                     echo 'Delete Order:<input type="submit" name="order" value="'.$ID.'">';
                     echo '<input class="hidden" type="password" name="pw" value="Start.123">';
+                    echo '<input class="hidden" type="text" name="restaurant_name" value="'.$restaurant_name.'">';
                 echo '</form>';
                 echo "</table>";
         }

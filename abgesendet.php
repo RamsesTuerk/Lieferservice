@@ -15,7 +15,6 @@ $password = "";  //Datenbank-Passwort
 $database = "bestellungen";  //Name der Datenbank
 
 $connection = new mysqli($servername, $username, $password, $database);
-
 $name = $_POST["first_name"];
 $lastName = $_POST["last_name"];
 $mail = $_POST["email"];
@@ -24,8 +23,9 @@ $city = $_POST["city"];
 $plz = $_POST["plz"];
 $street = $_POST["street"];
 $streetNbr = $_POST["street_nbr"];
-$products = $_POST["products"];
 $price = $_POST["price"];
+$products = $_POST["products"];
+$restaurant_name = $_POST["restaurant"];
 $i = 0;
 echo '<div class="order_done_div">';
     echo '<div class="order_done">';
@@ -60,13 +60,13 @@ echo '<div class="order_done_div">';
         echo 'Bestellung:';
         echo '<br>';
         echo '<br>';
-        $sql = "INSERT INTO `orders`(`ID`, `Name`, `Nachname`, `Mail`, `Telefonnummer`, `Stadt`, `Postleitzahl`, `Straße`, `HausNr`,`PreisGesamt`) VALUES 
+        $sql = "INSERT INTO `orders_$restaurant_name` (`ID`, `Name`, `Nachname`, `Mail`, `Telefonnummer`, `Stadt`, `Postleitzahl`, `Straße`, `HausNr`,`PreisGesamt`) VALUES 
         ('','$name','$lastName','$mail','$phoneNumber','$city','$plz','$street','$streetNbr','$price')";
 
 
         $result = $connection->query($sql);
 
-        $sql = "SELECT `ID` FROM `orders`";
+        $sql = "SELECT `ID` FROM `orders_$restaurant_name`";
         foreach ($connection->query($sql) as $row) {
         $ID = "$row[ID]";
         }
@@ -82,7 +82,7 @@ echo '<div class="order_done_div">';
             echo $prodPrice[$i];
             echo ' € <br>';
 
-            $sql = " INSERT INTO `order_products`(`ID`, `Gericht`, `Menge`, `Preis`) VALUES ('$ID','$prodName[$i]','$prodMenge[$i]','$prodPrice[$i]')";
+            $sql = " INSERT INTO `order_products_$restaurant_name` (`ID`, `Gericht`, `Menge`, `Preis`) VALUES ('$ID','$prodName[$i]','$prodMenge[$i]','$prodPrice[$i]')";
 
             $result = $connection->query($sql);
 

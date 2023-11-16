@@ -194,13 +194,14 @@ function warenkorb_anzeigen() {
     ausgabe += '<input name="prodMenge' + i + '" value="' + warenkorb.menge[i] + '">'
     ausgabe += '<input name="prodName' + i + '" value="' + warenkorb.produkte[i] + '">'
     ausgabe += '<input name="prodPrice' + i + '" value="' + warenkorb.preis[i] + '">'
-    ausgabe += '</div>'
+    ausgabe += '</div>';
     ausgabe += '<button class="warenkorbButtonLöschen" onclick="loescheProdukt(' + i + ');"><img src="pictures/delete.png" alt="delete"></button></td></tr></table>';
     ausgabe += '<br>';
     ausgabe += '</article>';
   }
   ausgabe += '<input class="hidden" name="products' + '" value="' + i + '">'
   ausgabe += '<input class="hidden" name="price' + '" value="' + warenkorbPreis.toFixed(2) + '">'
+  ausgabe += '<input class="hidden" name="restaurant" value="' + restaurantName + '">'
   ausgabe += "Summe: " + warenkorbPreis.toFixed(2) + "€"; 
   ausgabe += '<br>';
   ausgabe += '<br>';
@@ -241,14 +242,16 @@ function check_cookie() {
         const cuttedString = decodedCookie.split('Warenkorb=').pop().split(';')[0]; //Inhalt unseres Cookies vom Namen Restaurant und von Weiteren Cookies Trennen
         const cuttedStringWithoutSpaces = cuttedString.trim(); //Lehrzeichen entfernen
         const array2 = cuttedStringWithoutSpaces.split("+").filter(item => item !== ""); //Einzelne Cookieinformationen Trennen und leere Felder Löschen
-        const restaurantName = array2[0];
-  
+        restaurantName = array2[0];
+
+
         console.log("test" + array2[0])
         // Schreiben der gespeicherten Informationen in den Warenkorb
         for (let i = 1; i < array2.length; i += 3) {
           warenkorb.produkte.push(array2[i]);
           warenkorb.menge.push(Number(array2[i + 1]));
           warenkorb.preis.push(Number(array2[i + 2]));
+          
         }
     }
 }
