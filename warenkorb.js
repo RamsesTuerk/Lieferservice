@@ -105,6 +105,7 @@ function loescheProdukt(index) {
     warenkorb.preis.splice(index, 1);
   }
   warenkorbAusgeben();
+  cookieSave();
 }
 
 //Zusammenrechnen der Warenkorbsumme
@@ -127,6 +128,7 @@ function checkCookie() {
       const array2 = cuttedStringWithoutSpaces.split("+").filter(item => item !== ""); //Einzelne Cookieinformationen Trennen und leere Felder Löschen
       const restaurantName = array2[0];
 
+      console.log(cuttedString)
       console.log("test" + array2[0])
       // Schreiben der gespeicherten Informationen in den Warenkorb
       for (let i = 1; i < array2.length; i += 3) {
@@ -139,7 +141,7 @@ function checkCookie() {
 
 //Cookie mit den Warenkorbinformationen speichern
 function cookieSave(){
-  for(var i = 1; i < warenkorb.produkte.length; i++) {
+  for(var i = 0; i < warenkorb.produkte.length; i++) {
     cookieStr += warenkorb.produkte[i]+'+';
     cookieStr += warenkorb.menge[i]+'+';
     cookieStr += warenkorb.preis[i]+'+';
