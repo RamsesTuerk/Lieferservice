@@ -264,3 +264,7 @@ function cookieSave(){
   document.cookie = 'Warenkorb='+cookieStr+'; expires='+expireTime+';';
   cookieStr = ''; //Leeren des CookieStings
 }
+function close(){
+    setTimeout('', 2000);
+    close
+}

@@ -6,7 +6,7 @@
         <script language="javascript" type="text/javascript" src="script.js"></script> <!--Verbindet die Webseite mit der JS-Datei-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body>
+    <body onload="close()">
         <?php
         $servername = "localhost";  // Der Datenbankserver 
         $username = "root";  //Datenbank-Benutzername
@@ -25,9 +25,9 @@
         $sql = "DELETE FROM orders WHERE id=$order";
 
         if ($connection->query($sql) === TRUE) {
-          echo "Record deleted successfully";
-        } else {
-          echo "Error deleting record: " . $conn->error;
+            echo "<div class='congrats'>";
+                echo "Erfolgreich gelöscht";
+            echo "</div>";
         }
         ?>
     </body>

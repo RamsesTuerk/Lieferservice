@@ -294,3 +294,13 @@ h3{
 .ordered_food{
     background-color: #AAAE7F;
 }
+iframe{
+    width:100%;
+    height:60px;
+    border:0px;
+}
+.congrats{
+    width: 20%;
+    background-color: greenyellow;
+    font-size: larger;
+}

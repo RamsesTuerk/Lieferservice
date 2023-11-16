@@ -6,7 +6,7 @@
         <script language="javascript" type="text/javascript" src="script.js"></script> <!--Verbindet die Webseite mit der JS-Datei-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
         <script type="text/javascript">
-            setTimeout("document.location.reload();",5000);
+            setTimeout("document.location.reload();",2000);
         </script>
     </head>
     <body>
@@ -22,7 +22,7 @@
     
 
     $result = $connection->query($sql);
-
+    echo '<iframe name="display-frame"></iframe>';
     if($_POST['pw'] == "Start.123") {
     if ($result) {
         // Daten der Db als Tabelle ausgeben und auf der Webseite anzeigen
@@ -70,7 +70,7 @@
                     echo "</tr>";
                 }
                 echo "</div>";
-                echo '<form target="_blank" action="delete_complete.php" method="post">';
+                echo '<form target="display-frame" action="delete_complete.php" method="post">';
                     echo 'Delete Order:<input type="submit" name="order" value="'.$ID.'">';
                     echo '<input class="hidden" type="password" name="pw" value="Start.123">';
                 echo '</form>';
