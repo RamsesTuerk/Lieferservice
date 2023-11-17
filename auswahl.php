@@ -6,7 +6,7 @@
         <script language="javascript" type="text/javascript" src="script.js"></script> <!--Verbindet die Webseite mit der JS-Datei-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body class="choice_body" onload="loadCSV()">
+    <body class="choice_body">
         <div class="">
             <div class="">
                 <h1>Die für dich passende Auswahl an Restaurants</h1>
