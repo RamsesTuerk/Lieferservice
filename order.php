@@ -3,9 +3,10 @@ $servername = "localhost";  // Der Datenbankserver
 $username = "root";  //Datenbank-Benutzername
 $password = "";  //Datenbank-Passwort
 $dbname = "restaurants";  //Name der Datenbank
-$restaurant = $_GET["Restaurant"];
+$restaurant = $_GET["restaurant"];
 $restaurantLow = strtolower($restaurant);
 $lieferkosten = $_GET["lieferkosten"];
+$minBestellwert = $_GET["minBestellwert"];
 
 // Verbindung herstellen
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -31,9 +32,10 @@ if ($result->num_rows > 0) {
 }
 
 echo '<script>';
-echo 'var lieferkostenPost ="' . $lieferkosten.'";';
-echo 'var restaurantPost = "' . $restaurant. '";'; 
-echo 'var phpData = ' . json_encode($data) . ';';
+  echo 'var minBestellwertPost ="' . $minBestellwert.'";';
+  echo 'var lieferkostenPost ="' . $lieferkosten.'";';
+  echo 'var restaurantPost = "' . $restaurant. '";'; 
+  echo 'var phpData = ' . json_encode($data) . ';';
 echo '</script>';
 
 // Verbindung schließen

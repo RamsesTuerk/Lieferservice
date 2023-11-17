@@ -37,9 +37,11 @@
                             // Daten der Db als Tabelle ausgeben und auf der Webseite anzeigen
                             while ($row = $result->fetch_assoc()) {
                                 $name_restaurant = "$row[Restaurant_Name]";
+                                $lieferkosten = "$row[Lieferkosten]";
                                 $name_trimmed = str_replace(' ', '', $name_restaurant);
+                                $minBestellwert = "$row[Mindestbestellwert]";
                                     echo "<div class='choice_div'>";
-                                    echo "<a href='order.php?Restaurant=$name_trimmed'> ";
+                                    echo "<a href='order.php?restaurant=$name_trimmed&lieferkosten=$lieferkosten&minBestellwert=$minBestellwert'> ";
                                     echo" <button class='choice_btn' >";
                                         echo "<table class='choice_table'>";
                                         echo "<tr>";
