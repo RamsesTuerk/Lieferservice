@@ -265,8 +265,7 @@ var ausgabe = '<h1>Warenkorb</h1><article class="warenkorbArtikel"><table><tr><t
                 ausgabe += '<td class="warenkorbTabelleZellen">' + warenkorb.menge[i] + 'x </td>';                                                                      //|
                 ausgabe += '<td class="warenkorbTabelleItem">' + warenkorb.produkte[i] + ': </td>';                                                                     //|
                 ausgabe += '<td class="warenkorbTabellePrice"> ' + warenkorb.preis[i] + '&#x20AC </td>';                                                                //|
-                ausgabe += '<td class="warenkorbTabelleZellen">';                                                                                                       //|
-                ausgabe += '<tr>';                                                                                                                                      //|
+                ausgabe += '<td class="warenkorbTabelleZellen">';                                                                                                       //|                                                                                                       //|
                     ausgabe += '<button class="warenkorbButtonLöschen" onclick="loescheProdukt(' + i + ');"><img src="pictures/delete.png" alt="delete"></button>';     //|
                 ausgabe += '</td>';                                                                                                                                     //|
             ausgabe += '</tr>';                                                                                                                                         //|
