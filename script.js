@@ -290,24 +290,20 @@ ausgabe += '</article>';
   ausgabe += '<input class="hidden" name="restaurant" value="' + restaurantName + '">';                                                                                 //|
 //_________________________________________________________________________________________________________________________________________________________________________
 
-
-  if(0 < bestelldifferenz){
-  ausgabe += '<div class="minBestellwert">'
-  ausgabe += 'Es fehlen noch ' + (bestelldifferenz.toFixed(2)) + '&#x20AC für den Mindestbestellwert!';
-  ausgabe += '</div>'
-
-  }else{
-  ausgabe += '<div class="BtnBestellen">'
-    ausgabe += '<a id="orderBtnPrice" href="bestellung.html"><input class="warenkorbButtonBestellen" type="button" value="bestellen"></a>';
-  ausgabe += '</div>'
-  }
-
   if (document.getElementById('waren') != null){
+    if(0 < bestelldifferenz){
+        ausgabe += '<div class="minBestellwert">'
+        ausgabe += 'Es fehlen noch ' + (bestelldifferenz.toFixed(2)) + '&#x20AC für den Mindestbestellwert!';
+        ausgabe += '</div>'
+      
+        }else{
+        ausgabe += '<div class="BtnBestellen">'
+          ausgabe += '<a id="orderBtnPrice" href="bestellung.html"><input class="warenkorbButtonBestellen" type="button" value="bestellen"></a>';
+        ausgabe += '</div>'
+        }
     document.getElementById('waren').innerHTML = ausgabe;
   }else{
     document.getElementById('warenZusammenfassung').innerHTML = ausgabe;
-    element = document.getElementById("orderBtnPrice");
-    element.classList.add("hidden");
   }
   ;
 
@@ -349,6 +345,7 @@ function checkCookie() {
       lieferkosten = array2[1];
       minBestellwert = array2[2];
 
+    try{
     if(restaurantName == restaurantPost){
       // Schreiben der gespeicherten Informationen in den Warenkorb
       for (let i = 3; i < array2.length; i += 3) {
@@ -363,7 +360,12 @@ function checkCookie() {
         window.open("order.php", "_self"); //----------- 1. Wert ist das ziel, 2. Wert ist der Ort------- um ein neuen Tab zu öffnen, wir nicht "_self" sondern "_blank" benutzt-----------
         window.location.href = "order.php?restaurant=" + restaurantName + "&" + "lieferkosten=" + lieferkosten + "&" + "minBestellwert=" + minBestellwert;
       }
-    }
+    }}catch{for (let i = 3; i < array2.length; i += 3) {
+        warenkorb.produkte.push(array2[i]);
+        warenkorb.menge.push(Number(array2[i + 1]));
+        warenkorb.preis.push(Number(array2[i + 2]));
+        warenkorbAusgeben();
+      }}
   }else{
     cookieSave();
     warenkorbAusgeben();
