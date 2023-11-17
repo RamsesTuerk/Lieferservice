@@ -197,7 +197,6 @@ expireTime = expireTime.getTime() +1000*60*60*24;
 function init(){
   speisekarteAusgeben();
   checkCookie();
-  cookieSave();
   warenkorbAusgeben();
 }
 
@@ -358,14 +357,20 @@ function checkCookie() {
       restaurantName = array2[0];
       lieferkosten = array2[1];
 
-      console.log(lieferkosten)
-      console.log("test" + array2[1])
+    if(restaurantName == restaurantPost){
       // Schreiben der gespeicherten Informationen in den Warenkorb
       for (let i = 2; i < array2.length; i += 3) {
         warenkorb.produkte.push(array2[i]);
         warenkorb.menge.push(Number(array2[i + 1]));
         warenkorb.preis.push(Number(array2[i + 2]));
+        cookieSave();
       }
+    }else{
+      if(confirm("Möchtest du zu deinem Aktuellen Warenkorb zurückkehren?")){
+        window.open("order.php", "_self"); //----------- 1. Wert ist das ziel, 2. Wert ist der Ort------- um ein neuen Tab zu öffnen, wir nicht "_self" sondern "_blank" benutzt-----------
+        window.location.href = "order.php?Restaurant=" + restaurantName + "&" + "lieferkosten=" + lieferkosten;
+      }
+    }
   }
 }
 
