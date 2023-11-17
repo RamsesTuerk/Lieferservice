@@ -319,7 +319,7 @@ ausgabe += '</article>';
 }
 
 function bestellError(){
-  prompt("Du hast den Mindestbestellwert noch nicht erreicht!")
+  alert("Du hast den Mindestbestellwert noch nicht erreicht!")
 };
 
 // Löschen von Produkten aus dem Warenkorb
