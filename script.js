@@ -346,26 +346,29 @@ function checkCookie() {
       minBestellwert = array2[2];
 
     try{
-    if(restaurantName == restaurantPost){
-      // Schreiben der gespeicherten Informationen in den Warenkorb
+      if(restaurantName == restaurantPost){
+        // Schreiben der gespeicherten Informationen in den Warenkorb
+        for (let i = 3; i < array2.length; i += 3) {
+          warenkorb.produkte.push(array2[i]);
+          warenkorb.menge.push(Number(array2[i + 1]));
+          warenkorb.preis.push(Number(array2[i + 2]));
+          cookieSave();
+          warenkorbAusgeben();
+        }
+      }else{
+        if(confirm("Möchtest du zu deinem Aktuellen Warenkorb zurückkehren?")){
+          window.open("order.php", "_self"); //----------- 1. Wert ist das ziel, 2. Wert ist der Ort------- um ein neuen Tab zu öffnen, wir nicht "_self" sondern "_blank" benutzt-----------
+          window.location.href = "order.php?restaurant=" + restaurantName + "&" + "lieferkosten=" + lieferkosten + "&" + "minBestellwert=" + minBestellwert;
+        }
+      }
+    }catch(err){
       for (let i = 3; i < array2.length; i += 3) {
         warenkorb.produkte.push(array2[i]);
         warenkorb.menge.push(Number(array2[i + 1]));
         warenkorb.preis.push(Number(array2[i + 2]));
-        cookieSave();
         warenkorbAusgeben();
       }
-    }else{
-      if(confirm("Möchtest du zu deinem Aktuellen Warenkorb zurückkehren?")){
-        window.open("order.php", "_self"); //----------- 1. Wert ist das ziel, 2. Wert ist der Ort------- um ein neuen Tab zu öffnen, wir nicht "_self" sondern "_blank" benutzt-----------
-        window.location.href = "order.php?restaurant=" + restaurantName + "&" + "lieferkosten=" + lieferkosten + "&" + "minBestellwert=" + minBestellwert;
-      }
-    }}catch{for (let i = 3; i < array2.length; i += 3) {
-        warenkorb.produkte.push(array2[i]);
-        warenkorb.menge.push(Number(array2[i + 1]));
-        warenkorb.preis.push(Number(array2[i + 2]));
-        warenkorbAusgeben();
-      }}
+    }
   }else{
     cookieSave();
     warenkorbAusgeben();
