@@ -315,6 +315,7 @@ ausgabe += '</article>';
 }
 
 
+
 // Löschen von Produkten aus dem Warenkorb
 function loescheProdukt(index) {
   if (warenkorb.menge[index] > 1) {
