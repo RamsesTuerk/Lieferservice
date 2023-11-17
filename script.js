@@ -314,8 +314,6 @@ ausgabe += '</article>';
   warenkorbPreis = 0;
 }
 
-
-
 // Löschen von Produkten aus dem Warenkorb
 function loescheProdukt(index) {
   if (warenkorb.menge[index] > 1) {
