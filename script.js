@@ -250,14 +250,14 @@ function zumWarenkorb(nr, pr) {
   warenkorbAusgeben();
 }
 
-//Ausgeben des Warenkorbs in form von <artikels> 
+//Ausgeben des Warenkorbs in form von <articles> 
 function warenkorbAusgeben() {
   warenkorbSum();  // Warenkorb-Gesamtpreis berechnen
-  var ausgabe = '<h1>Warenkorb</h1><article class="warenkorbArtikel"><table><tr><td class="warenkorbTabelleZellen">Menge:</td><td class="warenkorbTabelleItem">Produkt: </td><td class="warenkorbTabellePrice">Preis:</td><td class="warenkorbTabelleZellen"></td></tr></table></article>';
 
+// Ausgabe von HTML Elementen in dem von der var "ausgabe" Bereich auf einer Webseite
+var ausgabe = '<h1>Warenkorb</h1><article class="warenkorbArtikel"><table><tr><td class="warenkorbTabelleZellen">Menge:</td><td class="warenkorbTabelleItem">Produkt: </td><td class="warenkorbTabellePrice">Preis:</td><td class="warenkorbTabelleZellen"></td></tr></table></article>';
 
-
-  // Erstellt einen Article, welcher eine Tabelle enthält. Diese zeigt die ausgewählten Menge,Produkte und Preise geordnet an_____________________________________________
+// Erstellt einen Article, welcher eine Tabelle enthält. Diese zeigt die ausgewählten Menge,Produkte und Preise geordnet an________________________________________________
   for (var i = 0; i < warenkorb.produkte.length; i++) {                                                                                                                 //|
     ausgabe += '<article class="warenkorbArtikel">';                                                                                                                    //|
         ausgabe += '<table>';                                                                                                                                           //|
@@ -274,7 +274,7 @@ function warenkorbAusgeben() {
     ausgabe += '</article>';                                                                                                                                            //|
   }                                                                                                                                                                     //|
   ausgabe += '<article class="warenkorbArtikel">';                                                                                                                      //|
-  ausgabe += '<table>'                                                                                                                                                  //|
+  ausgabe += '<table>'                                                                                                                                                  //| Ramses / Max
   ausgabe += '<tr>'                                                                                                                                                     //|
   ausgabe += '<td class="warenkorbTabelleZellen">' + "" + 'x </td>'                                                                                                     //|
   ausgabe += '<td class="warenkorbTabelleItem">' + "Lieferkosten" + ': </td>'                                                                                           //|
@@ -301,7 +301,7 @@ function warenkorbAusgeben() {
   for (var i = 0; i < warenkorb.produkte.length; i++) {                                                                                                                 //|
   ausgabe += '<input class="hidden" name="prodMenge' + i + '" value="' + warenkorb.menge[i] + '">';                                                                     //|
   ausgabe += '<input class="hidden" name="prodName' + i + '" value="' + warenkorb.produkte[i] + '">';                                                                   //|
-  ausgabe += '<input class="hidden" name="prodPrice' + i + '" value="' + warenkorb.preis[i] + '">';                                                                     //|
+  ausgabe += '<input class="hidden" name="prodPrice' + i + '" value="' + warenkorb.preis[i] + '">';                                                                     //| Ramses / Max
   };                                                                                                                                                                    //|
   ausgabe += '<input class="hidden" name="products' + '" value="' + i + '">';                                                                                           //|
   ausgabe += '<input class="hidden" name="price' + '" value="' + warenkorbPreis.toFixed(2) +'">';                                                                       //|
