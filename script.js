@@ -150,7 +150,7 @@ var warenkorb = {
 };
 var cookieStr = ''; // Initialisierung vom Cookie String
 var expireTime = new Date(); // Erstellung einer endzeit des Cookies (24h)
-expireTime = new Date(a.getTime() +1000*60*60*24);
+expireTime = new Date(expireTime.getTime() +1000*60*60*24);
 
 
 //checke Cookies und ausgabe des Warenkorbs
@@ -173,7 +173,7 @@ expireTime = expireTime.getTime() +1000*60*60*24;
 
 //checke Cookies und ausgabe des Warenkorbs
 function init(){
-    checkCookie();
+  checkCookie();
   speisekarteAusgeben();
   warenkorbAusgeben();
 }
@@ -248,8 +248,10 @@ ausgabe += '</article>';
                 ausgabe += '<td class="warenkorbTabelleZellen">' + warenkorb.menge[i] + 'x </td>';                                                                      //|
                 ausgabe += '<td class="warenkorbTabelleItem">' + warenkorb.produkte[i] + ': </td>';                                                                     //|
                 ausgabe += '<td class="warenkorbTabellePrice"> ' + warenkorb.preis[i] + '&#x20AC </td>';                                                                //|
-                ausgabe += '<td class="warenkorbTabelleZellen">';                                                                                                       //|                                                                                                       //|
+                ausgabe += '<td class="warenkorbTabelleZellen">';                                                                                                       //|
+                if (document.getElementById('waren') != null){                                                                                                          //|                                                                                                       //|
                     ausgabe += '<button class="warenkorbButtonLöschen" onclick="loescheProdukt(' + i + ');"><img src="pictures/delete.png" alt="delete"></button>';     //|
+                     }                                                                                                                                                  //|
                 ausgabe += '</td>';                                                                                                                                     //|
             ausgabe += '</tr>';                                                                                                                                         //|
         ausgabe += '</table>';                                                                                                                                          //|
@@ -260,7 +262,7 @@ ausgabe += '</article>';
       ausgabe += '<tr>'                                                                                                                                                 //|
         ausgabe += '<td class="warenkorbTabelleZellen">' + "" + 'x </td>';                                                                                              //|
         ausgabe += '<td class="warenkorbTabelleItem">' + "Lieferkosten" + ': </td>';                                                                                    //|
-        ausgabe += '<td class="warenkorbTabellePrice"> ' + lieferkosten + '&#x20AC </td>';                                                                          //|
+        ausgabe += '<td class="warenkorbTabellePrice"> ' + lieferkosten + '&#x20AC </td>';                                                                              //|
         ausgabe += '<td class="warenkorbTabelleZellen">';                                                                                                               //|
       ausgabe += '</td>';                                                                                                                                               //|
     ausgabe += '</table>'                                                                                                                                               //|
@@ -309,6 +311,7 @@ ausgabe += '</article>';
 
   warenkorbPreis = 0;
 }
+
 
 // Löschen von Produkten aus dem Warenkorb
 function loescheProdukt(index) {
@@ -371,6 +374,7 @@ function checkCookie() {
     }
   }else{
     cookieSave();
+    checkCookie();
     warenkorbAusgeben();
   }
 }
