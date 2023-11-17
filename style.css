@@ -313,6 +313,7 @@ iframe{
   .Content { 
     grid-area: Content; 
     justify-self: center;
+    margin-top: 5%;
   }
   .Header { 
     grid-area: Header;
