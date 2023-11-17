@@ -343,7 +343,7 @@ function warenkorbSum(){
     // Gesamtpreis berechnen, indem Menge und Preis multipliziert und zur Gesamtsumme hinzugefügt werden
     warenkorbPreis += warenkorb.menge[i] * warenkorb.preis[i];
   }
-  warenkorbPreis += Number(lieferkosten);
+  warenkorbPreis += Number(lieferkostenPost);
 }
 
 // Der check ob ein Cookie existiert und das Extrahieren seiner daten 
