@@ -227,6 +227,8 @@ function zumWarenkorb(nr, pr) {
 function warenkorbAusgeben() {
   warenkorbSum();  // Warenkorb-Gesamtpreis berechnen
 
+var bestelldifferenz = minBestellwertPost - (warenkorbPreis - lieferkostenPost)
+
 // Ausgabe von HTML Elementen in dem von der var "ausgabe" Bereich auf einer Webseite
 var ausgabe = '<h1>Warenkorb</h1>';
 ausgabe += '<article class="warenkorbArtikel">';
@@ -260,7 +262,7 @@ ausgabe += '</article>';
       ausgabe += '<tr>'                                                                                                                                                 //|
         ausgabe += '<td class="warenkorbTabelleZellen">' + "" + 'x </td>';                                                                                              //|
         ausgabe += '<td class="warenkorbTabelleItem">' + "Lieferkosten" + ': </td>';                                                                                    //|
-        ausgabe += '<td class="warenkorbTabellePrice"> ' + lieferkostenPost + '&#x20AC </td>';                                                                              //|
+        ausgabe += '<td class="warenkorbTabellePrice"> ' + lieferkostenPost + '&#x20AC </td>';                                                                          //|
         ausgabe += '<td class="warenkorbTabelleZellen">';                                                                                                               //|
       ausgabe += '</td>';                                                                                                                                               //|
     ausgabe += '</table>'                                                                                                                                               //|
@@ -290,9 +292,19 @@ ausgabe += '</article>';
   ausgabe += '<input class="hidden" name="restaurant" value="' + restaurantPost + '">';                                                                                 //|
 //_________________________________________________________________________________________________________________________________________________________________________
 
+
+  if(0 < bestelldifferenz){
+  ausgabe += '<div class="minBestellwert">'
+  ausgabe += 'Es fehlen noch ' + (bestelldifferenz.toFixed(2)) + '&#x20AC für den Mindestbestellwert!';
+  ausgabe += '</div>'
+  ausgabe += '<div class="BtnBestellen">'
+    ausgabe += '<a id="orderBtnPrice" onclick="bestellError()"><input class="warenkorbButtonBestellen" type="button" value="bestellen"></a>';
+  ausgabe += '</div>'
+  }else{
   ausgabe += '<div class="BtnBestellen">'
     ausgabe += '<a id="orderBtnPrice" href="bestellung.html"><input class="warenkorbButtonBestellen" type="button" value="bestellen"></a>';
   ausgabe += '</div>'
+  }
 
   if (document.getElementById('waren') != null){
     document.getElementById('waren').innerHTML = ausgabe;
@@ -305,6 +317,10 @@ ausgabe += '</article>';
 
   warenkorbPreis = 0;
 }
+
+function bestellError(){
+  prompt("Du hast den Mindestbestellwert noch nicht erreicht!")
+};
 
 // Löschen von Produkten aus dem Warenkorb
 function loescheProdukt(index) {
