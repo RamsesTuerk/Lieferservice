@@ -152,6 +152,7 @@ var cookieStr = ''; // Initialisierung vom Cookie String
 var expireTime = new Date(); // Erstellung einer endzeit des Cookies (24h)
 expireTime = new Date(a.getTime() +1000*60*60*24);
 
+
 //checke Cookies und ausgabe des Warenkorbs
 function warenkorbAnzeigenOnload(){
     checkCookie();
@@ -172,8 +173,8 @@ expireTime = expireTime.getTime() +1000*60*60*24;
 
 //checke Cookies und ausgabe des Warenkorbs
 function init(){
+    checkCookie();
   speisekarteAusgeben();
-  checkCookie();
   warenkorbAusgeben();
 }
 
@@ -222,13 +223,10 @@ function zumWarenkorb(nr, pr) {
   cookieSave();
   warenkorbAusgeben();
 }
-
 //Ausgeben des Warenkorbs in form von <articles> 
 function warenkorbAusgeben() {
-  warenkorbSum();  // Warenkorb-Gesamtpreis berechnen
-
-var bestelldifferenz = minBestellwertPost - (warenkorbPreis - lieferkostenPost)
-
+    warenkorbSum();
+var bestelldifferenz = minBestellwert - (warenkorbPreis - lieferkosten)
 // Ausgabe von HTML Elementen in dem von der var "ausgabe" Bereich auf einer Webseite
 var ausgabe = '<h1>Warenkorb</h1>';
 ausgabe += '<article class="warenkorbArtikel">';
@@ -262,7 +260,7 @@ ausgabe += '</article>';
       ausgabe += '<tr>'                                                                                                                                                 //|
         ausgabe += '<td class="warenkorbTabelleZellen">' + "" + 'x </td>';                                                                                              //|
         ausgabe += '<td class="warenkorbTabelleItem">' + "Lieferkosten" + ': </td>';                                                                                    //|
-        ausgabe += '<td class="warenkorbTabellePrice"> ' + lieferkostenPost + '&#x20AC </td>';                                                                          //|
+        ausgabe += '<td class="warenkorbTabellePrice"> ' + lieferkosten + '&#x20AC </td>';                                                                          //|
         ausgabe += '<td class="warenkorbTabelleZellen">';                                                                                                               //|
       ausgabe += '</td>';                                                                                                                                               //|
     ausgabe += '</table>'                                                                                                                                               //|
@@ -289,7 +287,7 @@ ausgabe += '</article>';
   };                                                                                                                                                                    //|
   ausgabe += '<input class="hidden" name="products' + '" value="' + i + '">';                                                                                           //|
   ausgabe += '<input class="hidden" name="price' + '" value="' + warenkorbPreis.toFixed(2) +'">';                                                                       //|
-  ausgabe += '<input class="hidden" name="restaurant" value="' + restaurantPost + '">';                                                                                 //|
+  ausgabe += '<input class="hidden" name="restaurant" value="' + restaurantName + '">';                                                                                 //|
 //_________________________________________________________________________________________________________________________________________________________________________
 
 
@@ -297,9 +295,7 @@ ausgabe += '</article>';
   ausgabe += '<div class="minBestellwert">'
   ausgabe += 'Es fehlen noch ' + (bestelldifferenz.toFixed(2)) + '&#x20AC für den Mindestbestellwert!';
   ausgabe += '</div>'
-  ausgabe += '<div class="BtnBestellen">'
-    ausgabe += '<a id="orderBtnPrice" onclick="bestellError()"><input class="warenkorbButtonBestellen" type="button" value="bestellen"></a>';
-  ausgabe += '</div>'
+
   }else{
   ausgabe += '<div class="BtnBestellen">'
     ausgabe += '<a id="orderBtnPrice" href="bestellung.html"><input class="warenkorbButtonBestellen" type="button" value="bestellen"></a>';
@@ -318,9 +314,6 @@ ausgabe += '</article>';
   warenkorbPreis = 0;
 }
 
-function bestellError(){
-  prompt("Du hast den Mindestbestellwert noch nicht erreicht!")
-};
 
 // Löschen von Produkten aus dem Warenkorb
 function loescheProdukt(index) {
@@ -331,8 +324,8 @@ function loescheProdukt(index) {
     warenkorb.menge.splice(index, 1);
     warenkorb.preis.splice(index, 1);
   }
-  warenkorbAusgeben();
   cookieSave();
+  warenkorbAusgeben();
 }
 
 //Zusammenrechnen der Warenkorbsumme
@@ -342,7 +335,7 @@ function warenkorbSum(){
     // Gesamtpreis berechnen, indem Menge und Preis multipliziert und zur Gesamtsumme hinzugefügt werden
     warenkorbPreis += warenkorb.menge[i] * warenkorb.preis[i];
   }
-  warenkorbPreis += Number(lieferkostenPost);
+  warenkorbPreis += Number(lieferkosten);
 }
 
 // Der check ob ein Cookie existiert und das Extrahieren seiner daten 
