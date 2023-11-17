@@ -266,9 +266,6 @@ ausgabe += '<article class="warenkorbArtikel">';
   ausgabe += '</table>';
 ausgabe += '</article>';
 
-
-
-
 // Erstellt einen Article, welcher eine Tabelle enthält. Diese zeigt die ausgewählten Menge,Produkte und Preise geordnet an________________________________________________
   for (var i = 0; i < warenkorb.produkte.length; i++) {                                                                                                                 //|
     ausgabe += '<article class="warenkorbArtikel">';                                                                                                                    //|
@@ -285,29 +282,27 @@ ausgabe += '</article>';
     ausgabe += '</article>';                                                                                                                                            //|
   }                                                                                                                                                                     //|
   ausgabe += '<article class="warenkorbArtikel">';                                                                                                                      //|
-    ausgabe += '<table>'                                                                                                                                                  //| Ramses / Max
-      ausgabe += '<tr>'                                                                                                                                                     //|
-        ausgabe += '<td class="warenkorbTabelleZellen">' + "" + 'x </td>';                                                                                                     //|
-        ausgabe += '<td class="warenkorbTabelleItem">' + "Lieferkosten" + ': </td>';                                                                                           //|
-        ausgabe += '<td class="warenkorbTabellePrice"> ' + lieferkosten + '&#x20AC </td>';                                                                                     //|
-        ausgabe += '<td class="warenkorbTabelleZellen">';
-      ausgabe += '</td>';                                                                                                                //|
-    ausgabe += '</table>'                                                                                                                                                 //|
+    ausgabe += '<table>'                                                                                                                                                //| Ramses / Max
+      ausgabe += '<tr>'                                                                                                                                                 //|
+        ausgabe += '<td class="warenkorbTabelleZellen">' + "" + 'x </td>';                                                                                              //|
+        ausgabe += '<td class="warenkorbTabelleItem">' + "Lieferkosten" + ': </td>';                                                                                    //|
+        ausgabe += '<td class="warenkorbTabellePrice"> ' + lieferkosten + '&#x20AC </td>';                                                                              //|
+        ausgabe += '<td class="warenkorbTabelleZellen">';                                                                                                               //|
+      ausgabe += '</td>';                                                                                                                                               //|
+    ausgabe += '</table>'                                                                                                                                               //|
   ausgabe += '</article>';                                                                                                                                              //|
                                                                                                                                                                         //|
   ausgabe += '<article class="warenkorbArtikel">';                                                                                                                      //|
-    ausgabe += '<table>';                                                                                                                                                  //|
-      ausgabe += '<tr>';                                                                                                                                                     //|
-        ausgabe += '<td class="warenkorbTabelleZellen">' + "" + '</td>';                                                                                                       //|
-        ausgabe += '<td class="warenkorbTabelleItem">' + "Gesamtkosten" + ': </td>';                                                                                           //|
-        ausgabe += '<td class="warenkorbTabellePrice"> ' + warenkorbPreis.toFixed(2) + '&#x20AC </td>';                                                                        //|
-        ausgabe += '<td class="warenkorbTabelleZellen">';
-      ausgabe += '</td>';                                                                                                                //|
-    ausgabe += '</table>'                                                                                                                                                 //|
+    ausgabe += '<table>';                                                                                                                                               //|
+      ausgabe += '<tr>';                                                                                                                                                //|
+        ausgabe += '<td class="warenkorbTabelleZellen">' + "" + '</td>';                                                                                                //|
+        ausgabe += '<td class="warenkorbTabelleItem">' + "Gesamtkosten" + ': </td>';                                                                                    //|
+        ausgabe += '<td class="warenkorbTabellePrice"> ' + warenkorbPreis.toFixed(2) + '&#x20AC </td>';                                                                 //|
+        ausgabe += '<td class="warenkorbTabelleZellen">';                                                                                                               //|
+      ausgabe += '</td>';                                                                                                                                               //|
+    ausgabe += '</table>'                                                                                                                                               //|
   ausgabe += '</article>';                                                                                                                                              //|
 //_________________________________________________________________________________________________________________________________________________________________________
-
-
 
 
 // Speichert die Werte der einzelnen Produkte in verteckten Inputs (nicht sichtbar), damit diese an die nächste Webseite übergeben werden können___________________________
