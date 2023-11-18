@@ -22,39 +22,39 @@ $(document).ready(
       success: function (data) {
           console.log(data);
 
-          var container = document.getElementById('Test');
-
+          var ordered_table = '';
           // Clear existing content
-          container.innerHTML = '';
+          
     
           // Iterate over the data and create HTML elements
-          data.forEach(function(item) {
-            var ordered_table = '<table>';
-         for (var i = 1; i < phpData.length; i++);
-         {  ordered_table += '<tr>';
-            ordered_table += '<td class ="">' +'<h3>Bestellnummer' + ID + '</h3>' + '</td>';
+          data.forEach(function(data) {
+            
+         for (var i = 1; i < data.length; i++);
+         {  ordered_table += '<table>';
+            ordered_table += '<tr>';
+            ordered_table += '<td class ="">' +'<h3>Bestellnummer' + data["ID"] + '</h3>' + '</td>';
             ordered_table += '</tr>';
             ordered_table += '<tr>';
             ordered_table += '<td class="">.' + '.' + '</td>';
             ordered_table += '</tr>';
             ordered_table += '<tr>';
-            ordered_table += '<td class="">Name: ' + Item["Name"] + '</td>';
+            ordered_table += '<td class="">Name: ' + data["Name"] + '</td>';
             ordered_table += '</tr>';
             ordered_table += '<tr>';
-            ordered_table += '<td class="">Nachname:'  + Item["Nachname"] + '</td>';
-            ordered_table += '<td class="">Mailadresse: ' + Item["Mail"] + '</td>';
+            ordered_table += '<td class="">Nachname:'  + data["Nachname"] + '</td>';
+            ordered_table += '<td class="">Mailadresse: ' + data["Mail"] + '</td>';
             ordered_table += '</tr>';
             ordered_table += '<tr>';
-            ordered_table += '<td class="_order">Telefonnummer: 0' + Item["Telefonnummer"] + '</td>';
-            ordered_table += '<td class="">Stadt: ' + Item["Stadt"] + '</td>';
+            ordered_table += '<td class="_order">Telefonnummer: 0' + data["Telefonnummer"] + '</td>';
+            ordered_table += '<td class="">Stadt: ' + data["Stadt"] + '</td>';
             ordered_table += '</tr>';
             ordered_table += '<tr>'; 
-            ordered_table += '<td class="">PLZ: ' + Item["Postleitzahl"] + '</td>';
-            ordered_table += '<td class="">Straße: ' + Item["Straße"] + '</td>' + '</br>';
+            ordered_table += '<td class="">PLZ: ' + data["Postleitzahl"] + '</td>';
+            ordered_table += '<td class="">Straße: ' + data["Straße"] + '</td>' + '</br>';
             ordered_table += '</tr>';
             ordered_table += '<tr>'; 
-            ordered_table += '<td class="">HausNr: ' + Item["HausNr"] + '</td>';
-            ordered_table += '<td class="">PreisGesamt: ' + Item["PreisGesamt"] + '€' + '</td>' + '</br>';
+            ordered_table += '<td class="">HausNr: ' + data["HausNr"] + '</td>';
+            ordered_table += '<td class="">PreisGesamt: ' + data["PreisGesamt"] + '€' + '</td>' + '</br>';
             ordered_table += '</tr>';
             ordered_table += '<tr>'; 
             ordered_table += '<td class="">.' + '.' + '</td>';
@@ -66,6 +66,7 @@ $(document).ready(
 
 
        } });
+       document.getElementById('Test').innerHTML = ordered_table;
       },
       error: function errorLog(xhr, status, error) {
           console.log('Fehler beim Laden der Daten.', status, error);
@@ -250,12 +251,12 @@ function speisekarteAusgeben(){
 for(var i = 1; i < phpData.length; i++){
   speisekarte += '<button class="SpeiseKarteButton"  onclick="zumWarenkorb('+ i + ' , '+ phpData[i]["COL 4"] + ')">'
     speisekarte += '<div class="speisekarte_article">'
-      speisekarte += '<article class="menueItem">'
+      speisekarte += '<article class="menuedata">'
         speisekarte += '<table class="Test">'
           speisekarte += '<tr>'
             speisekarte += '<th>'
-              speisekarte += '<h5 class="food_item_name" id="produkt' + i +'">'+ phpData[i]["COL 2"] + '</h5>'
-              speisekarte += '<h6 class="food_item_price" >'+ phpData[i]["COL 4"] + ' €</h6>'
+              speisekarte += '<h5 class="food_data_name" id="produkt' + i +'">'+ phpData[i]["COL 2"] + '</h5>'
+              speisekarte += '<h6 class="food_data_price" >'+ phpData[i]["COL 4"] + ' €</h6>'
             speisekarte += '</th>'
           speisekarte += '</tr>'
           speisekarte += '<tr class="tr_class">'
@@ -300,7 +301,7 @@ ausgabe += '<article class="warenkorbArtikel">';
   ausgabe += '<table>';
     ausgabe += '<tr>';
       ausgabe += '<td class="warenkorbTabelleZellen">Menge:</td>';
-      ausgabe += '<td class="warenkorbTabelleItem">Produkt: </td>';
+      ausgabe += '<td class="warenkorbTabelledata">Produkt: </td>';
       ausgabe += '<td class="warenkorbTabellePrice">Preis:</td>';
       ausgabe += '<td class="warenkorbTabelleZellen"></td>';
     ausgabe += '</tr>';
@@ -313,7 +314,7 @@ ausgabe += '</article>';
         ausgabe += '<table>';                                                                                                                                           //|
             ausgabe += '<tr>';                                                                                                                                          //|
                 ausgabe += '<td class="warenkorbTabelleZellen">' + warenkorb.menge[i] + 'x </td>';                                                                      //|
-                ausgabe += '<td class="warenkorbTabelleItem">' + warenkorb.produkte[i] + ': </td>';                                                                     //|
+                ausgabe += '<td class="warenkorbTabelledata">' + warenkorb.produkte[i] + ': </td>';                                                                     //|
                 ausgabe += '<td class="warenkorbTabellePrice"> ' + warenkorb.preis[i] + '&#x20AC </td>';                                                                //|
                 ausgabe += '<td class="warenkorbTabelleZellen">';                                                                                                       //|
                 if (document.getElementById('waren') != null){                                                                                                          //|
@@ -328,7 +329,7 @@ ausgabe += '</article>';
     ausgabe += '<table>'                                                                                                                                                //| Ramses / Max
       ausgabe += '<tr>'                                                                                                                                                 //|
         ausgabe += '<td class="warenkorbTabelleZellen">' + "" + 'x </td>';                                                                                              //|
-        ausgabe += '<td class="warenkorbTabelleItem">' + "Lieferkosten" + ': </td>';                                                                                    //|
+        ausgabe += '<td class="warenkorbTabelledata">' + "Lieferkosten" + ': </td>';                                                                                    //|
         ausgabe += '<td class="warenkorbTabellePrice"> ' + lieferkosten + '&#x20AC </td>';                                                                              //|
         ausgabe += '<td class="warenkorbTabelleZellen">';                                                                                                               //|
       ausgabe += '</td>';                                                                                                                                               //|
@@ -339,7 +340,7 @@ ausgabe += '</article>';
     ausgabe += '<table>';                                                                                                                                               //|
       ausgabe += '<tr>';                                                                                                                                                //|
         ausgabe += '<td class="warenkorbTabelleZellen">' + "" + '</td>';                                                                                                //|
-        ausgabe += '<td class="warenkorbTabelleItem">' + "Gesamtkosten" + ': </td>';                                                                                    //|
+        ausgabe += '<td class="warenkorbTabelledata">' + "Gesamtkosten" + ': </td>';                                                                                    //|
         ausgabe += '<td class="warenkorbTabellePrice"> ' + warenkorbPreis.toFixed(2) + '&#x20AC </td>';                                                                 //|
         ausgabe += '<td class="warenkorbTabelleZellen">';                                                                                                               //|
       ausgabe += '</td>';                                                                                                                                               //|
@@ -410,7 +411,7 @@ function checkCookie() {
       const decodedCookie = decodeURIComponent(document.cookie); // entfernen der Cookieinformationen 
       const cuttedString = decodedCookie.split('Warenkorb=').pop().split(';')[0]; //Inhalt unseres Cookies vom Namen Restaurant und von Weiteren Cookies Trennen
       const cuttedStringWithoutSpaces = cuttedString.trim(); //Lehrzeichen entfernen
-      const array2 = cuttedStringWithoutSpaces.split("+").filter(item => item !== ""); //Einzelne Cookieinformationen Trennen und leere Felder Löschen
+      const array2 = cuttedStringWithoutSpaces.split("+").filter(data => data !== ""); //Einzelne Cookieinformationen Trennen und leere Felder Löschen
       restaurantName = array2[0];
       lieferkosten = array2[1];
       minBestellwert = array2[2];
