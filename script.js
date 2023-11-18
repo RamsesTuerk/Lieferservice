@@ -30,12 +30,12 @@ $(document).ready(
           data.forEach(function(data) {
             
          for (var i = 1; i < data.length; i++);
-         {  ordered_table += '<table>';
+         {  ordered_table += '<table class="ordered_table">';
             ordered_table += '<tr>';
-            ordered_table += '<td class ="">' +'<h3>Bestellnummer' + data["ID"] + '</h3>' + '</td>';
+            ordered_table += '<td class ="">' +'<h3>Bestellnummer: ' + data["ID"] + '</h3>' + '</td>';
             ordered_table += '</tr>';
             ordered_table += '<tr>';
-            ordered_table += '<td class="">.' + '.' + '</td>';
+            ordered_table += '<td class="">' + ' ' + '</td>';
             ordered_table += '</tr>';
             ordered_table += '<tr>';
             ordered_table += '<td class="">Name: ' + data["Name"] + '</td>';
@@ -57,10 +57,10 @@ $(document).ready(
             ordered_table += '<td class="">PreisGesamt: ' + data["PreisGesamt"] + '€' + '</td>' + '</br>';
             ordered_table += '</tr>';
             ordered_table += '<tr>'; 
-            ordered_table += '<td class="">.' + '.' + '</td>';
+            ordered_table += '<td class="">' + ' ' + '</td>';
             ordered_table += '</tr>';
             ordered_table += '<tr>'; 
-            ordered_table += '<td class="">.' + '.' + '</td>';
+            ordered_table += '<td class="">' + ' ' + '</td>';
             ordered_table += '</tr>';
             ordered_table += '</table>'
 
