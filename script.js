@@ -74,9 +74,6 @@ $(document).ready(
 
 );
 
-
-
-    
 //----------- Diese Funktion übergibt die Werte der Auswahl in choice -----------
 function addChoice(value){
     choice.push(value);

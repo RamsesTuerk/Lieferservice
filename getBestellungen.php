@@ -1,7 +1,8 @@
 <?php
+
 require("connectionBestellungen.php");
 
-$restaurant_name="waybackburgers";
+$restaurant_name = strtolower($_POST['restaurnat_name']);
 
 
 $sql = "SELECT * FROM orders_$restaurant_name";
@@ -30,4 +31,11 @@ if ($result->num_rows > 0) {
 }
 
 $connection->close();
+
+
+
+
+
+echo '<!DOCTYPE html><html><body onload="Abfrage.php"></body></html>';
+
 ?>
