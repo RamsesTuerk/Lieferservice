@@ -23,9 +23,6 @@ $(document).ready(
           console.log(data);
 
           var ordered_table = '';
-          // Clear existing content
-          
-    
           // Iterate over the data and create HTML elements
           data.forEach(function(data) {
             
