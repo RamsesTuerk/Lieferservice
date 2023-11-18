@@ -30,39 +30,39 @@ $(document).ready(
           // Iterate over the data and create HTML elements
           data.forEach(function(item) {
             var ordered_table = '<table>';
-         for (var i = 1; i < phpData.length; i++);
-         {  ordered_table =+ '<tr>';
-            ordered_table =+ '<td class ="">' +'<h3>Bestellnummer' + ID + '</h3>' + '</td>';
-            ordered_table =+ '</tr>';
-            ordered_table =+ '<tr>';
-            ordered_table =+ '<td class="">' '.' + '.' + '</td>';
-            ordered_table =+ '</tr>';
-            ordered_table =+ '<tr>';
-            ordered_table =+ '<td class="">' 'Name: ' + Item["Name"] + '</td>';
-            ordered_table =+ '</tr>';
-            ordered_table =+ '<tr>';
-            ordered_table =+ '<td class="">' 'Nachname: ' + Item["Nachname"] + '</td>';
-            ordered_table =+ '<td class="">' 'Mailadresse: ' + Item["Mail"] + '</td>';
-            ordered_table =+ '</tr>';
-            ordered_table =+ '<tr>';
-            ordered_table =+ '<td class="_order">' 'Telefonnummer: 0' + Item["Telefonnummer"] + '</td>';
-            ordered_table =+ '<td class="">' 'Stadt: ' + Item["Stadt"] + '</td>';
-            ordered_table =+ '</tr>';
-            ordered_table =+ '<tr>'; 
-            ordered_table =+ '<td class="">' 'PLZ: ' + Item["Postleitzahl"] + '</td>';
-            ordered_table =+ '<td class="">' 'Straße: ' + Item["Straße"] + '</td>' + '</br>';
-            ordered_table =+ '</tr>';
-            ordered_table =+ '<tr>'; 
-            ordered_table =+ '<td class="">' 'HausNr: ' + Item["HausNr"] + '</td>';
-            ordered_table =+ '<td class="">' 'PreisGesamt: ' + Item["PreisGesamt"] + '€' + '</td>' + '</br>';
-            ordered_table =+ '</tr>';
-            ordered_table =+ '<tr>'; 
-            ordered_table =+ '<td class="">' '.' + '.' + '</td>';
-            ordered_table =+ '</tr>';
-            ordered_table =+ '<tr>'; 
-            ordered_table =+ '<td class="">' '.' + '.' + '</td>';
-            ordered_table =+ '</tr>';
-            ordered_table =+ '</table>'
+         for (var i = 1; i < phpData.length; i++)
+         {  ordered_table += '<tr>';
+            ordered_table += '<td class ="">' +'<h3>Bestellnummer' + ID + '</h3>' + '</td>';
+            ordered_table += '</tr>';
+            ordered_table += '<tr>';
+            ordered_table += '<td class="">' '.' + '.' + '</td>';
+            ordered_table += '</tr>';
+            ordered_table += '<tr>';
+            ordered_table += '<td class="">' 'Name: ' + item["Name"] + '</td>';
+            ordered_table += '</tr>';
+            ordered_table += '<tr>';
+            ordered_table += '<td class="">' 'Nachname: ' + item["Nachname"] + '</td>';
+            ordered_table += '<td class="">' 'Mailadresse: ' + item["Mail"] + '</td>';
+            ordered_table += '</tr>';
+            ordered_table += '<tr>';
+            ordered_table += '<td class="_order">' 'Telefonnummer: 0' + item["Telefonnummer"] + '</td>';
+            ordered_table += '<td class="">' 'Stadt: ' + item["Stadt"] + '</td>';
+            ordered_table += '</tr>';
+            ordered_table += '<tr>'; 
+            ordered_table += '<td class="">' 'PLZ: ' + item["Postleitzahl"] + '</td>';
+            ordered_table += '<td class="">' 'Straße: ' + item["Straße"] + '</td>' + '</br>';
+            ordered_table += '</tr>';
+            ordered_table += '<tr>'; 
+            ordered_table += '<td class="">' 'HausNr: ' + item["HausNr"] + '</td>';
+            ordered_table += '<td class="">' 'PreisGesamt: ' + item["PreisGesamt"] + '€' + '</td>' + '</br>';
+            ordered_table += '</tr>';
+            ordered_table += '<tr>'; 
+            ordered_table += '<td class="">' '.' + '.' + '</td>';
+            ordered_table += '</tr>';
+            ordered_table += '<tr>'; 
+            ordered_table += '<td class="">' '.' + '.' + '</td>';
+            ordered_table += '</tr>';
+            
 
 
        } });
