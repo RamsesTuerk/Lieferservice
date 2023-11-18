@@ -10,6 +10,40 @@ var cookieStr = ''; // Initialisierung vom Cookie String
 var expireTime = new Date(); // Erstellung einer endzeit des Cookies (24h)
 expireTime = new Date(expireTime.getTime() +1000*60*60*24);
 
+$(document).ready(
+
+  setInterval(function(){
+  
+
+  $.ajax({
+      url: 'getBestellungen.php',
+      type: 'POST',
+      dataType: 'json',
+      success: function (data) {
+          console.log(data);
+
+          var container = document.getElementById('Test');
+
+          // Clear existing content
+          container.innerHTML = '';
+    
+          // Iterate over the data and create HTML elements
+          data.forEach(function(item) {
+            var listItem = document.createElement('li');
+            listItem.textContent = JSON.stringify(item); // Adjust this line based on your data structure
+            container.appendChild(listItem);
+          });
+      },
+      error: function errorLog(xhr, status, error) {
+          console.log('Fehler beim Laden der Daten.', status, error);
+      }
+  });
+
+}, 500)
+
+);
+
+
 
     
 //----------- Diese Funktion übergibt die Werte der Auswahl in choice -----------
@@ -249,7 +283,7 @@ ausgabe += '</article>';
                 ausgabe += '<td class="warenkorbTabelleItem">' + warenkorb.produkte[i] + ': </td>';                                                                     //|
                 ausgabe += '<td class="warenkorbTabellePrice"> ' + warenkorb.preis[i] + '&#x20AC </td>';                                                                //|
                 ausgabe += '<td class="warenkorbTabelleZellen">';                                                                                                       //|
-                if (document.getElementById('waren') != null){                                                                                                          //|                                                                                                       //|
+                if (document.getElementById('waren') != null){                                                                                                          //|
                     ausgabe += '<button class="warenkorbButtonLöschen" onclick="loescheProdukt(' + i + ');"><img src="pictures/delete.png" alt="delete"></button>';     //|
                      }                                                                                                                                                  //|
                 ausgabe += '</td>';                                                                                                                                     //|

@@ -3,25 +3,21 @@
     <head>
         <link rel="stylesheet" href="style.css"> <!--Verbindet die Webseite mit der CSS-Datei "Style.css"-->
         <title>Burger, Pizza, Sushi</title> <!--Legt den Titel der Seite fest-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script language="javascript" type="text/javascript" src="script.js"></script> <!--Verbindet die Webseite mit der JS-Datei-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
         <script type="text/javascript">
-            setTimeout("document.location.reload();",2000);
         </script>
+        
     </head>
     <body>
     <?php
-    $restaurant_name = strtolower($_POST['restaurnat_name']);
-    $servername = "localhost";  // Der Datenbankserver 
-    $username = "root";  //Datenbank-Benutzername
-    $password = "";  //Datenbank-Passwort
-    $database = "bestellungen";  //Name der Datenbank
-    
-    $connection = new mysqli($servername, $username, $password, $database);
-    $sql = "SELECT * FROM orders_$restaurant_name";
-    
+    //$restaurant_name = strtolower($_POST['restaurnat_name']);
 
-    $result = $connection->query($sql);
+
+
+    
+    /*
     echo '<iframe name="display-frame"></iframe>';
     if($_POST['pw'] == "Start.123") {
     if ($result) {
@@ -79,7 +75,12 @@
         }
 }else{
     die("Falsches Passwort!");
-    }}
+    }} 
+
+    */
     ?>
+
+    <div id="Test"></div>
+
     </body>
 </html> 

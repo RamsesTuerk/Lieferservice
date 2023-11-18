@@ -20,6 +20,7 @@ if ($result->num_rows > 0) {
     // Setzen Sie den Content-Type-Header auf application/json
  header('Content-Type: application/json');
 
+ 
 
     // Verwenden Sie json_encode nur, wenn Daten vorhanden sind
  if (!empty($data)) {

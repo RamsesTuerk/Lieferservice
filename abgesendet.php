@@ -9,12 +9,9 @@
     <body>
 
 <?php
-$servername = "localhost";  // Der Datenbankserver 
-$username = "root";  //Datenbank-Benutzername
-$password = "";  //Datenbank-Passwort
-$database = "bestellungen";  //Name der Datenbank
 
-$connection = new mysqli($servername, $username, $password, $database);
+require("connectionBestellungen.php");
+
 $name = $_POST["first_name"];
 $lastName = $_POST["last_name"];
 $mail = $_POST["email"];

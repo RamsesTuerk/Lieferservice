@@ -14,18 +14,7 @@
             <div class="container">
                 <div class="table_div container">
                     <?php
-                        $servername = "localhost";  // Der Datenbankserver 
-                        $username = "root";  //Datenbank-Benutzername
-                        $password = "";  //Datenbank-Passwort
-                        $database = "restaurants";  //Name der Datenbank
-                        
-                        // Verbindung zur Datenbank herstellen
-                        $connection = new mysqli($servername, $username, $password, $database);
-                        
-                        // Überprüfen, ob die Verbindung erfolgreich hergestellt wurde
-                        if ($connection->connect_error) {
-                            die("Verbindung zur Datenbank fehlgeschlagen: " . $connection->connect_error);
-                        }
+                        require("connectionRestaurant.php");
 
                         $sql = "SELECT * FROM restaurants_all";
 

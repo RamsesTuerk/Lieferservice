@@ -14,18 +14,8 @@
             <div class="container">
                 <div class="table_div container">
                     <?php //Beginn des PHP Codes
-                        $servername = "localhost";  // Der Datenbankserver 
-                        $username = "root";  //Datenbank-Benutzername
-                        $password = "";  //Datenbank-Passwort
-                        $database = "restaurants";  //Name der Datenbank
-                        
-                        // Verbindung zur Datenbank herstellen
-                        $connection = new mysqli($servername, $username, $password, $database);
-                        
-                        // Überprüfen, ob die Verbindung erfolgreich hergestellt wurde
-                        if ($connection->connect_error) {
-                            die("Verbindung zur Datenbank fehlgeschlagen: " . $connection->connect_error);
-                        }
+                        require("connectionRestaurant.php");
+
                         $kategorie = $_GET["kategorie"]; // Setzt die Variable $kategorie auf den durch die URL übergebenen Wert der Kategorie
                         $typ = $_GET["typ"]; // Setzt die Variable $typ auf den durch die URL übergebenen Wert des Typen
                         $preis = $_GET["preis"];// Setzt die Variable $preis auf den durch die URL übergebenen Wert des Preises
