@@ -11,13 +11,12 @@ var expireTime = new Date(); // Erstellung einer endzeit des Cookies (24h)
 expireTime = new Date(expireTime.getTime() +1000*60*60*24);
 
 $(document).ready(
-
   setInterval(function(){
-  
 
   $.ajax({
       url: 'getBestellungen.php',
       type: 'POST',
+      data: {"restaurant_name": restaurant_name.trim()},
       dataType: 'json',
       success: function (data) {
           console.log(data);

@@ -12,8 +12,11 @@
     </head>
     <body>
     <?php
-    //$restaurant_name = strtolower($_POST['restaurnat_name']);
+    $restaurant_name = strtolower($_POST['restaurnat_name']);
 
+    echo '<script>';
+        echo 'var restaurant_name ="' . $restaurant_name.'";';
+    echo '</script>';
 
 
     
