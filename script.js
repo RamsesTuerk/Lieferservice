@@ -292,14 +292,12 @@ var bestelldifferenz = minBestellwert - (warenkorbPreis - lieferkosten)
 var ausgabe = '<h1>Warenkorb</h1>';
 ausgabe += '<article class="warenkorbArtikel">';
   ausgabe += '<table>';
-    ausgabe += '<th>';
-        ausgabe += '<tr>';
-        ausgabe += '<td class="warenkorbTabelleZellen">Menge:</td>';
-        ausgabe += '<td class="warenkorbTabelledata">Produkt: </td>';
-        ausgabe += '<td class="warenkorbTabellePrice">Preis:</td>';
-        ausgabe += '<td class="warenkorbTabelleZellen"></td>';
-        ausgabe += '</tr>';
-    ausgabe += '</th>';
+    ausgabe += '<tr>';
+    ausgabe += '<td class="warenkorbTabelleZellen">Menge:</td>';
+    ausgabe += '<td class="warenkorbTabelledata">Produkt: </td>';
+    ausgabe += '<td class="warenkorbTabellePrice">Preis:</td>';
+    ausgabe += '<td class="warenkorbTabelleZellen"></td>';
+    ausgabe += '</tr>';
   ausgabe += '</table>';
 ausgabe += '</article>';
 

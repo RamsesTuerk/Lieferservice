@@ -367,14 +367,14 @@ iframe{
   background-color: #D0D6B3;
   margin: 0;
   padding: 0.3rem;
- 
+  /* text-align: left; */
 }
 .warenkorb > h1,
 .warenkorbArtikel {
   margin: 0.5rem;
   padding: 0.3rem;
   font-size: 1.2rem;
-  text-align: center;
+  text-align: left;
 }
 
 .warenkorbArtikel {
