@@ -2,6 +2,16 @@
 var choice = []
 var warenkorbPreis = 0;
 
+var warenkorbPreis = 0;
+var warenkorb = {
+  produkte: [],  // Array für die Namen der Produkte im Warenkorb
+  menge: [],     // Array für die Menge jedes Produkts im Warenkorb
+  preis: []      // Array für den Preis jedes Produkts im Warenkorb
+};
+var cookieStr = ''; // Initialisierung vom Cookie String
+var expireTime = new Date(); // Erstellung einer endzeit des Cookies (24h)
+expireTime = expireTime.getTime() +1000*60*60*24;
+
 //Ajax funktion inklusive der ausgabe für Abfrage.php (Ramses)
 $(document).ready(
   setInterval(function () { //ajax wir alle 0.5 secunden ausgefürt 
@@ -300,17 +310,6 @@ function warenkorbAnzeigenOnload(){
     warenkorbAusgeben();
 }
 
-
-// Dieser Code wird dazu verwendet, einen Warenkorb funktional darzustellen.
-var warenkorbPreis = 0;
-var warenkorb = {
-  produkte: [],  // Array für die Namen der Produkte im Warenkorb
-  menge: [],     // Array für die Menge jedes Produkts im Warenkorb
-  preis: []      // Array für den Preis jedes Produkts im Warenkorb
-};
-var cookieStr = ''; // Initialisierung vom Cookie String
-var expireTime = new Date(); // Erstellung einer endzeit des Cookies (24h)
-expireTime = expireTime.getTime() +1000*60*60*24;
 
 //Initalisieren von 3 Funktionen (Ramses)
 function init(){
