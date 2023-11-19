@@ -380,7 +380,7 @@ iframe{
 .warenkorbArtikel {
   background: #AAAE7F;
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
   width: 95%;
 }
@@ -406,7 +406,7 @@ iframe{
   color: #F7F7F7;
 }
 
-.warenkorbButtonLÃ¶schen{
+.warenkorbButtonLÃƒÂ¶schen{
   background-color: transparent;
   border-color: transparent;
 }
@@ -454,4 +454,11 @@ margin-bottom : 5px;
 display:flex;
 justify-content: right;
 margin-right: 0.6rem
+}
+.warenkorbTabelledata{
+  width: 15vw;
+}
+.warenkorbButtonLöschen{
+  background: transparent;
+  border: none;
 }
