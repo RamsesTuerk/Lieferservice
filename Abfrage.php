@@ -25,13 +25,17 @@
     $result = $connection->query($sql);
 
     if ($result->num_rows > 0) {
-        header("Location: index.html");
       
     } else {
         echo "Login fehlgeschlagen. Benutzername oder Passwort ist falsch.";
     }
 
     $connection->close();
+
+    echo '<script>';
+        echo 'var restaurant_name ="' . $restaurant_name.'";';
+    echo '</script>';
+
 
     ?>
 
