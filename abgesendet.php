@@ -106,6 +106,13 @@ echo '<div class="order_done_div">';
 echo '</div>';
 
 $connection->close();
+
+$wartezeit = 15;
+echo '<script>
+    setTimeout(function() {
+        window.location.href = "survey.html";
+    }, ' . ($wartezeit * 1000) . ');
+</script>';
 ?>
 </body>
 </html>
