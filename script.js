@@ -104,7 +104,7 @@ $(document).ready(
                 ordered_table += '<td class="">' + ' ' + '</td>';
               ordered_table += '</tr>';
             for(var j = 0; j < produkte.id.length ; j++){
-
+              //schreiben der einzelnen Produkte in der Bestellansicht
               if(produkte.id[j] == bestellungen.id[i]){
                 ordered_table += '<tr>'
                   ordered_table += '<td class="ordered_food">Gericht: '+produkte.gericht[j]+'</td>'
@@ -113,7 +113,7 @@ $(document).ready(
               }
 
             }
-            //schreiben der einzelnen Produkte in der Bestellansicht
+            //Löschenbutton einbauen 
             ordered_table += '</table>';
               ordered_table += '<form target="display-frame" action="delete_complete.php" method="post">';
                 ordered_table += '<input type="submit"  value="Lösche Bestellung Nr: '+bestellungen.id[i]+'"></input>';
