@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+</head>
+<body>
+    <h1>Umfrage</h1>
+
+        <!-- Umfragefragen hier einfügen -->
+        <form id="surveyForm" action="survey.php" method="post"> 
+       
+         
+        <label for="question1">Frage 1: Wie hat Sie das Erlebnis dieser Webseite gefallen? </label>
+        <input type="radio" id="answerA1" name="question1" value="A" required>
+        <label for="answerA">Sehr gut</label>
+        <input type="radio" id="answerB1" name="question1" value="B" required>
+        <label for="answerB">Gut</label>
+        <input type="radio" id="answerC1" name="question1" value="C" required>
+        <label for="answerC">OK</label> </br>
+
+        <label for="question2">Frage 2: Wie zufrieden sind Sie mit der Lieferung </label>
+        <input type="radio" id="answerA2" name="question2" value="A" required>
+        <label for="answerA">Sehr</label>
+        <input type="radio" id="answerB2" name="question2" value="B" required>
+        <label for="answerB">Mittel</label>
+        <input type="radio" id="answerC2" name="question2" value="C" required>
+        <label for="answerC">Wenig</label> </br>
+
+        <label for="question3">Frage 3: Haben Sie Verbesserungsvorschläge? </label>
+        <input type="text" id="question3" name="question3"> </br>
+
+
+        <button type="submit" onclick="submitSurvey()">Absenden</button>
+    </form>
+  
+    <script src="script2.js"></script>
+   
+   
+
+   
+</body>
+</html>
