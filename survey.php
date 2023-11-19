@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+</head>
+</html>
+
 <?php
 // Datenbankverbindung herstellen
 $servername = "localhost";
@@ -24,6 +31,9 @@ $sql = "INSERT INTO survey_questions (question1, question2, question3) VALUES ('
 if ($conn->query($sql) === TRUE) {
 //Erfolgsmeldung
   echo "Vielen Dank für die Teilnahme.";
+  echo '
+  <br><br><a href ="index.html"><button class="order_btn">Home</button></a>
+';
 } else {
    echo json_encode(array("success" => false, "error" => $conn->error));
 }
