@@ -285,11 +285,7 @@ iframe{
   height:60px;
   border:0px;
 }
-.congrats{
-  width: 20%;
-  background-color: greenyellow;
-  font-size: larger;
-}
+
 .speisekarte {  display: grid;
   grid-template-columns: 70% min-content;
   grid-template-rows: 150px 500px 150px;
