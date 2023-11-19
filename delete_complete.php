@@ -21,12 +21,6 @@
         $sql = "DELETE FROM orders_$restaurant_name WHERE ID='$order'";
 
         $result = $connection->query($sql);
-
-        if ($connection->query($sql) === TRUE) {
-            echo "<div class='congrats'>";
-                echo "Erfolgreich gelöscht";
-            echo "</div>";
-        }
         ?>
     </body>
 </html>
