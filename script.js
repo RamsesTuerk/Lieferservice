@@ -11,66 +11,55 @@ var expireTime = new Date(); // Erstellung einer endzeit des Cookies (24h)
 expireTime = new Date(expireTime.getTime() +1000*60*60*24);
 
 $(document).ready(
-  setInterval(function(){
-
-  $.ajax({
+  setInterval(function () {
+    $.ajax({
       url: 'getBestellungen.php',
       type: 'POST',
-      data: {"restaurant_name": restaurant_name.trim()},
+      data: { "restaurant_name": restaurant_name.trim() },
       dataType: 'json',
       success: function (data) {
-          console.log(data);
+        var ordered_table = '';
 
-          var ordered_table = '';
-          // Iterate over the data and create HTML elements
-          data.forEach(function(data) {
-            
-         for (var i = 1; i < data.length; i++);
-         {  ordered_table += '<table class="ordered_table">';
-            ordered_table += '<tr>';
-            ordered_table += '<td class ="">' +'<h3>Bestellnummer: ' + data["ID"] + '</h3>' + '</td>';
-            ordered_table += '</tr>';
-            ordered_table += '<tr>';
-            ordered_table += '<td class="">' + ' ' + '</td>';
-            ordered_table += '</tr>';
-            ordered_table += '<tr>';
-            ordered_table += '<td class="">Name: ' + data["Name"] + '</td>';
-            ordered_table += '</tr>';
-            ordered_table += '<tr>';
-            ordered_table += '<td class="">Nachname:'  + data["Nachname"] + '</td>';
-            ordered_table += '<td class="">Mailadresse: ' + data["Mail"] + '</td>';
-            ordered_table += '</tr>';
-            ordered_table += '<tr>';
-            ordered_table += '<td class="_order">Telefonnummer: 0' + data["Telefonnummer"] + '</td>';
-            ordered_table += '<td class="">Stadt: ' + data["Stadt"] + '</td>';
-            ordered_table += '</tr>';
-            ordered_table += '<tr>'; 
-            ordered_table += '<td class="">PLZ: ' + data["Postleitzahl"] + '</td>';
-            ordered_table += '<td class="">Straße: ' + data["Straße"] + '</td>' + '</br>';
-            ordered_table += '</tr>';
-            ordered_table += '<tr>'; 
-            ordered_table += '<td class="">HausNr: ' + data["HausNr"] + '</td>';
-            ordered_table += '<td class="">PreisGesamt: ' + data["PreisGesamt"] + '€' + '</td>' + '</br>';
-            ordered_table += '</tr>';
-            ordered_table += '<tr>'; 
-            ordered_table += '<td class="">' + ' ' + '</td>';
-            ordered_table += '</tr>';
-            ordered_table += '<tr>'; 
-            ordered_table += '<td class="">' + ' ' + '</td>';
-            ordered_table += '</tr>';
-            ordered_table += '</table>'
+        data.forEach(function (item) {
+          ordered_table += '<table class="ordered_table">';
+          ordered_table += '<tr>';
+          ordered_table += '<td class =""><h3>Bestellnummer: ' + item["ID"] + '</h3></td>';
+          ordered_table += '</tr>';
+          ordered_table += '<tr>';
+          ordered_table += '<td class="">Name: ' + item["Name"] + '</td>';
+          ordered_table += '</tr>';
+          ordered_table += '<tr>';
+          ordered_table += '<td class="">Nachname: ' + item["Nachname"] + '</td>';
+          ordered_table += '<td class="">Mailadresse: ' + item["Mail"] + '</td>';
+          ordered_table += '</tr>';
+          ordered_table += '<tr>';
+          ordered_table += '<td class="_order">Telefonnummer: 0' + item["Telefonnummer"] + '</td>';
+          ordered_table += '<td class="">Stadt: ' + item["Stadt"] + '</td>';
+          ordered_table += '</tr>';
+          ordered_table += '<tr>';
+          ordered_table += '<td class="">PLZ: ' + item["Postleitzahl"] + '</td>';
+          ordered_table += '<td class="">Straße: ' + item["Straße"] + '</td>' + '</br>';
+          ordered_table += '</tr>';
+          ordered_table += '<tr>';
+          ordered_table += '<td class="">HausNr: ' + item["HausNr"] + '</td>';
+          ordered_table += '<td class="">PreisGesamt: ' + item["PreisGesamt"] + '€' + '</td>' + '</br>';
+          ordered_table += '</tr>';
+          ordered_table += '<tr>';
+          ordered_table += '<td class="">' + ' ' + '</td>';
+          ordered_table += '</tr>';
+          ordered_table += '<tr>';
+          ordered_table += '<td class="">' + ' ' + '</td>';
+          ordered_table += '</tr>';
+          ordered_table += '</table>';
+        });
 
-
-       } });
-       document.getElementById('Test').innerHTML = ordered_table;
+        document.getElementById('Test').innerHTML = ordered_table;
       },
       error: function errorLog(xhr, status, error) {
-          console.log('Fehler beim Laden der Daten.', status, error);
+        console.log('Fehler beim Laden der Daten.', status, error);
       }
-  });
-
-}, 500)
-
+    });
+  }, 2000)
 );
 
 //----------- Diese Funktion übergibt die Werte der Auswahl in choice -----------

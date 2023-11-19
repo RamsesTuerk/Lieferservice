@@ -6,7 +6,8 @@ require("connectionBestellungen.php");
 $restaurant_name = $_POST["restaurant_name"];
 
 
-$sql = "SELECT * FROM orders_$restaurant_name";
+$sql = "SELECT orders_$restaurant_name.*, order_products_$restaurant_name.* FROM orders_$restaurant_name LEFT JOIN order_products_$restaurant_name ON order_products_$restaurant_name.ID = orders_$restaurant_name.ID;";
+
     
 $result = $connection->query($sql);
 
@@ -32,5 +33,8 @@ if ($result->num_rows > 0) {
 }
 
 $connection->close();
+
+
+
 
 ?>
