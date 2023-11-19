@@ -5,7 +5,7 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST") 
 
      require("connectionBenutzer.php");
-	@@ -25,21 +29,81 @@
+	
     $result = $connection->query($sql);
 
     if ($result->num_rows > 0) {
