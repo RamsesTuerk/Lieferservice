@@ -9,15 +9,18 @@
     <body onload="close()">
         <?php
         require("connectionBestellungen.php");
+
+        $restaurant_name = $_POST['restaurant_name'];
     
         $sql = "SELECT * FROM orders_$restaurant_name";
-        
-    
-        $result = $connection->query($sql);
-
 
         $order = $_POST['order'];
-        $sql = "DELETE FROM orders_$restaurant_name WHERE id=$order";
+
+        echo $order;
+
+        $sql = "DELETE FROM orders_$restaurant_name WHERE ID='$order'";
+
+        $result = $connection->query($sql);
 
         if ($connection->query($sql) === TRUE) {
             echo "<div class='congrats'>";

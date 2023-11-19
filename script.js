@@ -6,71 +6,131 @@ var warenkorb = {
   menge: [],     // Array für die Menge jedes Produkts im Warenkorb
   preis: []      // Array für den Preis jedes Produkts im Warenkorb
 };
+
+
 var cookieStr = ''; // Initialisierung vom Cookie String
 var expireTime = new Date(); // Erstellung einer endzeit des Cookies (24h)
 expireTime = new Date(expireTime.getTime() +1000*60*60*24);
 
 $(document).ready(
-  setInterval(function(){
-
-  $.ajax({
+  setInterval(function () {
+    $.ajax({
       url: 'getBestellungen.php',
       type: 'POST',
-      data: {"restaurant_name": restaurant_name.trim()},
+      data: { "restaurant_name": restaurant_name.trim() },
       dataType: 'json',
       success: function (data) {
-          console.log(data);
 
-          var ordered_table = '';
-          // Iterate over the data and create HTML elements
-          data.forEach(function(data) {
-            
-         for (var i = 1; i < data.length; i++);
-         {  ordered_table += '<table class="ordered_table">';
-            ordered_table += '<tr>';
-            ordered_table += '<td class ="">' +'<h3>Bestellnummer: ' + data["ID"] + '</h3>' + '</td>';
-            ordered_table += '</tr>';
-            ordered_table += '<tr>';
-            ordered_table += '<td class="">' + ' ' + '</td>';
-            ordered_table += '</tr>';
-            ordered_table += '<tr>';
-            ordered_table += '<td class="">Name: ' + data["Name"] + '</td>';
-            ordered_table += '</tr>';
-            ordered_table += '<tr>';
-            ordered_table += '<td class="">Nachname:'  + data["Nachname"] + '</td>';
-            ordered_table += '<td class="">Mailadresse: ' + data["Mail"] + '</td>';
-            ordered_table += '</tr>';
-            ordered_table += '<tr>';
-            ordered_table += '<td class="_order">Telefonnummer: 0' + data["Telefonnummer"] + '</td>';
-            ordered_table += '<td class="">Stadt: ' + data["Stadt"] + '</td>';
-            ordered_table += '</tr>';
-            ordered_table += '<tr>'; 
-            ordered_table += '<td class="">PLZ: ' + data["Postleitzahl"] + '</td>';
-            ordered_table += '<td class="">Straße: ' + data["Straße"] + '</td>' + '</br>';
-            ordered_table += '</tr>';
-            ordered_table += '<tr>'; 
-            ordered_table += '<td class="">HausNr: ' + data["HausNr"] + '</td>';
-            ordered_table += '<td class="">PreisGesamt: ' + data["PreisGesamt"] + '€' + '</td>' + '</br>';
-            ordered_table += '</tr>';
-            ordered_table += '<tr>'; 
-            ordered_table += '<td class="">' + ' ' + '</td>';
-            ordered_table += '</tr>';
-            ordered_table += '<tr>'; 
-            ordered_table += '<td class="">' + ' ' + '</td>';
-            ordered_table += '</tr>';
-            ordered_table += '</table>'
+        var bestellungen ={
+          id:[],
+          name:[],
+          nachname:[],
+          mail:[],
+          telefonnummer:[],
+          stadt:[],
+          postleitzahl:[],
+          strasse:[],
+          hausNr:[],
+          preisGesamt:[]
+        };
+        
+        var produkte ={
+          id:[],
+          gericht:[],
+          menge:[]
+        }
+        var ordered_table = '';
+
+        data.forEach(function (item) {
+
+        if(bestellungen.id.indexOf(item["ID"]) == -1 ){
+
+          bestellungen.id.push(item["ID"]);
+          bestellungen.name.push(item["Name"]);
+          bestellungen.nachname.push(item["Nachname"]);
+          bestellungen.mail.push(item["Mail"]);
+          bestellungen.telefonnummer.push(item["Telefonnummer"]);
+          bestellungen.stadt.push(item["Stadt"]);
+          bestellungen.postleitzahl.push(item["Postleitzahl"])
+          bestellungen.strasse.push(item["Straße"]);
+          bestellungen.hausNr.push(item["HausNr"]);
+          bestellungen.preisGesamt.push(item["PreisGesamt"]);
+
+          produkte.id.push(item["ID"]);
+          produkte.gericht.push(item["Gericht"]);
+          produkte.menge.push(item["Menge"]);
 
 
-       } });
-       document.getElementById('Test').innerHTML = ordered_table;
+        }else{
+
+          produkte.id.push(item["ID"]);
+          produkte.gericht.push(item["Gericht"]);
+          produkte.menge.push(item["Menge"]);
+
+        }});
+
+
+        for(var i = 0 ; i < bestellungen.id.length; i++){
+          ordered_table += '<table class="ordered_table">';
+          ordered_table += '<tr>';
+          ordered_table += '<td class =""><h3>Bestellnummer: ' + bestellungen.id[i] + '</h3></td>';
+          ordered_table += '</tr>';
+          ordered_table += '<tr>';
+          ordered_table += '<td class="">Name: ' + bestellungen.name[i] + '</td>';
+          ordered_table += '</tr>';
+          ordered_table += '<tr>';
+          ordered_table += '<td class="">Nachname: ' + bestellungen.nachname[i] + '</td>';
+          ordered_table += '<td class="">Mailadresse: ' + bestellungen.mail[i] + '</td>';
+          ordered_table += '</tr>';
+          ordered_table += '<tr>';
+          ordered_table += '<td class="_order">Telefonnummer: 0' + bestellungen.telefonnummer[i] + '</td>';
+          ordered_table += '<td class="">Stadt: ' + bestellungen.stadt[i] + '</td>';
+          ordered_table += '</tr>';
+          ordered_table += '<tr>';
+          ordered_table += '<td class="">PLZ: ' + bestellungen.postleitzahl[i] + '</td>';
+          ordered_table += '<td class="">Straße: ' + bestellungen.strasse[i] + '</td>' + '</br>';
+          ordered_table += '</tr>';
+          ordered_table += '<tr>';
+          ordered_table += '<td class="">HausNr: ' + bestellungen.hausNr[i] + '</td>';
+          ordered_table += '<td class="">PreisGesamt: ' + bestellungen.preisGesamt[i] + '€' + '</td>' + '</br>';
+          ordered_table += '</tr>';
+          ordered_table += '<tr>';
+          ordered_table += '<td class="">' + ' ' + '</td>';
+          ordered_table += '</tr>';
+          ordered_table += '<tr>';
+          ordered_table += '<td class="">' + ' ' + '</td>';
+          ordered_table += '</tr>';
+          for(var j = 0; j < produkte.id.length ; j++){
+
+            if(produkte.id[j] == bestellungen.id[i]){
+              ordered_table += '<tr>'
+              ordered_table += '<td class="ordered_food">Gericht: '+produkte.gericht[j]+'</td>'
+              ordered_table += '<td class="ordered_food">Menge: '+produkte.menge[j]+'</td></br>'
+              ordered_table += '</tr>'
+            }
+
+          }
+          ordered_table += '</table>';
+          ordered_table += '<form target="display-frame" action="delete_complete.php" method="post">';
+          ordered_table += '<input type="submit"  value="Lösche Bestellung Nr: '+bestellungen.id[i]+'"></input>';
+          ordered_table += '<input class="hidden" type="text" name="restaurant_name" value="'+restaurant_name.trim()+'">';
+          ordered_table += '<input class="hidden" type="text" name="order"value="'+bestellungen.id[i]+'">';
+          ordered_table += '</form>';
+
+
+
+
+        }
+      
+
+        document.getElementById('Test').innerHTML = ordered_table;
+        console.log(produkte)
       },
       error: function errorLog(xhr, status, error) {
-          console.log('Fehler beim Laden der Daten.', status, error);
+        console.log('Fehler beim Laden der Daten.', status, error);
       }
-  });
-
-}, 500)
-
+    });
+  }, 500)
 );
 
 //----------- Diese Funktion übergibt die Werte der Auswahl in choice -----------
@@ -293,10 +353,10 @@ var ausgabe = '<h1>Warenkorb</h1>';
 ausgabe += '<article class="warenkorbArtikel">';
   ausgabe += '<table>';
     ausgabe += '<tr>';
-      ausgabe += '<td class="warenkorbTabelleZellen">Menge:</td>';
-      ausgabe += '<td class="warenkorbTabelledata">Produkt: </td>';
-      ausgabe += '<td class="warenkorbTabellePrice">Preis:</td>';
-      ausgabe += '<td class="warenkorbTabelleZellen"></td>';
+    ausgabe += '<td class="warenkorbTabelleZellen">Menge:</td>';
+    ausgabe += '<td class="warenkorbTabelledata">Produkt: </td>';
+    ausgabe += '<td class="warenkorbTabellePrice">Preis:</td>';
+    ausgabe += '<td class="warenkorbTabelleZellen"></td>';
     ausgabe += '</tr>';
   ausgabe += '</table>';
 ausgabe += '</article>';
