@@ -13,10 +13,9 @@
     <body>
     <?php
     $restaurant_name = strtolower($_POST['restaurant_name']);
+    
+//checken des Passworts (Lukas)
 
-    echo '<script>';
-        echo 'var restaurant_name ="' . $restaurant_name.'";';
-    echo '</script>';
     if ($_SERVER["REQUEST_METHOD"] == "POST") 
 
      require("connectionBenutzer.php");
@@ -36,6 +35,8 @@
     }
 
     $connection->close();
+
+    //übergabe einer variable in JS (Ramses)
 
     echo '<script>';
         echo 'var restaurant_name ="' . $restaurant_name.'";';

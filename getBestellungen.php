@@ -2,6 +2,8 @@
 
 require("connectionBestellungen.php");
 
+//Php datei für Ajax um die SQL abfrage aufzurufen (Ramses)
+
 
 $restaurant_name = $_POST["restaurant_name"];
 

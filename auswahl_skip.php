@@ -16,6 +16,8 @@
                     <?php
                         require("connectionRestaurant.php");
 
+                        //Ausgabe von Restaurants nach zufälligen Kriterien (Max) 
+
                         $sql = "SELECT * FROM restaurants_all";
 
                         // Die Abfrage ausführen und das Ergebnis speichern

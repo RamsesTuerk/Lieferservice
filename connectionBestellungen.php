@@ -1,5 +1,6 @@
 
 <?php
+// Erstellung der Datenbankverbindung (Ramses) Tabellen erstellt (Max) 
 $servername = "localhost";
 $user = "root";
 $password = "";

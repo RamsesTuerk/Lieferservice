@@ -1,4 +1,5 @@
 <?php
+//übergeben von Variablen an JS sowie ein das abrufen der Speisekarte (Ramses)
 require("connectionRestaurant.php");
 
 $restaurant = $_GET["restaurant"];
@@ -42,6 +43,7 @@ $connection->close();
 </head>
 
 <body onload="init()">
+<!-- Grid Layout (Lukas)-->
   <div class="speisekarte">
 
     <div class="Header">
@@ -49,6 +51,7 @@ $connection->close();
       <h1>RaLuMa Lieferservice.</h1>
     </div>
     <div class="Headside">
+      <!--Homebutton (Lukas)-->
       <a href="index.html" class="home">Home</a>
     </div>
     <div class="Content">
@@ -60,6 +63,7 @@ $connection->close();
     </div>
     <div class="Side"> 
 
+    <!--Erstellen eines artickels für die Warenkorbausgabe (Ramses)-->
       <article id="waren" class="warenkorb WarenkorbAusgabe"></article>  
       
     </div>

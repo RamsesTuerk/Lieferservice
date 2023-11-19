@@ -8,6 +8,8 @@
     </head>
     <body onload="close()">
         <?php
+
+        //Löschen von Bestellungen (Max)
         require("connectionBestellungen.php");
 
         $restaurant_name = $_POST['restaurant_name'];

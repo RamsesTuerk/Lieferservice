@@ -327,8 +327,6 @@ iframe{
   justify-self: end;
   
 }
-
-
 .Footer { grid-area: Footer;
 }
 
@@ -342,9 +340,6 @@ iframe{
 .home :hover {
   color:blue;
 }
-
-/*///////////////////////////////////////*/
-
 
 .menueList {
   margin: 0;
@@ -363,7 +358,6 @@ iframe{
   background-color: #D0D6B3;
   margin: 0;
   padding: 0.3rem;
-  /* text-align: left; */
 }
 .warenkorb > h1,
 .warenkorbArtikel {

@@ -12,6 +12,8 @@
 
 require("connectionBestellungen.php");
 
+//Übersicht der abgesendeten Daten sowie das Schreiben der Daten die Datenbank (Max)
+
 $name = $_POST["first_name"];
 $lastName = $_POST["last_name"];
 $mail = $_POST["email"];

@@ -6,6 +6,7 @@
 </html>
 
 <?php
+//(Lukas)
 // Datenbankverbindung herstellen
 $servername = "localhost";
 $username = "root";

@@ -16,6 +16,8 @@
                     <?php //Beginn des PHP Codes
                         require("connectionRestaurant.php");
 
+                        //Ausgabe von Restaurants nach bestimmten Kriterien (Max)
+
                         $kategorie = $_GET["kategorie"]; // Setzt die Variable $kategorie auf den durch die URL übergebenen Wert der Kategorie
                         $typ = $_GET["typ"]; // Setzt die Variable $typ auf den durch die URL übergebenen Wert des Typen
                         $preis = $_GET["preis"];// Setzt die Variable $preis auf den durch die URL übergebenen Wert des Preises

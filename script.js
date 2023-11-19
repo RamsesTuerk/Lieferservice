@@ -1,26 +1,17 @@
 //----------- Die Auswahl wird in einem Array("coice") gespeichert -----------
 var choice = []
 var warenkorbPreis = 0;
-var warenkorb = {
-  produkte: [],  // Array für die Namen der Produkte im Warenkorb
-  menge: [],     // Array für die Menge jedes Produkts im Warenkorb
-  preis: []      // Array für den Preis jedes Produkts im Warenkorb
-};
 
-
-var cookieStr = ''; // Initialisierung vom Cookie String
-var expireTime = new Date(); // Erstellung einer endzeit des Cookies (24h)
-expireTime = new Date(expireTime.getTime() +1000*60*60*24);
-
+//Ajax funktion inklusive der ausgabe für Abfrage.php (Ramses)
 $(document).ready(
-  setInterval(function () {
+  setInterval(function () { //ajax wir alle 0.5 secunden ausgefürt 
     $.ajax({
       url: 'getBestellungen.php',
       type: 'POST',
       data: { "restaurant_name": restaurant_name.trim() },
       dataType: 'json',
       success: function (data) {
-
+        //Initialisierung von Objekten zur darstellung der Produkte sowie der Bestellinformationen
         var bestellungen ={
           id:[],
           name:[],
@@ -39,13 +30,14 @@ $(document).ready(
           gericht:[],
           menge:[]
         }
-        var ordered_table = '';
+        var ordered_table = ''; //String für den HTML code
 
-        try{
+        try{ //Errorhandeling um errors zu vermeiden wenn data leer ist 
           data.forEach(function (item) {
 
           if(bestellungen.id.indexOf(item["ID"]) == -1 ){
 
+            //schreiben der daten in objekte
             bestellungen.id.push(item["ID"]);
             bestellungen.name.push(item["Name"]);
             bestellungen.nachname.push(item["Nachname"]);
@@ -70,8 +62,8 @@ $(document).ready(
 
           }});
 
-
-          for(var i = 0 ; i < bestellungen.id.length; i++){
+          //generierung des HTML codes für die ausgabe auf Abfrage.php
+          for(var i = 0 ; i < bestellungen.id.length; i++){ 
             ordered_table += '<table class="ordered_table">';
               ordered_table += '<tr>';
                 ordered_table += '<td class =""><h3>Bestellnummer: ' + bestellungen.id[i] + '</h3></td>';
@@ -111,6 +103,7 @@ $(document).ready(
               }
 
             }
+            //schreiben der einzelnen Produkte in der Bestellansicht
             ordered_table += '</table>';
               ordered_table += '<form target="display-frame" action="delete_complete.php" method="post">';
                 ordered_table += '<input type="submit"  value="Lösche Bestellung Nr: '+bestellungen.id[i]+'"></input>';
@@ -123,21 +116,21 @@ $(document).ready(
         }
 
 
-        document.getElementById('Bestellungen').innerHTML = ordered_table;
+        document.getElementById('Bestellungen').innerHTML = ordered_table; //ansprechen des Divs in Abfrage.php
       },
-      error: function errorLog(xhr, status, error) {
+      error: function errorLog(xhr, status, error) {//errorhandeling fals daten nicht geladen werden konnten
         console.log('Fehler beim Laden der Daten.', status, error);
       }
     });
   }, 500)
 );
 
-//----------- Diese Funktion übergibt die Werte der Auswahl in choice -----------
+//----------- Diese Funktion übergibt die Werte der Auswahl in choice -----------(Max)
 function addChoice(value){
     choice.push(value);
 }
 
-//----------- Slide-Out functions -----------
+//----------- Slide-Out functions -----------(Max)
 function slideOutFood() {
     var element = document.getElementById("table_food_select_container");
     element.classList.add("slide_out");
@@ -149,7 +142,7 @@ function slideOutTyp() {
     element.classList.add("slide_out_typ");
 }
 
-//----------- Slide-In functions -----------
+//----------- Slide-In functions -----------(Max)
 function slideInTyp() {
     var element = document.getElementById("table_typ_select_container");
     element.classList.add("slide_in");
@@ -159,7 +152,7 @@ function slideInPrice() {
     element.classList.add("slide_in");
 }
 
-//----------- Slide-Back functions -----------
+//----------- Slide-Back functions -----------(Max)
 function slideBack() { //----------- Slide-Back von Typ zu Food -----------
     var element = document.getElementById("table_typ_select_container");
     element.classList.remove("slide_in");
@@ -172,7 +165,7 @@ function slideBack() { //----------- Slide-Back von Typ zu Food -----------
     choice.pop();       //----------- choice-array update -----------
 
 }
-function slideBackPrice() { //----------- Slide-Back von Price zu Typ -----------
+function slideBackPrice() { //----------- Slide-Back von Price zu Typ -----------(Max)
     var element = document.getElementById("table_typ_select_container");
     element.classList.remove("slide_out");
     element.classList.add("slide_in");
@@ -184,6 +177,31 @@ function slideBackPrice() { //----------- Slide-Back von Price zu Typ ----------
     choice.pop();          //----------- choice-array update -----------
 
 }
+
+    //umwandlung der Daten von codierung in String (Max)
+
+    /*                  
+                    Burger      Pizza        Sushi    
+            Kategorie:      0            1            2    
+                            
+                            
+                        Rind        Hähnchen    Vegan    
+            typ:          0            1            2    
+                            
+                            
+                        Günstig   Mittel      Teuer    
+            preis:        0            1            2    
+                            
+                            
+                            
+                    Kategorie      Typ      Preis        Ergebnis
+    Bsp.    1              0            0        0          Burger, Rind, Günstig
+    Bsp.    2              2            1        0          Sushi, Hähnchen, Günstig
+    Bsp.    3              0            2        0          Burger, Vegan, Günstig
+    Bsp.    4              2            2        1          Sushi, Vegan, Mittel
+    Bsp.    5              1            1        2          Pizza, Hähnchen, Teuer
+
+    */
 
 function postChoice(){
     if(choice[0] == 0)
@@ -207,13 +225,14 @@ function postChoice(){
     else if(choice[2] == 2)
         preis = ("Teuer")
 }
-//----------- Öffnet die Seite "auswahl.html" im selben tab -----------
+//----------- Öffnet die Seite "auswahl.html" im selben tab -----------(Max)
 function submitChoice() {
     postChoice()
     window.open("auswahl.php", "_self"); //----------- 1. Wert ist das ziel, 2. Wert ist der Ort------- um ein neuen Tab zu öffnen, wir nicht "_self" sondern "_blank" benutzt-----------
     window.location.href = "auswahl.php?kategorie=" + kategorie + "&" + "typ=" + typ + "&" + "preis=" + preis;
   }
-function randomChoice(){
+//Generierung einer zufälligen Auswahl (Max)
+function randomChoice(){ 
     kategorie = Math.floor(Math.random() * 3);
     typ = Math.floor(Math.random() * 3);
     preis = Math.floor(Math.random() * 3);
@@ -242,6 +261,7 @@ function randomChoice(){
         window.open("auswahl.php", "_self"); //----------- 1. Wert ist das ziel, 2. Wert ist der Ort------- um ein neuen Tab zu öffnen, wir nicht "_self" sondern "_blank" benutzt-----------
         window.location.href = "auswahl.php?kategorie=" + kategorie + "&" + "typ=" + typ + "&" + "preis=" + preis;
 }
+//Generierung einer zufälligen veganen Auswahl (Max)
 function randomChoiceVegan(){
     kategorie = Math.floor(Math.random() * 3);
     typ = "Vegan"
@@ -264,6 +284,7 @@ function randomChoiceVegan(){
         window.open("auswahl.php", "_self"); //----------- 1. Wert ist das ziel, 2. Wert ist der Ort------- um ein neuen Tab zu öffnen, wir nicht "_self" sondern "_blank" benutzt-----------
         window.location.href = "auswahl.php?kategorie=" + kategorie + "&" + "typ=" + typ + "&" + "preis=" + preis;
 }
+// skippt die auswahl komplett (Max)
 function skipChoice(){
 
     window.open("auswahl_skip.php", "_self"); //----------- 1. Wert ist das ziel, 2. Wert ist der Ort------- um ein neuen Tab zu öffnen, wir nicht "_self" sondern "_blank" benutzt-----------
@@ -273,7 +294,7 @@ function submit_choice(){
     window.open("index.html", "_blank"); //----------- 1. Wert ist das ziel, 2. Wert ist der Ort------- um ein neuen Tab zu öffnen, wir nicht "_self" sondern "_blank" benutzt-----------
 }
 
-//checke Cookies und ausgabe des Warenkorbs
+//checke Cookies und ausgabe des Warenkorbs (Max)
 function warenkorbAnzeigenOnload(){
     checkCookie();
     warenkorbAusgeben();
@@ -291,13 +312,14 @@ var cookieStr = ''; // Initialisierung vom Cookie String
 var expireTime = new Date(); // Erstellung einer endzeit des Cookies (24h)
 expireTime = expireTime.getTime() +1000*60*60*24;
 
-//checke Cookies und ausgabe des Warenkorbs
+//Initalisieren von 3 Funktionen (Ramses)
 function init(){
   checkCookie();
   speisekarteAusgeben();
   warenkorbAusgeben();
 }
 
+//ausgabe der Speisekate (Ramses)
 function speisekarteAusgeben(){
   var speisekarte = '';
 for(var i = 1; i < phpData.length; i++){
@@ -324,7 +346,7 @@ for(var i = 1; i < phpData.length; i++){
 
 };
 
-//Hinzufügen von Produkten in den Warenkorb
+//Hinzufügen von Produkten in den Warenkorb(Ramses)
 function zumWarenkorb(nr, pr) {
   var produktName = document.getElementById('produkt' + nr).innerHTML;
   var preis = pr;
@@ -343,11 +365,11 @@ function zumWarenkorb(nr, pr) {
   cookieSave();
   warenkorbAusgeben();
 }
-//Ausgeben des Warenkorbs in form von <articles> 
+//Ausgeben des Warenkorbs in form von <articles> (Ramses) 
 function warenkorbAusgeben() {
     warenkorbSum();
 var bestelldifferenz = minBestellwert - (warenkorbPreis - lieferkosten)
-// Ausgabe von HTML Elementen in dem von der var "ausgabe" Bereich auf einer Webseite
+// Ausgabe von HTML Elementen in dem von der var "ausgabe" Bereich auf einer Webseite(Ramses)
 var ausgabe = '<h1>Warenkorb</h1>';
 ausgabe += '<article class="warenkorbArtikel">';
   ausgabe += '<table>';
@@ -360,59 +382,59 @@ ausgabe += '<article class="warenkorbArtikel">';
   ausgabe += '</table>';
 ausgabe += '</article>';
 
-// Erstellt einen Article, welcher eine Tabelle enthält. Diese zeigt die ausgewählten Menge,Produkte und Preise geordnet an________________________________________________
-  for (var i = 0; i < warenkorb.produkte.length; i++) {                                                                                                                 //|
-    ausgabe += '<article class="warenkorbArtikel">';                                                                                                                    //|
-        ausgabe += '<table>';                                                                                                                                           //|
-            ausgabe += '<tr>';                                                                                                                                          //|
-                ausgabe += '<td class="warenkorbTabelleZellen">' + warenkorb.menge[i] + 'x </td>';                                                                      //|
-                ausgabe += '<td class="warenkorbTabelledata">' + warenkorb.produkte[i] + ': </td>';                                                                     //|
-                ausgabe += '<td class="warenkorbTabellePrice"> ' + warenkorb.preis[i] + '&#x20AC </td>';                                                                //|
-                ausgabe += '<td class="warenkorbTabelleZellen">';                                                                                                       //|
-                if (document.getElementById('waren') != null){                                                                                                          //|
-                    ausgabe += '<button class="warenkorbButtonLöschen" onclick="loescheProdukt(' + i + ');"><img src="pictures/delete.png" alt="delete"></button>';     //|
-                     }                                                                                                                                                  //|
-                ausgabe += '</td>';                                                                                                                                     //|
-            ausgabe += '</tr>';                                                                                                                                         //|
-        ausgabe += '</table>';                                                                                                                                          //|
-    ausgabe += '</article>';                                                                                                                                            //|
-  }                                                                                                                                                                     //|
-  ausgabe += '<article class="warenkorbArtikel">';                                                                                                                      //|
-    ausgabe += '<table>'                                                                                                                                                //| Ramses / Max
-      ausgabe += '<tr>'                                                                                                                                                 //|
-        ausgabe += '<td class="warenkorbTabelleZellen">' + "" + 'x </td>';                                                                                              //|
-        ausgabe += '<td class="warenkorbTabelledata">' + "Lieferkosten" + ': </td>';                                                                                    //|
-        ausgabe += '<td class="warenkorbTabellePrice"> ' + lieferkosten + '&#x20AC </td>';                                                                              //|
-        ausgabe += '<td class="warenkorbTabelleZellen">';                                                                                                               //|
-      ausgabe += '</td>';                                                                                                                                               //|
-    ausgabe += '</table>'                                                                                                                                               //|
-  ausgabe += '</article>';                                                                                                                                              //|
-                                                                                                                                                                        //|
-  ausgabe += '<article class="warenkorbArtikel">';                                                                                                                      //|
-    ausgabe += '<table>';                                                                                                                                               //|
-      ausgabe += '<tr>';                                                                                                                                                //|
-        ausgabe += '<td class="warenkorbTabelleZellen">' + "" + '</td>';                                                                                                //|
-        ausgabe += '<td class="warenkorbTabelledata">' + "Gesamtkosten" + ': </td>';                                                                                    //|
-        ausgabe += '<td class="warenkorbTabellePrice"> ' + warenkorbPreis.toFixed(2) + '&#x20AC </td>';                                                                 //|
-        ausgabe += '<td class="warenkorbTabelleZellen">';                                                                                                               //|
-      ausgabe += '</td>';                                                                                                                                               //|
-    ausgabe += '</table>'                                                                                                                                               //|
-  ausgabe += '</article>';                                                                                                                                              //|
-//_________________________________________________________________________________________________________________________________________________________________________
+// Erstellt einen Article, welcher eine Tabelle enthält. Diese zeigt die ausgewählten Menge,Produkte und Preise geordnet an(Ramses)
+  for (var i = 0; i < warenkorb.produkte.length; i++) {                                                                                                                 
+    ausgabe += '<article class="warenkorbArtikel">';                                                                                                                    
+        ausgabe += '<table>';                                                                                                                                           
+            ausgabe += '<tr>';                                                                                                                                          
+                ausgabe += '<td class="warenkorbTabelleZellen">' + warenkorb.menge[i] + 'x </td>';                                                                      
+                ausgabe += '<td class="warenkorbTabelledata">' + warenkorb.produkte[i] + ': </td>';                                                                     
+                ausgabe += '<td class="warenkorbTabellePrice"> ' + warenkorb.preis[i] + '&#x20AC </td>';                                                                
+                ausgabe += '<td class="warenkorbTabelleZellen">';                                                                                                       
+                if (document.getElementById('waren') != null){                                                                                                          
+                    ausgabe += '<button class="warenkorbButtonLöschen" onclick="loescheProdukt(' + i + ');"><img src="pictures/delete.png" alt="delete"></button>';     
+                     }                                                                                                                                                  
+                ausgabe += '</td>';                                                                                                                                     
+            ausgabe += '</tr>';                                                                                                                                         
+        ausgabe += '</table>';                                                                                                                                          
+    ausgabe += '</article>';                                                                                                                                            
+  }                                                                                                                                                                     
+  ausgabe += '<article class="warenkorbArtikel">';                                                                                                                      
+    ausgabe += '<table>'                                                                                                                                                
+      ausgabe += '<tr>'                                                                                                                                                 
+        ausgabe += '<td class="warenkorbTabelleZellen">' + "" + 'x </td>';                                                                                              
+        ausgabe += '<td class="warenkorbTabelledata">' + "Lieferkosten" + ': </td>';                                                                                    
+        ausgabe += '<td class="warenkorbTabellePrice"> ' + lieferkosten + '&#x20AC </td>';                                                                              
+        ausgabe += '<td class="warenkorbTabelleZellen">';                                                                                                               
+      ausgabe += '</td>';                                                                                                                                               
+    ausgabe += '</table>'                                                                                                                                               
+  ausgabe += '</article>';                                                                                                                                              
+                                                                                                                                                                        
+  ausgabe += '<article class="warenkorbArtikel">';                                                                                                                      
+    ausgabe += '<table>';                                                                                                                                               
+      ausgabe += '<tr>';                                                                                                                                                
+        ausgabe += '<td class="warenkorbTabelleZellen">' + "" + '</td>';                                                                                                
+        ausgabe += '<td class="warenkorbTabelledata">' + "Gesamtkosten" + ': </td>';                                                                                    
+        ausgabe += '<td class="warenkorbTabellePrice"> ' + warenkorbPreis.toFixed(2) + '&#x20AC </td>';                                                                 
+        ausgabe += '<td class="warenkorbTabelleZellen">';                                                                                                               
+      ausgabe += '</td>';                                                                                                                                               
+    ausgabe += '</table>'                                                                                                                                               
+  ausgabe += '</article>';                                                                                                                                              
 
 
-// Speichert die Werte der einzelnen Produkte in verteckten Inputs (nicht sichtbar), damit diese an die nächste Webseite übergeben werden können___________________________
-  for (var i = 0; i < warenkorb.produkte.length; i++) {                                                                                                                 //|
-  ausgabe += '<input class="hidden" name="prodMenge' + i + '" value="' + warenkorb.menge[i] + '">';                                                                     //|
-  ausgabe += '<input class="hidden" name="prodName' + i + '" value="' + warenkorb.produkte[i] + '">';                                                                   //|
-  ausgabe += '<input class="hidden" name="prodPrice' + i + '" value="' + warenkorb.preis[i] + '">';                                                                     //| Ramses / Max
-  };                                                                                                                                                                    //|
-  ausgabe += '<input class="hidden" name="products' + '" value="' + i + '">';                                                                                           //|
-  ausgabe += '<input class="hidden" name="price' + '" value="' + warenkorbPreis.toFixed(2) +'">';                                                                       //|
-  ausgabe += '<input class="hidden" name="restaurant" value="' + restaurantName + '">';                                                                                 //|
-//_________________________________________________________________________________________________________________________________________________________________________
 
+// Speichert die Werte der einzelnen Produkte in verteckten Inputs (nicht sichtbar), damit diese an die nächste Webseite übergeben werden können(Max / Ramses)___________________________
+  for (var i = 0; i < warenkorb.produkte.length; i++) {                                                                                                                 
+  ausgabe += '<input class="hidden" name="prodMenge' + i + '" value="' + warenkorb.menge[i] + '">';                                                                     
+  ausgabe += '<input class="hidden" name="prodName' + i + '" value="' + warenkorb.produkte[i] + '">';                                                                   
+  ausgabe += '<input class="hidden" name="prodPrice' + i + '" value="' + warenkorb.preis[i] + '">';                                                                
+  };                                                                                                                                                                    
+  ausgabe += '<input class="hidden" name="products' + '" value="' + i + '">';                                                                                           
+  ausgabe += '<input class="hidden" name="price' + '" value="' + warenkorbPreis.toFixed(2) +'">';                                                                       
+  ausgabe += '<input class="hidden" name="restaurant" value="' + restaurantName + '">';                                                                                 
+//Schreiben des HTML codes in waren()
   if (document.getElementById('waren') != null){
+    //Berechnen des noch zu fehlenden Betrags bis zum mindest Bestellwertes sowie die Generierung eines Buttons bei erreichen diese (Ramses)
     if(0 < bestelldifferenz){
         ausgabe += '<div class="minBestellwert">'
         ausgabe += 'Es fehlen noch ' + (bestelldifferenz.toFixed(2)) + '&#x20AC für den Mindestbestellwert!';
@@ -433,7 +455,7 @@ ausgabe += '</article>';
 }
 
 
-// Löschen von Produkten aus dem Warenkorb
+// Löschen von Produkten aus dem Warenkorb (Ramses)
 function loescheProdukt(index) {
   if (warenkorb.menge[index] > 1) {
     warenkorb.menge[index] -= 1;
@@ -446,7 +468,7 @@ function loescheProdukt(index) {
   warenkorbAusgeben();
 }
 
-//Zusammenrechnen der Warenkorbsumme
+//Zusammenrechnen der Warenkorbsumme (Ramses)
 function warenkorbSum(){
   // Schleife durch alle Produkte im Warenkorb
   for (var i = 0; i < warenkorb.produkte.length; i++) {
@@ -456,7 +478,7 @@ function warenkorbSum(){
   warenkorbPreis += Number(lieferkosten);
 }
 
-// Der check ob ein Cookie existiert und das Extrahieren seiner daten 
+// Der check ob ein Cookie existiert und das Extrahieren seiner daten  (Ramses)
 function checkCookie() {
 
   if(document.cookie){
@@ -468,7 +490,7 @@ function checkCookie() {
       lieferkosten = cookieData[1];
       minBestellwert = cookieData[2];
 
-    try{
+    try{ //in diesen fall haben wir Try and catch benutzt um die seiten zu differenzieren (We know nicht die cleanste Lösung)
       if(restaurantName == restaurantPost){
         // Schreiben der gespeicherten Informationen in den Warenkorb
         for (let i = 3; i < cookieData.length; i += 3) {
@@ -487,7 +509,7 @@ function checkCookie() {
           checkCookie();
         }
       }
-    }catch(err){
+    }catch(err){//Dies wird nur auf abgesendet.php getriggert 
       for (let i = 3; i < cookieData.length; i += 3) {
         warenkorb.produkte.push(cookieData[i]);
         warenkorb.menge.push(Number(cookieData[i + 1]));
@@ -502,7 +524,7 @@ function checkCookie() {
   }
 }
 
-//Cookie mit den Warenkorbinformationen speichern
+//Cookie mit den Warenkorbinformationen speichern (Ramses)
 function cookieSave(){
   for(var i = 0; i < warenkorb.produkte.length; i++) {
     cookieStr += warenkorb.produkte[i]+'+';
@@ -514,8 +536,8 @@ function cookieSave(){
   cookieStr = ''; //Leeren des CookieStings
 }
 
-/// Umfragefunktion 
 
+/// Umfragefunktion (Lukas)
 function submitSurvey() {
   const question1 = document.querySelector('input[name="question1"]:checked').value;
   const question2 = document.querySelector('input[name="question2"]:checked').value;
