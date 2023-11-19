@@ -126,7 +126,6 @@ $(document).ready(
       
 
         document.getElementById('Bestellungen').innerHTML = ordered_table;
-        console.log(produkte)
       },
       error: function errorLog(xhr, status, error) {
         console.log('Fehler beim Laden der Daten.', status, error);
@@ -301,6 +300,7 @@ function init(){
   warenkorbAusgeben();
 }
 
+//Ausgeben der Speisekarte 
 function speisekarteAusgeben(){
   var speisekarte = '';
 for(var i = 1; i < phpData.length; i++){
@@ -466,18 +466,18 @@ function checkCookie() {
       const decodedCookie = decodeURIComponent(document.cookie); // entfernen der Cookieinformationen 
       const cuttedString = decodedCookie.split('Warenkorb=').pop().split(';')[0]; //Inhalt unseres Cookies vom Namen Restaurant und von Weiteren Cookies Trennen
       const cuttedStringWithoutSpaces = cuttedString.trim(); //Lehrzeichen entfernen
-      const array2 = cuttedStringWithoutSpaces.split("+").filter(data => data !== ""); //Einzelne Cookieinformationen Trennen und leere Felder Löschen
-      restaurantName = array2[0];
-      lieferkosten = array2[1];
-      minBestellwert = array2[2];
+      const cookieData = cuttedStringWithoutSpaces.split("+").filter(data => data !== ""); //Einzelne Cookieinformationen Trennen und leere Felder Löschen
+      restaurantName = cookieData[0];
+      lieferkosten = cookieData[1];
+      minBestellwert = cookieData[2];
 
     try{
       if(restaurantName == restaurantPost){
         // Schreiben der gespeicherten Informationen in den Warenkorb
-        for (let i = 3; i < array2.length; i += 3) {
-          warenkorb.produkte.push(array2[i]);
-          warenkorb.menge.push(Number(array2[i + 1]));
-          warenkorb.preis.push(Number(array2[i + 2]));
+        for (let i = 3; i < cookieData.length; i += 3) {
+          warenkorb.produkte.push(cookieData[i]);
+          warenkorb.menge.push(Number(cookieData[i + 1]));
+          warenkorb.preis.push(Number(cookieData[i + 2]));
           cookieSave();
           warenkorbAusgeben();
         }
@@ -488,10 +488,10 @@ function checkCookie() {
         }
       }
     }catch(err){
-      for (let i = 3; i < array2.length; i += 3) {
-        warenkorb.produkte.push(array2[i]);
-        warenkorb.menge.push(Number(array2[i + 1]));
-        warenkorb.preis.push(Number(array2[i + 2]));
+      for (let i = 3; i < cookieData.length; i += 3) {
+        warenkorb.produkte.push(cookieData[i]);
+        warenkorb.menge.push(Number(cookieData[i + 1]));
+        warenkorb.preis.push(Number(cookieData[i + 2]));
         warenkorbAusgeben();
       }
     }
