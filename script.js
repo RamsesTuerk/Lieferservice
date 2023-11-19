@@ -41,90 +41,90 @@ $(document).ready(
         }
         var ordered_table = '';
 
-        data.forEach(function (item) {
+        try{
+          data.forEach(function (item) {
 
-        if(bestellungen.id.indexOf(item["ID"]) == -1 ){
+          if(bestellungen.id.indexOf(item["ID"]) == -1 ){
 
-          bestellungen.id.push(item["ID"]);
-          bestellungen.name.push(item["Name"]);
-          bestellungen.nachname.push(item["Nachname"]);
-          bestellungen.mail.push(item["Mail"]);
-          bestellungen.telefonnummer.push(item["Telefonnummer"]);
-          bestellungen.stadt.push(item["Stadt"]);
-          bestellungen.postleitzahl.push(item["Postleitzahl"])
-          bestellungen.strasse.push(item["Straße"]);
-          bestellungen.hausNr.push(item["HausNr"]);
-          bestellungen.preisGesamt.push(item["PreisGesamt"]);
+            bestellungen.id.push(item["ID"]);
+            bestellungen.name.push(item["Name"]);
+            bestellungen.nachname.push(item["Nachname"]);
+            bestellungen.mail.push(item["Mail"]);
+            bestellungen.telefonnummer.push(item["Telefonnummer"]);
+            bestellungen.stadt.push(item["Stadt"]);
+            bestellungen.postleitzahl.push(item["Postleitzahl"])
+            bestellungen.strasse.push(item["Straße"]);
+            bestellungen.hausNr.push(item["HausNr"]);
+            bestellungen.preisGesamt.push(item["PreisGesamt"]);
 
-          produkte.id.push(item["ID"]);
-          produkte.gericht.push(item["Gericht"]);
-          produkte.menge.push(item["Menge"]);
-
-
-        }else{
-
-          produkte.id.push(item["ID"]);
-          produkte.gericht.push(item["Gericht"]);
-          produkte.menge.push(item["Menge"]);
-
-        }});
+            produkte.id.push(item["ID"]);
+            produkte.gericht.push(item["Gericht"]);
+            produkte.menge.push(item["Menge"]);
 
 
-        for(var i = 0 ; i < bestellungen.id.length; i++){
-          ordered_table += '<table class="ordered_table">';
-          ordered_table += '<tr>';
-          ordered_table += '<td class =""><h3>Bestellnummer: ' + bestellungen.id[i] + '</h3></td>';
-          ordered_table += '</tr>';
-          ordered_table += '<tr>';
-          ordered_table += '<td class="">Name: ' + bestellungen.name[i] + '</td>';
-          ordered_table += '</tr>';
-          ordered_table += '<tr>';
-          ordered_table += '<td class="">Nachname: ' + bestellungen.nachname[i] + '</td>';
-          ordered_table += '<td class="">Mailadresse: ' + bestellungen.mail[i] + '</td>';
-          ordered_table += '</tr>';
-          ordered_table += '<tr>';
-          ordered_table += '<td class="_order">Telefonnummer: 0' + bestellungen.telefonnummer[i] + '</td>';
-          ordered_table += '<td class="">Stadt: ' + bestellungen.stadt[i] + '</td>';
-          ordered_table += '</tr>';
-          ordered_table += '<tr>';
-          ordered_table += '<td class="">PLZ: ' + bestellungen.postleitzahl[i] + '</td>';
-          ordered_table += '<td class="">Straße: ' + bestellungen.strasse[i] + '</td>' + '</br>';
-          ordered_table += '</tr>';
-          ordered_table += '<tr>';
-          ordered_table += '<td class="">HausNr: ' + bestellungen.hausNr[i] + '</td>';
-          ordered_table += '<td class="">PreisGesamt: ' + bestellungen.preisGesamt[i] + '€' + '</td>' + '</br>';
-          ordered_table += '</tr>';
-          ordered_table += '<tr>';
-          ordered_table += '<td class="">' + ' ' + '</td>';
-          ordered_table += '</tr>';
-          ordered_table += '<tr>';
-          ordered_table += '<td class="">' + ' ' + '</td>';
-          ordered_table += '</tr>';
-          for(var j = 0; j < produkte.id.length ; j++){
+          }else{
 
-            if(produkte.id[j] == bestellungen.id[i]){
-              ordered_table += '<tr>'
-              ordered_table += '<td class="ordered_food">Gericht: '+produkte.gericht[j]+'</td>'
-              ordered_table += '<td class="ordered_food">Menge: '+produkte.menge[j]+'</td></br>'
-              ordered_table += '</tr>'
+            produkte.id.push(item["ID"]);
+            produkte.gericht.push(item["Gericht"]);
+            produkte.menge.push(item["Menge"]);
+
+          }});
+
+
+          for(var i = 0 ; i < bestellungen.id.length; i++){
+            ordered_table += '<table class="ordered_table">';
+              ordered_table += '<tr>';
+                ordered_table += '<td class =""><h3>Bestellnummer: ' + bestellungen.id[i] + '</h3></td>';
+              ordered_table += '</tr>';
+              ordered_table += '<tr>';
+                ordered_table += '<td class="">Name: ' + bestellungen.name[i] + '</td>';
+              ordered_table += '</tr>';
+              ordered_table += '<tr>';
+                ordered_table += '<td class="">Nachname: ' + bestellungen.nachname[i] + '</td>';
+                ordered_table += '<td class="">Mailadresse: ' + bestellungen.mail[i] + '</td>';
+              ordered_table += '</tr>';
+              ordered_table += '<tr>';
+                ordered_table += '<td class="_order">Telefonnummer: 0' + bestellungen.telefonnummer[i] + '</td>';
+                ordered_table += '<td class="">Stadt: ' + bestellungen.stadt[i] + '</td>';
+              ordered_table += '</tr>';
+              ordered_table += '<tr>';
+                ordered_table += '<td class="">PLZ: ' + bestellungen.postleitzahl[i] + '</td>';
+                ordered_table += '<td class="">Straße: ' + bestellungen.strasse[i] + '</td>' + '</br>';
+              ordered_table += '</tr>';
+              ordered_table += '<tr>';
+                ordered_table += '<td class="">HausNr: ' + bestellungen.hausNr[i] + '</td>';
+                ordered_table += '<td class="">PreisGesamt: ' + bestellungen.preisGesamt[i] + '€' + '</td>' + '</br>';
+              ordered_table += '</tr>';
+              ordered_table += '<tr>';
+                ordered_table += '<td class="">' + ' ' + '</td>';
+              ordered_table += '</tr>';
+              ordered_table += '<tr>';
+                ordered_table += '<td class="">' + ' ' + '</td>';
+              ordered_table += '</tr>';
+            for(var j = 0; j < produkte.id.length ; j++){
+
+              if(produkte.id[j] == bestellungen.id[i]){
+                ordered_table += '<tr>'
+                  ordered_table += '<td class="ordered_food">Gericht: '+produkte.gericht[j]+'</td>'
+                  ordered_table += '<td class="ordered_food">Menge: '+produkte.menge[j]+'</td></br>'
+                ordered_table += '</tr>'
+              }
+
             }
-
+            ordered_table += '</table>';
+              ordered_table += '<form target="display-frame" action="delete_complete.php" method="post">';
+                ordered_table += '<input type="submit"  value="Lösche Bestellung Nr: '+bestellungen.id[i]+'"></input>';
+                ordered_table += '<input class="hidden" type="text" name="restaurant_name" value="'+restaurant_name.trim()+'">';
+                ordered_table += '<input class="hidden" type="text" name="order"value="'+bestellungen.id[i]+'">';
+              ordered_table += '</form>';
           }
-          ordered_table += '</table>';
-          ordered_table += '<form target="display-frame" action="delete_complete.php" method="post">';
-          ordered_table += '<input type="submit"  value="Lösche Bestellung Nr: '+bestellungen.id[i]+'"></input>';
-          ordered_table += '<input class="hidden" type="text" name="restaurant_name" value="'+restaurant_name.trim()+'">';
-          ordered_table += '<input class="hidden" type="text" name="order"value="'+bestellungen.id[i]+'">';
-          ordered_table += '</form>';
-
-
-
+        }catch{
+          ordered_table += "Es sind keine Bestellungen vorhanden."
 
         }
       
 
-        document.getElementById('Test').innerHTML = ordered_table;
-        console.log(produkte)
+        document.getElementById('Bestellungen').innerHTML = ordered_table;
       },
       error: function errorLog(xhr, status, error) {
         console.log('Fehler beim Laden der Daten.', status, error);
@@ -302,18 +302,18 @@ function init(){
 function speisekarteAusgeben(){
   var speisekarte = '';
 for(var i = 1; i < phpData.length; i++){
-  speisekarte += '<button class="SpeiseKarteButton"  onclick="zumWarenkorb('+ i + ' , '+ phpData[i]["COL 4"] + ')">'
+  speisekarte += '<button class="SpeiseKarteButton"  onclick="zumWarenkorb('+ i + ' , '+ phpData[i]["preis"] + ')">'
     speisekarte += '<div class="speisekarte_article">'
       speisekarte += '<article class="menuedata">'
         speisekarte += '<table class="Test">'
           speisekarte += '<tr>'
             speisekarte += '<th>'
-              speisekarte += '<h5 class="food_data_name" id="produkt' + i +'">'+ phpData[i]["COL 2"] + '</h5>'
-              speisekarte += '<h6 class="food_data_price" >'+ phpData[i]["COL 4"] + ' €</h6>'
+              speisekarte += '<h5 class="food_data_name" id="produkt' + i +'">'+ phpData[i]["name"] + '</h5>'
+              speisekarte += '<h6 class="food_data_price" >'+ phpData[i]["preis"] + ' €</h6>'
             speisekarte += '</th>'
           speisekarte += '</tr>'
           speisekarte += '<tr class="tr_class">'
-            speisekarte += '<td class="inhalt">'+ phpData[i]["COL 3"] + '</td>'
+            speisekarte += '<td class="inhalt">'+ phpData[i]["beschreibung"] + '</td>'
           speisekarte += '</tr>'
         speisekarte += '</table>'
       speisekarte += '</article>'
@@ -464,18 +464,18 @@ function checkCookie() {
       const decodedCookie = decodeURIComponent(document.cookie); // entfernen der Cookieinformationen 
       const cuttedString = decodedCookie.split('Warenkorb=').pop().split(';')[0]; //Inhalt unseres Cookies vom Namen Restaurant und von Weiteren Cookies Trennen
       const cuttedStringWithoutSpaces = cuttedString.trim(); //Lehrzeichen entfernen
-      const array2 = cuttedStringWithoutSpaces.split("+").filter(data => data !== ""); //Einzelne Cookieinformationen Trennen und leere Felder Löschen
-      restaurantName = array2[0];
-      lieferkosten = array2[1];
-      minBestellwert = array2[2];
+      const cookieData = cuttedStringWithoutSpaces.split("+").filter(data => data !== ""); //Einzelne Cookieinformationen Trennen und leere Felder Löschen
+      restaurantName = cookieData[0];
+      lieferkosten = cookieData[1];
+      minBestellwert = cookieData[2];
 
     try{
       if(restaurantName == restaurantPost){
         // Schreiben der gespeicherten Informationen in den Warenkorb
-        for (let i = 3; i < array2.length; i += 3) {
-          warenkorb.produkte.push(array2[i]);
-          warenkorb.menge.push(Number(array2[i + 1]));
-          warenkorb.preis.push(Number(array2[i + 2]));
+        for (let i = 3; i < cookieData.length; i += 3) {
+          warenkorb.produkte.push(cookieData[i]);
+          warenkorb.menge.push(Number(cookieData[i + 1]));
+          warenkorb.preis.push(Number(cookieData[i + 2]));
           cookieSave();
           warenkorbAusgeben();
         }
@@ -483,13 +483,16 @@ function checkCookie() {
         if(confirm("Möchtest du zu deinem Aktuellen Warenkorb zurückkehren?")){
           window.open("order.php", "_self"); //----------- 1. Wert ist das ziel, 2. Wert ist der Ort------- um ein neuen Tab zu öffnen, wir nicht "_self" sondern "_blank" benutzt-----------
           window.location.href = "order.php?restaurant=" + restaurantName + "&" + "lieferkosten=" + lieferkosten + "&" + "minBestellwert=" + minBestellwert;
+        }else{
+          cookieSave();
+          checkCookie();
         }
       }
     }catch(err){
-      for (let i = 3; i < array2.length; i += 3) {
-        warenkorb.produkte.push(array2[i]);
-        warenkorb.menge.push(Number(array2[i + 1]));
-        warenkorb.preis.push(Number(array2[i + 2]));
+      for (let i = 3; i < cookieData.length; i += 3) {
+        warenkorb.produkte.push(cookieData[i]);
+        warenkorb.menge.push(Number(cookieData[i + 1]));
+        warenkorb.preis.push(Number(cookieData[i + 2]));
         warenkorbAusgeben();
       }
     }
