@@ -535,6 +535,11 @@ function cookieSave(){
   cookieStr = ''; //Leeren des CookieStings
 }
 
+//Funktion zum löschen des Cookies (Ramses)
+function deleteCookie(){
+  var deleteTime = new Date("01.01.1995"); // Datum zu ehren von JS
+  document.cookie = 'Warenkorb= Delete ; expires='+deleteTime+';'
+}
 
 /// Umfragefunktion (Lukas)
 function submitSurvey() {

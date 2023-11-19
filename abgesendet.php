@@ -109,8 +109,11 @@ echo '</div>';
 
 $connection->close();
 
+//Wartezeittimer (Lukas)
+
 $wartezeit = 15;
 echo '<script>
+    deleteCookie()
     setTimeout(function() {
         window.location.href = "survey.html";
     }, ' . ($wartezeit * 1000) . ');
