@@ -535,6 +535,11 @@ function cookieSave(){
   cookieStr = ''; //Leeren des CookieStings
 }
 
+function deleteCookie(){
+    var deleteTime = new Date("01.01.1970")
+    document.cookie = 'Warenkorb= Detleted ; expires='+expireTime+';'
+}
+
 
 /// Umfragefunktion (Lukas)
 function submitSurvey() {
