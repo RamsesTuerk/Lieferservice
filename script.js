@@ -485,6 +485,8 @@ function checkCookie() {
         if(confirm("Möchtest du zu deinem Aktuellen Warenkorb zurückkehren?")){
           window.open("order.php", "_self"); //----------- 1. Wert ist das ziel, 2. Wert ist der Ort------- um ein neuen Tab zu öffnen, wir nicht "_self" sondern "_blank" benutzt-----------
           window.location.href = "order.php?restaurant=" + restaurantName + "&" + "lieferkosten=" + lieferkosten + "&" + "minBestellwert=" + minBestellwert;
+        }else{
+          cookieSave();
         }
       }
     }catch(err){
