@@ -451,3 +451,8 @@ function cookieSave(){
   document.cookie = 'Warenkorb='+ restaurantPost+ '+' + lieferkostenPost +'+'+ minBestellwertPost +'+' +cookieStr+'; expires='+expireTime+';';
   cookieStr = ''; //Leeren des CookieStings
 }
+
+
+
+
+
