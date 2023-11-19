@@ -121,6 +121,7 @@ $(document).ready(
           }
         }catch{
           ordered_table += "Es sind keine Bestellungen vorhanden."
+          
         }
         
       
