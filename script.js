@@ -1,8 +1,6 @@
 //----------- Die Auswahl wird in einem Array("coice") gespeichert -----------
 var choice = []
 var warenkorbPreis = 0;
-
-var warenkorbPreis = 0;
 var warenkorb = {
   produkte: [],  // Array für die Namen der Produkte im Warenkorb
   menge: [],     // Array für die Menge jedes Produkts im Warenkorb
