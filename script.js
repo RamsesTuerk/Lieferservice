@@ -302,18 +302,18 @@ function init(){
 function speisekarteAusgeben(){
   var speisekarte = '';
 for(var i = 1; i < phpData.length; i++){
-  speisekarte += '<button class="SpeiseKarteButton"  onclick="zumWarenkorb('+ i + ' , '+ phpData[i]["COL 4"] + ')">'
+  speisekarte += '<button class="SpeiseKarteButton"  onclick="zumWarenkorb('+ i + ' , '+ phpData[i]["preis"] + ')">'
     speisekarte += '<div class="speisekarte_article">'
       speisekarte += '<article class="menuedata">'
         speisekarte += '<table class="Test">'
           speisekarte += '<tr>'
             speisekarte += '<th>'
-              speisekarte += '<h5 class="food_data_name" id="produkt' + i +'">'+ phpData[i]["COL 2"] + '</h5>'
-              speisekarte += '<h6 class="food_data_price" >'+ phpData[i]["COL 4"] + ' €</h6>'
+              speisekarte += '<h5 class="food_data_name" id="produkt' + i +'">'+ phpData[i]["name"] + '</h5>'
+              speisekarte += '<h6 class="food_data_price" >'+ phpData[i]["preis"] + ' €</h6>'
             speisekarte += '</th>'
           speisekarte += '</tr>'
           speisekarte += '<tr class="tr_class">'
-            speisekarte += '<td class="inhalt">'+ phpData[i]["COL 3"] + '</td>'
+            speisekarte += '<td class="inhalt">'+ phpData[i]["beschreibung"] + '</td>'
           speisekarte += '</tr>'
         speisekarte += '</table>'
       speisekarte += '</article>'
