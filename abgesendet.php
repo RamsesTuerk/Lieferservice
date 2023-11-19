@@ -85,7 +85,7 @@ echo '<div class="order_done_div">';
             echo $prodPrice[$i];
             echo ' € <br>';
 
-            $sql = " INSERT INTO `order_products_$restaurant_name` (`ID`, `Gericht`, `Menge`, `Preis`) VALUES ('$ID','$prodName[$i]','$prodMenge[$i]','$prodPrice[$i]')";
+            $sql = "INSERT INTO `order_products_$restaurant_name` (`ID`, `Gericht`, `Menge`, `Preis`) VALUES ('$ID','$prodName[$i]','$prodMenge[$i]','$prodPrice[$i]')";
 
             $result = $connection->query($sql);
 
