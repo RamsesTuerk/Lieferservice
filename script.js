@@ -125,7 +125,7 @@ $(document).ready(
         
       
 
-        document.getElementById('Test').innerHTML = ordered_table;
+        document.getElementById('Bestellungen').innerHTML = ordered_table;
         console.log(produkte)
       },
       error: function errorLog(xhr, status, error) {
