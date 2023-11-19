@@ -487,6 +487,7 @@ function checkCookie() {
           window.location.href = "order.php?restaurant=" + restaurantName + "&" + "lieferkosten=" + lieferkosten + "&" + "minBestellwert=" + minBestellwert;
         }else{
           cookieSave();
+          checkCookie();
         }
       }
     }catch(err){
