@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <!-- Verknüpfung mit externem CSS-Stylesheet -->
+    <link rel="stylesheet" href="style.css"><script type="text/javascript" src="script.js"></script>
 </head>
 <body>
+    <!-- Überschrift der Umfrage -->
     <h1>Umfrage</h1>
-
-        <!-- Umfragefragen hier einfügen -->
-        <form id="surveyForm" action="survey.php" method="post"> 
+        <!-- Umfrageformular mit Ziel-URL "survey.php" und Übertragungsmethode "post" -->
+        <form class="surveyForm" action="survey.php" method="post"> 
        
          
         <label for="question1">Frage 1: Wie hat Sie das Erlebnis dieser Webseite gefallen? </label>
@@ -19,7 +20,7 @@
         <label for="answerB">Gut</label>
         <input type="radio" id="answerC1" name="question1" value="C" required>
         <label for="answerC">OK</label> </br>
-
+    
         <label for="question2">Frage 2: Wie zufrieden sind Sie mit der Lieferung </label>
         <input type="radio" id="answerA2" name="question2" value="A" required>
         <label for="answerA">Sehr</label>
@@ -31,11 +32,9 @@
         <label for="question3">Frage 3: Haben Sie Verbesserungsvorschläge? </label>
         <input type="text" id="question3" name="question3"> </br>
 
-
-        <button type="submit" onclick="submitSurvey()">Absenden</button>
+         <!-- Absenden-Button, der die JavaScript-Funktion submitSurvey() aufruft -->
+        <button id ="buttonSurvey" type="submit" onclick="submitSurvey()">Absenden</button>
     </form>
-  
-    <script src="script2.js"></script>
    
    
 

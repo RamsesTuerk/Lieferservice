@@ -41,7 +41,6 @@ $(document).ready(
         }
         var ordered_table = '';
 
-
         try{
           data.forEach(function (item) {
 
@@ -121,10 +120,8 @@ $(document).ready(
           }
         }catch{
           ordered_table += "Es sind keine Bestellungen vorhanden."
-          
         }
-        
-      
+
 
         document.getElementById('Bestellungen').innerHTML = ordered_table;
       },
@@ -301,7 +298,6 @@ function init(){
   warenkorbAusgeben();
 }
 
-//Ausgeben der Speisekarte 
 function speisekarteAusgeben(){
   var speisekarte = '';
 for(var i = 1; i < phpData.length; i++){
@@ -517,6 +513,30 @@ function cookieSave(){
   document.cookie = 'Warenkorb='+ restaurantPost+ '+' + lieferkostenPost +'+'+ minBestellwertPost +'+' +cookieStr+'; expires='+expireTime+';';
   cookieStr = ''; //Leeren des CookieStings
 }
+
+/// Umfragefunktion 
+
+function submitSurvey() {
+  const question1 = document.querySelector('input[name="question1"]:checked').value;
+  const question2 = document.querySelector('input[name="question2"]:checked').value;
+  const question3 = document.getElementById('question3').value;
+  
+  const formData = {
+    question1: question1,
+    question2: question2,
+    question3: question3
+  }
+.then(response => response.json())
+  .then(result => {
+      console.log('Umfrage erfolgreich eingereicht:', result);
+
+  })
+  .catch(error => {
+      console.error('Fehler beim Einreichen der Umfrage:', error);
+  });
+
+};
+
 
 
 
